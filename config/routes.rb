@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     passwords:     'fields/passwords',
     registrations: 'fields/registrations'
   }
-  
+
   devise_for :users, controllers: {
     sessions:      'users/sessions',
     passwords:     'users/passwords',
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'homes/about'
 
   resources :fields, only: [:index, :show, :edit, :update, :destroy] do
-    resources :pictures, only: [:index, :edit, :update, :destroy]
+    resources :pictures, only: [:index, :new, :create :update, :destroy]
     member do
       get :mypage
     end
