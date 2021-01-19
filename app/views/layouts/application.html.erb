@@ -10,6 +10,61 @@
   </head>
 
   <body>
+    <header>
+    <% if field_signed_in? %>
+      <li>
+        <%= link_to "LOGO", root_path %>
+      </li>
+      <li>
+        <%= link_to "マイフィールド", field_path(current_field) %>
+      </li>
+      <li>
+        <%= link_to "写真一覧", field_pictures_path(current_field) %>
+      </li>
+      <li>
+        <%= link_to "○位", root_path %>
+      </li>
+      <li>
+        <%= link_to "ログアウト", destroy_field_session_path, method: :delete %>
+      </li>
+    <% elsif user_signed_in? %>
+      <li>
+        <%= link_to "LOGO", root_path %>
+      </li>
+      <li>
+        <%= link_to "初参戦の方", homes_about_path %>
+      </li>
+      <li>
+        <%= link_to "フィールドランキング", fields_path %>
+      </li>
+      <li>
+        <%= link_to "マイページ", user_path(current_user) %>
+      </li>
+      <li>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to "LOGO", root_path %>
+      </li>
+      <li>
+        <%= link_to "初参戦の方", homes_about_path %>
+      </li>
+      <li>
+        <%= link_to "フィールドランキング", destroy_user_session_path, method: :delete %>
+      </li>
+      <li>
+        <%= link_to "新規登録", new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to "ログイン", new_user_session_path %>
+      </li>
+        <%= link_to "フィールドログイン", new_field_session_path %>
+    <% end %>
+    </header>
     <%= yield %>
+    <footer>
+      © 2021 iijima inc.
+    </footer>
   </body>
 </html>

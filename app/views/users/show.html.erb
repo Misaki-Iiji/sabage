@@ -1,2 +1,6 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<%= @user.nickname %>
+<%= link_to "ヒット画像もっとみる", user_hit_path(@user) %>
+<%= link_to "お気に入りフィールドもっとみる", user_favo_path(@user) %>
+<%= link_to "プロフィール編集", edit_user_path %>
+

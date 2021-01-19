@@ -1,5 +1,6 @@
 class FieldsController < ApplicationController
   def mypage
+    @field = Field.find(params[:id])
   end
 
   def index

@@ -1,33 +1,28 @@
 Rails.application.routes.draw do
-  devise_for :fields
-  devise_for :users
+  devise_for :fields, controllers: {
+    sessions:      'fields/sessions',
+    passwords:     'fields/passwords',
+    registrations: 'fields/registrations'
+  }
+  
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
   root to: 'homes#top'
   get 'homes/about'
 
-  get 'pictures/index'
-  get 'pictures/edit'
-  get 'pictures/update'
-  get 'pictures/destroy'
+  resources :fields, only: [:index, :show, :edit, :update, :destroy] do
+    resources :pictures, only: [:index, :edit, :update, :destroy]
+    member do
+      get :mypage
+    end
+  end
 
-  get 'fields/mypage'
-  get 'fields/index'
-  get 'fields/show'
-  get 'fields/edit'
-  get 'fields/update'
-
-  get 'favos/show'
-  get 'favos/create'
-  get 'favos/destroy'
-
-  get 'hits/show'
-  get 'hits/create'
-  get 'hits/destroy'
-
-  get 'users/show'
-  get 'users/edit'
-  get 'users/update'
-  get 'users/exit'
-
-
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    resources :favos, only: [:show, :create, :destroy]
+    resources :hits, only: [:show, :create, :destroy]
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
