@@ -13,13 +13,12 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'homes/about'
 
-  resources :fields, only: [:index, :show, :edit, :update, :destroy] do
-    resources :pictures, only: [:index, :new, :create :update, :destroy]
+  resources :fields do
     member do
       get :mypage
     end
   end
-
+  resources :pictures
   resources :users, only: [:show, :edit, :update, :destroy] do
     resources :favos, only: [:show, :create, :destroy]
     resources :hits, only: [:show, :create, :destroy]

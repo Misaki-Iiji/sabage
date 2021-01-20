@@ -9,4 +9,8 @@ class Field < ApplicationRecord
 
   has_many :pictures
   has_many :field_favos
+
+  attachment :image #refile使うときのルール
+  accepts_attachments_for :pictures, attachment: :picture
+
 end
