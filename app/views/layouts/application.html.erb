@@ -11,10 +11,11 @@
 
   <body>
     <header>
+      <div >
+        <%= link_to "HELLO! SURVIVAL", root_path %>
+      </div>
     <% if field_signed_in? %>
-      <li>
-        <%= link_to "LOGO", root_path %>
-      </li>
+    <ul class="nav pull-right nav-pills">
       <li>
         <%= link_to "マイページ", mypage_field_path(current_field) %>
       </li>
@@ -32,9 +33,6 @@
       </li>
     <% elsif user_signed_in? %>
       <li>
-        <%= link_to "LOGO", root_path %>
-      </li>
-      <li>
         <%= link_to "初参戦の方", homes_about_path %>
       </li>
       <li>
@@ -47,9 +45,6 @@
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
     <% else %>
-      <li>
-        <%= link_to "LOGO", root_path %>
-      </li>
       <li>
         <%= link_to "初参戦の方", homes_about_path %>
       </li>
@@ -64,6 +59,7 @@
       </li>
         <%= link_to "フィールドログイン", new_field_session_path %>
     <% end %>
+    </ul>
     </header>
     <%= yield %>
     <footer>
