@@ -1,0 +1,7 @@
+
+<h1>Fields#new</h1>
+
+<%= form_with model: @field, local: true do |f| %>
+  <%= f.attachment_field :pictures_pictures, multiple: true %>
+  <%= f.submit "投稿する" %>
+<% end %>

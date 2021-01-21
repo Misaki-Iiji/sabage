@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
+      @user = User.find(params[:id])
       redirect_back(fallback_location: edit_user_path)
     end
   end
@@ -19,6 +20,6 @@ class UsersController < ApplicationController
  private
 
   def user_params
-    params.require(:user).permit(:nickname, :email, :password)
+    params.require(:user).permit(:nickname, :email)
   end
 end

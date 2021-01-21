@@ -22,10 +22,10 @@
         <%= link_to "マイフィールド", field_path(current_field) %>
       </li>
       <li>
-        <%= link_to "写真一覧", field_pictures_path(current_field) %>
+        <%= link_to "写真一覧", pictures_path %>
       </li>
       <li>
-        <%= link_to "○位", root_path %>
+        <%= link_to "○位", fields_path %>
       </li>
       <li>
         <%= link_to "ログアウト", destroy_field_session_path, method: :delete %>
