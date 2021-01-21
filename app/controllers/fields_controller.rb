@@ -1,12 +1,11 @@
 class FieldsController < ApplicationController
 
   def new #写真
-  byebug
     @field = Field.new(picture_params)
     @field.pictures.build
   end
 
-  def create
+  def create #写真
     @field = Field.new(picture_params)
     @field.save
     redirect_to 'pictures_path'
@@ -44,6 +43,6 @@ class FieldsController < ApplicationController
   end
 
   def picture_params
-    params.require(:field).permit(pictures_pictures: [])
+    params.permit(pictures_pictures: [])
   end
 end
