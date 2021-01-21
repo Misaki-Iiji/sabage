@@ -1,3 +1,7 @@
 <h1>Fields#mypage</h1>
 <%= @field.name %>
+<%= attachment_image_tag @field, :image, size: "300x180" %>
+<%= @field.introduction %>
+<%= @field.address %>
+
 <%= link_to "情報編集", edit_field_path %>
