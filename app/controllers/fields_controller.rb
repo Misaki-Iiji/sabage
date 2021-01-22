@@ -1,16 +1,5 @@
 class FieldsController < ApplicationController
 
-  def new #写真
-    @field = Field.new(picture_params)
-    @field.pictures.build
-  end
-
-  def create #写真
-    @field = Field.new(picture_params)
-    @field.save
-    redirect_to 'pictures_path'
-  end
-
   def mypage
     @field = Field.find(params[:id])
   end
