@@ -10,6 +10,10 @@ class Field < ApplicationRecord
   has_many :pictures
   has_many :field_favos
 
+  def favorited_by?(current_user)
+    field_favos.where(user_id: user.id).exists?
+  end
+
   attachment :image #refile使うときのルール
   accepts_attachments_for :pictures, attachment: :picture
 
