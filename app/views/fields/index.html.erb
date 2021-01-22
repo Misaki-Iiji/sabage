@@ -1,7 +1,22 @@
-<h1>Fields#index</h1>
-<%= attachment_image_tag @field, :image, size: "300x180" %>
+<h2>Fields#index</h2>
 <% @field.each do |f| %>
-<%= f.name %>
-<%= f.address %>
-<%= f.introduction %>
+<%= attachment_image_tag f, :image, size: "300x180" %>
+  <%= f.name %>
+  <%= f.address %>
+  <%= f.introduction %>
 <% end %>
+
+
+  <%# if @field.favorited_by?(current_user) %> <!--favorited_by → fieldモデルに定義-->
+    <p>
+      <%= link_to field_field_favos_path(@field), method: :delete do %>
+        ♥<%= @field.field_favos.count %> いいね
+      <% end %>
+    </p>
+    <%# else %>
+    <p>
+      <%= link_to field_field_favos_path(@field), method: :post do %>
+        ♡<%= @field.field_favos.count %> いいね
+      <% end %>
+    </p>
+  <%# end %>
