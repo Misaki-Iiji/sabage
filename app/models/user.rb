@@ -7,5 +7,5 @@ class User < ApplicationRecord
   validates :nickname, presence: true, length: { maximum: 20 }
 
 has_many :picture_hits
-has_many :field_favos
+has_many :field_favos, through: :field_favos, source: :field
 end
