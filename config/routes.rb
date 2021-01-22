@@ -17,10 +17,14 @@ Rails.application.routes.draw do
     member do
       get :mypage
     end
+    resources :field_favos, only: [:show, :create, :destroy]
   end
-  resources :pictures
+  
+  resources :posts do
+    resources :pictures
+  end
+  
   resources :users, only: [:show, :edit, :update, :destroy] do
-    resources :favos, only: [:show, :create, :destroy]
     resources :hits, only: [:show, :create, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
