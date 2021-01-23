@@ -1,6 +1,6 @@
 class Picture < ApplicationRecord
-  has_many :picture_hits
-  belongs_to :field
+  # has_many :picture_hits
+  belongs_to :post
 
-  attachment :picture
+  attachment :image
 end
