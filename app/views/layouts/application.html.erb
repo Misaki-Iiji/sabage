@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>HelloSurvival</title>
+    <title>Hello Survival</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -51,7 +51,7 @@
         <%= link_to " just started", homes_about_path, class:"btn btn-outline-light m-3" %>
       </li>
       <li>
-        <%= link_to "field ranking", destroy_user_session_path, class:"btn btn-outline-light m-3", method: :delete %>
+        <%= link_to "field ranking", fields_path, class:"btn btn-outline-light m-3", method: :delete %>
       </li>
       <li>
         <%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-light m-3" %>

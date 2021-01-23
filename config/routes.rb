@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'posts/show'
+  get 'posts/new'
   devise_for :fields, controllers: {
     sessions:      'fields/sessions',
     passwords:     'fields/passwords',
