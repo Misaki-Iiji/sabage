@@ -29,13 +29,6 @@ ActiveRecord::Schema.define(version: 2021_01_25_113913) do
     t.index ["reset_password_token"], name: "index_fields_on_reset_password_token", unique: true
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "detail_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "picture_hits", force: :cascade do |t|
     t.integer "user_id"
     t.integer "picture_id"
