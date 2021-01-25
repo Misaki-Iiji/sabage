@@ -10,11 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_064528) do
+ActiveRecord::Schema.define(version: 2021_01_25_094143) do
 
-  create_table "field_favos", force: :cascade do |t|
-    t.integer "user_id"
+  create_table "details", force: :cascade do |t|
     t.integer "field_id"
+    t.integer "user_id"
+    t.text "introduction"
+    t.text "address"
+    t.string "image_id"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -26,14 +30,21 @@ ActiveRecord::Schema.define(version: 2021_01_22_064528) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name", null: false
-    t.string "image"
-    t.text "introduction"
-    t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_id"
+    t.text "introduction"
+    t.text "address"
+    t.integer "user_id"
     t.index ["email"], name: "index_fields_on_email", unique: true
     t.index ["reset_password_token"], name: "index_fields_on_reset_password_token", unique: true
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "detail_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "picture_hits", force: :cascade do |t|
