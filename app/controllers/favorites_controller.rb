@@ -5,16 +5,16 @@ class FieldFavosController < ApplicationController
   end
 
   def create
-    field = Field.find(params[:field_id])
-    field_favo = current_user.field_favos.new(field_id: field.id)
-    field_favo.save
+    @field = Field.find(params[:field_id])
+    favorite = current_user.favorites.new(user_id: user.id)
+    favorite.save
     redirect_back(fallback_location: root_path)#うまくいかなかった場合ルートパスに飛ぶ
   end
 
   def destroy
     field = Field.find(params[:field_id])
-    field_favo = current_user.field_favos.find_by(field_id: field.id)
-    field_favo.destroy
+    favorite = current_user.field_favos.find_by(field_id: field.id)
+    favorite.destroy
     redirect_back(fallback_location: root_path)#うまくいかなかった場合ルートパスに飛ぶ
   end
 

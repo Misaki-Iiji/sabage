@@ -14,13 +14,12 @@ Rails.application.routes.draw do
   }
   root to: 'homes#top'
   get 'homes/about'
-  get 'fields/ranking' => 'fields#ranking'
 
   resources :fields do
     member do
       get :mypage
     end
-    resource :field_favos, only: [:create, :destroy]
+    resources :favorites, only: [:show, :create, :destroy]
   end
   
   resources :posts, only: [:new, :create, :show] do

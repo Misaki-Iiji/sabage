@@ -6,17 +6,3 @@
   <%= f.introduction %>
 <% end %>
 
-
-  <%# if @field.favorited_by?(current_user) %> <!--favorited_by → fieldモデルに定義-->
-    <p>
-      <%= link_to field_field_favos_path(@field), method: :delete do %>
-        ♥<%= @field.field_favos.count %> いいね
-      <% end %>
-    </p>
-    <%# else %>
-    <p>
-      <%= link_to field_field_favos_path(@field), method: :post do %>
-        ♡<%= @field.field_favos.count %> いいね
-      <% end %>
-    </p>
-  <%# end %>

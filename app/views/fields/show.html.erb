@@ -1,2 +1,16 @@
 <h2>Fields#show</h2>
-<p>Find me in app/views/fields/show.html.erb</p>
+
+  <% if @field.favorited_by?(current_user) %>
+    <p>
+      <%= link_to field_favorites_path(@field), method: :delete do %>
+        ♥<%= @field.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to field_favorites_path(@field), method: :post do %>
+        ♡<%= @field.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+
