@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   }
   root to: 'homes#top'
   get 'homes/about'
+  get 'fields/ranking' => 'fields#ranking'
 
   resources :fields do
     member do
