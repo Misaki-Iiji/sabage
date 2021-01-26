@@ -1,10 +1,15 @@
 <div class="col vh-100">
-
   <h2>Fields#index</h2>
-  <% @field.each do |f| %>
-  <%= attachment_image_tag f, :image, size: "300x180" %>
-    <%= f.name %>
-    <%= f.address %>
-    <%= f.introduction %>
+  <% @field.each do |field| %>
+  <div class="card-dark mb-3">
+  <div class="card" style="width:15rem;">
+    <%= attachment_image_tag field, :image %>
+    <div class="card-body">
+      <%= link_to field.name, field_path(field), class: "card-title" %>
+      <%= field.address %><br>
+      <%= field.introduction %><br>
+     </div>
+  </div>
+  </div>
   <% end %>
 </div>
