@@ -1,3 +1,5 @@
+<div class="col vh-100">
+
 <h2>Fields#edit</h2>
 <%= form_with model: @field, local: true do |f| %>
   <div class="field">
@@ -16,7 +18,7 @@
     <%= f.label :introduction, "フィールド説明（300文字以内）" %><br>
     <%= f.text_area :introduction %>
   </div>
-
+</div>
   <div class="field">
     <%= f.label :email %><br>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
