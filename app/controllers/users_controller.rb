@@ -17,6 +17,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def dummy
+    redirect_to new_user_registration_path
+  end
+
  private
 
   def user_params
