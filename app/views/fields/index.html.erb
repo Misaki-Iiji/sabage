@@ -1,8 +1,10 @@
-<h2>Fields#index</h2>
-<% @field.each do |f| %>
-<%= attachment_image_tag f, :image, size: "300x180" %>
-  <%= f.name %>
-  <%= f.address %>
-  <%= f.introduction %>
-<% end %>
+<div class="col vh-100">
 
+  <h2>Fields#index</h2>
+  <% @field.each do |f| %>
+  <%= attachment_image_tag f, :image, size: "300x180" %>
+    <%= f.name %>
+    <%= f.address %>
+    <%= f.introduction %>
+  <% end %>
+</div>
