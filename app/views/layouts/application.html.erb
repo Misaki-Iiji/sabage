@@ -34,6 +34,9 @@
       </li>
     <% elsif user_signed_in? %>
       <li>
+        <%= link_to "top page", root_path, class:"title btn m-3" %>
+      </li>
+      <li>
         <%= link_to " just started", homes_about_path, class:"btn m-3" %>
       </li>
       <li>
@@ -47,6 +50,9 @@
       </li>
     <% else %>
       <li>
+        <%= link_to "top page", root_path, class:"title btn m-3" %>
+      </li>
+      <li>
         <%= link_to " just started", homes_about_path, class:"btn m-3" %>
       </li>
       <li>
@@ -58,7 +64,9 @@
       <li>
         <%= link_to "log in", new_user_session_path, class:"btn m-3" %>
       </li>
-        <%= link_to "field log in", new_field_session_path, class:"btn m-3" %>
+      <li>
+        <%= link_to "field manager", new_field_session_path, class:"btn m-3 text-muted" %>
+      </li>
     <% end %>
     </ul>
     </div>
