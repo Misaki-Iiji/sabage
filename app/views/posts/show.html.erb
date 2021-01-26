@@ -15,7 +15,9 @@
     <tbody>
       <td>
       <% post.pictures.each do |picture| %>
-        <%= attachment_image_tag picture, :image, class: "default_image", :size => '100x100' %>
+        <%= link_to  post_picture_path(picture) do %>
+          <%= attachment_image_tag picture, :image, class: "default_image mb-1", :size => '200x200' %>
+        <% end %>
       <% end %>
       </td>
     </tbody>

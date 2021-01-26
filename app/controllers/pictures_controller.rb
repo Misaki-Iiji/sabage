@@ -1,11 +1,8 @@
 class PicturesController < ApplicationController
 
- 
-  end
-
-  def index
-    # @field = Field.where(id: params[:id])
-  @pictures = Picture.all
+  def show
+    @picture = Picture.where(id: params[:id])
+    @post = Picture.post_id
   end
 
   def edit

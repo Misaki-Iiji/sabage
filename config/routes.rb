@@ -21,11 +21,11 @@ Rails.application.routes.draw do
     member do
       get :mypage
     end
-    resources :favorites, only: [:show, :create, :destroy]
+    resources :favorites, only: [:index, :create, :destroy]
   end
 
   resources :posts, only: [:new, :create, :show] do
-    resources :pictures
+    resources :pictures, only: [:show, :create, :show]
   end
 
   resources :users, only: [:show, :edit, :update, :destroy] do

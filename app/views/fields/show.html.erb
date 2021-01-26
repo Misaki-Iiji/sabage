@@ -2,7 +2,7 @@
   <h2>Fields#show</h2>
 
   <%= attachment_image_tag @field, :image, :size => '700x500' %>
-      <%= link_to @field.name, field_path(@field), class: "card-title" %>
+      <%= @field.name %>
       <%= @field.address %>
       <%= @field.introduction %>
 
