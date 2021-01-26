@@ -12,64 +12,62 @@
 
   <body>
     <div class="d-flex align-items-center justify-content-center">
-      <h1>
-        <%= link_to "HELLO SURVIVAL", root_path, class:"text-dark title" %>
-      </h1>
-    <% if field_signed_in? %>
     <ul class="nav pull-right nav-pills">
+    <% if field_signed_in? %>
       <li>
-        <%= link_to "my page", mypage_field_path(current_field), class:"btn btn-outline-light m-3" %>
+        <%= link_to "top page", root_path, class:"title btn m-3" %>
       </li>
       <li>
-        <%= link_to "my field", field_path(current_field), class:"btn btn-outline-light m-3" %>
+        <%= link_to "my page", mypage_field_path(current_field), class:"btn m-3" %>
       </li>
       <li>
-        <%= link_to "pictures", post_path(current_field), class:"btn btn-outline-light m-3" %>
+        <%= link_to "my field", field_path(current_field), class:"btn m-3" %>
       </li>
       <li>
-        <%= link_to "lanking", fields_path, class:"btn btn-outline-light m-3" %>
+        <%= link_to "pictures", post_path(current_field), class:"btn m-3" %>
       </li>
       <li>
-        <%= link_to "log out", destroy_field_session_path, class:"btn btn-outline-light m-3", method: :delete %>
+        <%= link_to "lanking", fields_path, class:"btn m-3" %>
+      </li>
+      <li>
+        <%= link_to "log out", destroy_field_session_path, class:"btn m-3", method: :delete %>
       </li>
     <% elsif user_signed_in? %>
       <li>
-        <%= link_to " just started", homes_about_path, class:"btn btn-outline-light m-3" %>
+        <%= link_to " just started", homes_about_path, class:"btn m-3" %>
       </li>
       <li>
-        <%= link_to "field ranking", fields_path, class:"btn btn-outline-light m-3" %>
+        <%= link_to "field ranking", fields_path, class:"btn m-3" %>
       </li>
       <li>
-        <%= link_to "my page", user_path(current_user), class:"btn btn-outline-light m-3" %>
+        <%= link_to "my page", user_path(current_user), class:"btn m-3" %>
       </li>
       <li>
-        <%= link_to "log out", destroy_user_session_path, class:"btn btn-outline-light m-3", method: :delete %>
+        <%= link_to "log out", destroy_user_session_path, class:"btn m-3", method: :delete %>
       </li>
     <% else %>
       <li>
-        <%= link_to " just started", homes_about_path, class:"btn btn-outline-light m-3" %>
+        <%= link_to " just started", homes_about_path, class:"btn m-3" %>
       </li>
       <li>
-        <%= link_to "field ranking", fields_path, class:"btn btn-outline-light m-3", method: :delete %>
+        <%= link_to "field ranking", fields_path, class:"btn m-3", method: :delete %>
       </li>
       <li>
-        <%= link_to "sign up", new_user_registration_path, class:"btn btn-outline-light m-3" %>
+        <%= link_to "sign up", new_user_registration_path, class:"btn m-3" %>
       </li>
       <li>
-        <%= link_to "log in", new_user_session_path, class:"btn btn-outline-light m-3" %>
+        <%= link_to "log in", new_user_session_path, class:"btn m-3" %>
       </li>
-        <%= link_to "field log in", new_field_session_path, class:"btn btn-outline-light m-3" %>
-    </ul>
+        <%= link_to "field log in", new_field_session_path, class:"btn m-3" %>
     <% end %>
+    </ul>
     </div>
     <main style="min-height: 100vh;">
       <div class="container">
-      <div class="row">
-        <div class="col bg-light vh-100">
+        <div class="row">
           <%= yield %>
         </div>
       </div>
-    </div>
     </main>
     <footer class="d-flex align-items-center justify-content-center text-light">
       © 2021 iijima inc.
