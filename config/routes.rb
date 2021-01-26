@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'posts/new'
   root to: 'homes#top'
   get 'homes/about'
+  get 'users' => 'users#dummy'
 
   resources :fields do
     member do
