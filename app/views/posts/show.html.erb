@@ -1,13 +1,27 @@
-<h1>Posts#show</h1>
-<h1>Pictures#index</h1>
-<%= link_to "写真追加", new_post_path %>
+<div class="col vh-100">
 
-<% if current_field.posts.present? %>
-  <% @posts.each do |post| %>
-    <% post.pictures.each do |picture| %>
-      <%= attachment_image_tag picture, :image, class: "default_image" %>
+<h2>Posts#show</h2>
+<div>
+  <%= link_to "写真追加", new_post_path %>
+</div>
+<table>
+  <% if current_field.posts.present? %>
+    <% @posts.each do |post| %>
+    <thead>
+      <th>
+        <%= post.created_at.strftime('%Y/%m/%d %H:%M')  %>
+      </th>
+    </thead>
+    <tbody>
+      <td>
+      <% post.pictures.each do |picture| %>
+        <%= attachment_image_tag picture, :image, class: "default_image", :size => '100x100' %>
+      <% end %>
+      </td>
+    </tbody>
     <% end %>
+  <% else %>
+    投稿写真はありません。
   <% end %>
-<% else %>
-  投稿写真はありません。
-<% end %>
+</table>
+</div>
