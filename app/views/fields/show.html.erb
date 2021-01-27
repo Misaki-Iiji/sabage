@@ -10,4 +10,6 @@
     <%= render 'favorites/favorite', { field: @field } %>
   </div>
 
+<%= render partial: 'posts/show', locals: { posts: @posts, field: @field } %>
+
 </div>
