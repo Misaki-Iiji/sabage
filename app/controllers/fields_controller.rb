@@ -10,6 +10,7 @@ class FieldsController < ApplicationController
 
   def show
     @field = Field.find(params[:id])
+    @posts = Post.where(field_id: @field.id)
   end
 
   def edit #フィールド詳細
