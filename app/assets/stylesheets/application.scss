@@ -49,6 +49,44 @@ h2 {
 body {
   font-family: 'Sawarabi Gothic', sans-serif;
   background-image: url('top.jpg');
-  background-size: cover;
-  // opacity: 0.4;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
+@media screen and (max-width: 1024px) {
+  h2 {
+    color: green;
+  }
+}
+/* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
+@media screen and (max-width: 768px) {
+  h2 {
+    color: red;
+  }
+}
+/* スマートフォンサイズ（425px）以下の際に適用される設定 */
+@media screen and (max-width: 425px) {
+  h2 {
+     color: blue;
+  }
+
+  body {
+    background-image: none;
+    // background_color: red;
+  }
+
+  .top {
+    background: url('top.jpg');
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    position: relative;
+  }
+
+  .catch_copy {
+    position: absolute;
+    top: 30px;
+  }
 }

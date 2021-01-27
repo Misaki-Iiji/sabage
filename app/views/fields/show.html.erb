@@ -2,25 +2,13 @@
   <h2>Fields#show</h2>
 
   <%= attachment_image_tag @field, :image, :size => '700x500' %>
-      <%= link_to @field.name, field_path(@field), class: "card-title" %>
-      <%= @field.address %>
-      <%= @field.introduction %>
+  <%= @field.name %>
+  <%= @field.address %>
+  <%= @field.introduction %>
 
-<% if user_signed_in? %>
-  <% if @field.favorited_by?(current_user) %>
-    <p>
-      <%= link_to field_favorite_path(@field), method: :delete do %>
-        ♥<%= @field.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to field_favorites_path(@field), method: :post do %>
-        ♡<%= @field.favorites.count %> いいね
-      <% end %>
-    </p>
-  <% end %>
-<% end %>
+  <div id="favorites_buttons_<%= @field.id %>">
+    <%= render 'favorites/favorite', { field: @field } %>
+  </div>
 
 <%= render partial: 'posts/show', locals: { posts: @posts, field: @field } %>
 
