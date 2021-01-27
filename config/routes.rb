@@ -27,8 +27,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :create, :show] do
     resources :pictures
   end
-
-  resources :users, only: [:show, :edit, :update, :destroy] do
-    resources :hits, only: [:show, :create, :destroy]
-  end
+  
+  resources :hits, only: [:index, :create, :destroy]
+  resources :users, only: [:show, :edit, :update, :destroy]
 end
