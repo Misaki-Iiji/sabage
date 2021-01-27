@@ -17,6 +17,4 @@ class FavoritesController < ApplicationController
     favorite.destroy
     # redirect_back(fallback_location: root_path)#うまくいかなかった場合ルートパスに飛ぶ、非同期通信では必要ない
   end
-
-
 end
