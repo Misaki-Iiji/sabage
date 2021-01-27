@@ -15,9 +15,6 @@ class PostsController < ApplicationController
 
   def show
     @posts = Post.where(field_id: current_field.id)
-    puts "---"
-    pp @posts
-    puts "---"
   end
 
   private
