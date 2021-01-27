@@ -8,8 +8,13 @@
       <%= link_to field.name, field_path(field) %><br>
       <%= field.address %><br>
       <%= field.introduction %><br>
-     </div>
-  </div>
-  </div>
+
+      <!--<div id="favorites_buttons_<%# field.id %>">-->
+        <%# render partial: 'favorites/favorite', locals: { field: field } %>
+      <!--</div>-->
+
+     </div><!--card-body-->
+    </div><!--card-->
+  </div><!--card-dark-->
   <% end %>
-</div>
+</div><!--col-->
