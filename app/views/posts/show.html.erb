@@ -19,6 +19,24 @@
           <%= attachment_image_tag picture, :image, class: "default_image mb-1", :size => '200x200' %>
         <% end %>
       <% end %>
+  <!--いいねここから-->
+  <% if user_signed_in? %>
+     <% if @picture.hitted_by?(current_user) %>
+        <p>
+          <%= link_to post_picture_hit_path(@picture), method: :delete do %>
+            ♥<%= @picture.favorites.count %> ヒット
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to post_picture_hit_path(@picture), method: :post do %>
+            ♡<%= @picture.favorites.count %> ヒット
+          <% end %>
+        </p>
+      <% end %>
+    <% end %>
+  <!--いいねここまで-->
+
       </td>
     </tbody>
     <% end %>

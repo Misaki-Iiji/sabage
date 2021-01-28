@@ -1,20 +1,17 @@
 <div class="col vh-100">
-  <h2>Fields#index</h2>
-  <% @field.each do |field| %>
-  <div>
+
+<% @field.each do |field| %>
+  <%= link_to field.name, field_path(field) %><br>
   <div class="d-flex flex-row bd-highlight mb-2 bg-light">
-    <%= attachment_image_tag field, :image, :size => '250x150' %>
-    <div>
-      <%= link_to field.name, field_path(field) %><br>
-      <%= field.address %><br>
-      <%= field.introduction %><br>
+  <%= attachment_image_tag field, :image, :size => '250x150' %>
+  <%= field.address %><br>
+  <%= field.introduction %><br>
 
-      <!--<div id="favorites_buttons_<%# field.id %>">-->
-        <%# render partial: 'favorites/favorite', locals: { field: field } %>
-      <!--</div>-->
+  <div id="favorites_buttons_<%= field.id %>">
+    <%= render partial: 'favorites/favorite', locals: { field: field } %>
+  </div>
+  </div>
+<% end %>
 
-     </div><!--card-body-->
-    </div><!--card-->
-  </div><!--card-dark-->
-  <% end %>
-</div><!--col-->
+
+</div>
