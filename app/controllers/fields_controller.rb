@@ -4,8 +4,18 @@ class FieldsController < ApplicationController
     @field = Field.find(params[:id])
   end
 
-  def index #ランキング
+  def index
     @field = Field.all
+  end
+
+  def ranking
+    @all_ranks = Field.find(Favorite.group(:field_id).order('count(field_id) desc').limit(3).pluck(:field_id))
+    # Favorite.group(:field_id)→field_idが同じものにグループを分ける
+    # order('count(field_id) desc')→それを番号の多い順に並び替える
+    # limit(3)→表示する最大数を3個に指定する
+    # pluck(:field_id)→最後に:field_idカラムのみを数字で取り出すように指定。
+    # Note.find()→最終的に、pluckで取り出される数字をfield_idとすることでいいね順に取得できる
+    #＠all_ranksに代入
   end
 
   def show

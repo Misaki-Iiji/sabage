@@ -1,7 +1,8 @@
 <div class="col vh-100">
   <h2>Users#show</h2>
-  <%= @user.nickname %>
-  <%= link_to "ヒット画像もっとみる", user_hit_path(@user) %>
-  <%= link_to "お気に入りフィールドもっとみる", field_favorite_path(@user) %>
+  <%= @user.nickname %>さん<br>
+  <%# link_to "ヒット画像もっとみる", user_hit_path(@user) %>
+  <%= render partial: 'users/favorite_fields', locals: { fields: @fields } %><br>
   <%= link_to "プロフィール編集", edit_user_path %>
+
 </div>
