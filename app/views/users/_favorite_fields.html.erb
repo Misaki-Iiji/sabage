@@ -1,0 +1,7 @@
+<h3>お気に入りフィールド</h3>
+
+<% fields.each do |field| %>
+ <%= attachment_image_tag field, :image, :size => '150x100' %>
+  <%= field.name %>
+  <%= field.address %>
+<% end %>

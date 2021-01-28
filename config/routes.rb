@@ -11,11 +11,10 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  get 'posts/show'
-  get 'posts/new'
   root to: 'homes#top'
   get 'homes/about'
   get 'users' => 'users#dummy'
+  get 'fields/ranking'
 
   resources :fields do
     member do
@@ -25,9 +24,10 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: [:new, :create, :show] do
-    resources :pictures, only: [:show, :create, :show]
+    resources :pictures, only: [:show, :create, :show] do
+      resource :hit, only: [:create, :destroy]
+    end
   end
-  
-  resources :hits, only: [:index, :create, :destroy]
+
   resources :users, only: [:show, :edit, :update, :destroy]
 end
