@@ -16,4 +16,6 @@ class Field < ApplicationRecord
   
   attachment :image #refile使うときのルール
   accepts_attachments_for :pictures, attachment: :picture
+  
+  
 end

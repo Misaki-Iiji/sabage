@@ -1,14 +1,27 @@
-<h2>Users#edit</h2>
-<%= form_with model:@user, local:true do |f| %>
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, autofocus: true %>
+<div class="col vh-100">
+  <div class="mx-auto" style="width: 320px;">
+    <div class="col text-center bg-light">
+
+      <h2>ユーザー編集</h2>
+      <%= form_with model:@user, local:true do |f| %>
+        <div class="field m-3">
+          <%= f.label :nickname %><br />
+          <%= f.text_field :nickname, autofocus: true, class: "w-100" %>
+        </div>
+         <div class="field m-3">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "更新", class: "btn btn-warning w-100 mb-4" %>
+        </div>
+      <% end %>
+      <div class="border-top m-3">
+        <% if user_signed_in? && @user.id == current_user.id %>
+          <%= link_to "退会する", users_path(current_user), method: :DELETE, "data-confirm" => "本当に退会しますか？", class: "btn m-3 " %>
+        <% end %>
+      </div>
+    </div>
   </div>
-   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
+</div>
+
