@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
-    @user = User.find(params[:id])
-    @fields = Field.where(user_id: @user_id)
+    @user = current_user
+    @fields = Field.where(field_id: current_field.id)
   end
 
   def edit
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), notice: "登録情報を編集しました"
     else
       @user = User.find(params[:id])
       redirect_back(fallback_location: edit_user_path)
