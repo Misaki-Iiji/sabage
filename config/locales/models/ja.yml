@@ -8,12 +8,13 @@ ja:
         nickname: ニックネーム
         email: メールアドレス
         password: パスワード
-        deleted_account: "このアカウントは既に削除されています。" 
+        Password confirmation: 確認用パスワード
+        deleted_account: "このアカウントは既に削除されています。"
       field:
         name: フィールド名
         email: メールアドレス
         password: パスワード
+        Password confirmation: 確認用パスワード
         address: 住所
         introduction: フィールド詳細
-        deleted_account: "このアカウントは既に削除されています。" 
-        
+        deleted_account: "このアカウントは既に削除されています。"

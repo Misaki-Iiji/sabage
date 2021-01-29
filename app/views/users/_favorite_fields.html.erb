@@ -1,7 +1,23 @@
 <h3>お気に入りフィールド</h3>
 
 <% fields.each do |field| %>
- <%= attachment_image_tag field, :image, :size => '150x100' %>
-  <%= field.name %>
-  <%= field.address %>
+<%# field = Field.find_by(id: favorites.field_id) %>
+  <div class=" m-3">
+      <%= attachment_image_tag field, :image, :size => '130x90' %><br>
+      <%= link_to field.name, field_path(field) %>
+
+      <% if field.favorited_by?(current_user) %>
+      <p>
+        <%= link_to field_favorite_path(field.id), method: :delete, remote: true do %>
+          ♥(お気に入り<%= field.favorites.count %>件)
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to field_favorite_path(field.id), method: :post, remote: true do %>
+          ♡(お気に入り<%= field.favorites.count %>件)
+        <% end %>
+      </p>
+      <% end %>
+  </div>
 <% end %>

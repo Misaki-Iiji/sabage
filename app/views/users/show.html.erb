@@ -1,8 +1,19 @@
 <div class="col vh-100">
-  <h2>Users#show</h2>
-  <%= @user.nickname %>さん<br>
-  <%# link_to "ヒット画像もっとみる", user_hit_path(@user) %>
-  <%= render partial: 'users/favorite_fields', locals: { fields: @fields } %><br>
-  <%= link_to "プロフィール編集", edit_user_path %>
+  <div class="mx-auto" style="width: 800px;">
+    <div class="col text-center bg-light">
 
+      <h2>マイページ</h2>
+
+      <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+      <% end %>
+
+      <div>
+      ようこそ　<%= @user.nickname %>さん<br>
+      </div>
+      <%# link_to "ヒット画像もっとみる", user_hit_path(@user) %>
+      <%= render partial: 'users/favorite_fields', locals: { fields: @fields,  } %><br>
+      <%= link_to "プロフィール編集", edit_user_path %>
+   </div>
+ </div>
 </div>
