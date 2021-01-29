@@ -1,4 +1,6 @@
 class FieldsController < ApplicationController
+  before_action :authenticate_field!, only: [:mypage, :edit] #index, ranking, showはフィールドでログインしてなくても見れる
+
 
   def mypage
     @field = Field.find(params[:id])
