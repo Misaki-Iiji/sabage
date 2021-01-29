@@ -11,7 +11,8 @@ module HelloSurvival
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
     config.time_zone = 'Asia/Tokyo'#タイムゾーンを日本時間に
-
+    config.i18n.default_locale = :ja #deviseエラー日本語化
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s] #deviseカラム名日本語化
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

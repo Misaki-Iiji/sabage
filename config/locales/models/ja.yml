@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      field: フィールド
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        deleted_account: "このアカウントは既に削除されています。" 
+      field:
+        name: フィールド名
+        email: メールアドレス
+        password: パスワード
+        address: 住所
+        introduction: フィールド詳細
+        deleted_account: "このアカウントは既に削除されています。" 
+        

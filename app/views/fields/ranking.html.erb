@@ -8,7 +8,7 @@
 
 
     <div class="d-flex flex-row bd-highlight mb-2 bg-light">
-      <%= attachment_image_tag field, :image, :size => '250x150' %>
+      <%= attachment_image_tag field, :image, fallback: "no_image.jpg", :size => '250x150' %>
       <%= field.address %><br>
       <%= field.introduction %><br>
       <div id="favorites_buttons_<%= field.id %>">
