@@ -1,29 +1,33 @@
 <div class="col vh-100">
+  <div class="mx-auto" style="width: 340px;">
+    <div class="col text-center bg-light">
 
-<h2>Fields#edit</h2>
-<%= form_with model: @field, local: true do |f| %>
-  <div class="field">
-    <%= f.label :name, "フィールド名" %><br>
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-  <div>
-    <%= f.label :image, "フィールドイメージ" %><br>
-    <%= f.attachment_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :address, "フィールド住所" %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :introduction, "フィールド説明（300文字以内）" %><br>
-    <%= f.text_area :introduction %>
+      <h2>フィールド編集</h2>
+      <%= form_with model: @field, local: true do |f| %>
+        <div class="field m-3">
+          <%= f.label :name, "フィールド名" %><br>
+          <%= f.text_field :name, autofocus: true, class: "w-100" %>
+        </div>
+        <div class="field m-3">
+          <%= f.label :image, "フィールドイメージ" %><br>
+          <%= f.attachment_field :image, class: "w-100" %>
+        </div>
+        <div class="field m-3">
+          <%= f.label :address, "フィールド住所" %><br>
+          <%= f.text_field :address, class: "w-100" %>
+        </div>
+        <div class="field m-3">
+          <%= f.label :introduction, "フィールド説明（300文字以内）" %><br>
+          <%= f.text_area :introduction, class: "w-100" %>
+        </div>
+        <div class="field m-3">
+          <%= f.label :email %><br>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
+        </div>
+        <div class="actions">
+          <%= f.submit "更新", class: "btn btn-warning w-100 mb-4" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
