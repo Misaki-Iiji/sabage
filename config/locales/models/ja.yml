@@ -18,3 +18,6 @@ ja:
         address: 住所
         introduction: フィールド詳細
         deleted_account: "このアカウントは既に削除されています。"
+    devise:
+      failure:
+         invalid: "%{authentication_keys} or またはパスワード"

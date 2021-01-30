@@ -1,5 +1,10 @@
 <div class="col vh-100">
   <h2>mypage</h2>
+
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+
   <%= @field.name %>様<br>
   <%= attachment_image_tag @field, :image, size: "300x180" %><br>
   <%= @field.introduction %><br>
