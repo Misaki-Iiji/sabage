@@ -1,21 +1,21 @@
 <div class="col vh-100">
-  <h2>Fields#index</h2>
-  <% @all_ranks.each.with_index(1) do |field, i| %>
-    第
-    <%= i %>
-    位
-    <%= link_to field.name, field_path(field) %>
+  <div class="mx-auto" style="width: 800px;">
+    <div class="col text-center">
 
+      <h2>フィールド人気ランキング</h2>
 
-    <div class="d-flex flex-row bd-highlight mb-2 bg-light">
-      <%= attachment_image_tag field, :image, fallback: "no_image.jpg", :size => '250x150' %>
-      <%= field.address %><br>
-      <%= field.introduction %><br>
-      <div id="favorites_buttons_<%= field.id %>">
-        <%= render partial: 'favorites/favorite', locals: { field: field } %>
-      </div>
-    </div><!--d-flex-->
-  <% end %>
+    <% @all_ranks.each.with_index(1) do |field, i| %>
+          <div>第<%= i %>位</div>
+            <%= attachment_image_tag field, :image, fallback: "no_image.jpg", :size => '240x150', fallback: "no_image.jpg" %><br>
+            <%= link_to field.name, field_path(field) %><br>
+            <%= field.address %><br>
+            <%= field.introduction %><br>
+            <div id="favorites_buttons_<%= field.id %>">
+              <%= render partial: 'favorites/favorite', locals: { field: field } %>
 
-  <%= link_to '全てのフィールドをみる', fields_path %>
-</div><!--col-->
+      <% end %>
+
+      <%= link_to '全てのフィールドをみる', fields_path %>
+    </div>
+  </div>
+</div>

@@ -2,8 +2,8 @@
 
 <% @field.each do |field| %>
   <%= link_to field.name, field_path(field) %><br>
-  <div class="d-flex flex-row bd-highlight mb-2 bg-light">
-  <%= attachment_image_tag field, :image, :size => '250x150' %>
+  <div class="d-flex flex-row bd-highlight mb-2">
+  <%= attachment_image_tag field, :image, :size => '250x150', fallback: "no_image.jpg" %>
   <%= field.address %><br>
   <%= field.introduction %><br>
 
