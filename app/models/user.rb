@@ -21,7 +21,8 @@ class User < ApplicationRecord
     !deleted_at ? super : :deleted_account
   end
 
-has_many :picture_hits, dependent: :destroy
+has_many :picture_hits
+has_many :pictures, through: :picture_hits
 has_many :favorites
 has_many :fields, through: :favorites, dependent: :destroy
 end
