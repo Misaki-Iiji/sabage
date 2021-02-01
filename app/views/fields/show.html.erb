@@ -5,9 +5,9 @@
     <div id="favorites_buttons_<%= @field.id %>">
       <%= render 'favorites/favorite', { field: @field } %>
     </div>
-    <%= attachment_image_tag @field, :image, :size => '800x400' %><br>
+    <%= attachment_image_tag @field, :image, :size => '800x400'%><br>
     住所：<%= @field.address %><br>
-    <%= @field.introduction %>
+    <%= simple_format(@field.introduction) %>
 
      <h3>写真一覧</h3>
 

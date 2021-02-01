@@ -17,15 +17,12 @@ Rails.application.routes.draw do
   get 'fields/ranking'
 
   resources :fields do
-    member do
-      get :mypage
-    end
     resource :favorite, only: [:create, :destroy]
   end
 
   resources :posts, only: [:new, :create, :show] do
     resources :pictures, only: [:show, :create, :show] do
-      resource :hit, only: [:create, :destroy]
+      resource :picture_hit, only: [:create, :destroy]
     end
   end
 

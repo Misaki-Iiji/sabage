@@ -5,17 +5,17 @@ class Field < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true, length: { maximum: 20 }
-  validates :introduction, length: { maximum: 300 }
+  validates :introduction, length: { maximum: 500 }
 
   has_many :posts
   has_many :favorites
-  
+
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
-  
+
   attachment :image #refile使うときのルール
   accepts_attachments_for :pictures, attachment: :picture
-  
-  
+
+
 end

@@ -1,16 +1,16 @@
 <div class="mx-auto" style="width: 800px;">
   <div class="col text-center">
 
-    <h2>フィールド人気ランキング</h2>
-  
+    <h2>RANKING</h2>
+
     <% @all_ranks.each.with_index(1) do |field, i| %>
-      <div>第<%= i %>位</div>
-        <%= attachment_image_tag field, :image, fallback: "no_image.jpg", :size => '240x150', fallback: "no_image.jpg" %><br>
-        <%= link_to field.name, field_path(field) %><br>
-        <%= field.address %><br>
-        <%= field.introduction %><br>
+        <h3>第<%= i %>位</h3>
+        <%= link_to field.name, field_path(field), class: "text-light h2" %><br>
+        <%= attachment_image_tag field, :image, fallback: "no_image.jpg", :size => '500x250', fallback: "no_image.jpg" %><br>
+        <%= simple_format(field.introduction) %>
         <div id="favorites_buttons_<%= field.id %>">
           <%= render partial: 'favorites/favorite', locals: { field: field } %>
+        </div>
     <% end %>
 
     <%= link_to '全てのフィールドをみる', fields_path %>
