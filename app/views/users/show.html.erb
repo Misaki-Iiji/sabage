@@ -11,7 +11,7 @@
       <div>
       ようこそ　<%= @user.nickname %>さん<br>
       </div>
-      <%= render partial: 'users/favorite_fields', locals: { fields: @fields,  } %><br>
+      <%= render partial: 'users/favorite_fields', locals: { fields: @fields} %><br>
       <%= link_to "プロフィール編集", edit_user_path %>
    </div>
  </div>

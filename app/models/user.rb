@@ -22,6 +22,6 @@ class User < ApplicationRecord
   end
 
 has_many :picture_hits, dependent: :destroy
-has_many :field_favorites, through: :favorites, source: :field, dependent: :destroy
-#has_many :favoriteだとthroughとかぶるからエラーになる。別の名前にして、field_favoritesなんてテーブルは無いけど、sourceで指定しておくと大丈夫
+has_many :favorites
+has_many :fields, through: :favorites, dependent: :destroy
 end

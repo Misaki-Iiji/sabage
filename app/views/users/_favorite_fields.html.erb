@@ -1,7 +1,6 @@
 <h3>お気に入りフィールド</h3>
 
 <% fields.each do |field| %>
-<%# field = Field.find_by(id: favorites.field_id) %>
   <div class=" m-3">
       <%= attachment_image_tag field, :image, :size => '130x90' %><br>
       <%= link_to field.name, field_path(field) %>
