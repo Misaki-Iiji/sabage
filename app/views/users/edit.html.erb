@@ -1,5 +1,5 @@
 <div class="col vh-100">
-  <div class="mx-auto" style="width: 320px;">
+  <div class="mx-auto" style="width: 500px;">
     <div class="col text-center">
 
       <h2>ユーザー編集</h2>
@@ -16,9 +16,9 @@
           <%= f.submit "更新", class: "btn btn-warning w-100 mb-4" %>
         </div>
       <% end %>
-      <div class="border-top m-3">
+      <div class="m-3">
         <% if user_signed_in? && @user.id == current_user.id %>
-          <%= link_to "退会する", users_path(current_user), method: :DELETE, "data-confirm" => "本当に退会しますか？", class: "btn m-3 " %>
+          <%= link_to "退会する", users_path(current_user), method: :DELETE, "data-confirm" => "本当に退会しますか？" %>
         <% end %>
       </div>
     </div>
