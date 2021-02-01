@@ -1,6 +1,5 @@
-<div class="col vh-100">
-  <div class="mx-auto" style="width: 800px;">
-    <div class="col text-center">
+<div class="mx-auto" style="width: 800px;">
+  <div class="col text-center">
 
       <h2>マイページ</h2>
 
@@ -11,8 +10,19 @@
       <div>
       ようこそ　<%= @user.nickname %>さん<br>
       </div>
-      <%= render partial: 'users/favorite_fields', locals: { fields: @fields} %><br>
+
+      <h3>お気に入りフィールド</h3>
+      <% @fields.each do |field| %>
+        <%= attachment_image_tag field, :image, :size => '130x90' %><br>
+        <%= link_to field.name, field_path(field) %>
+        <%= render 'favorites/favorite', { field: field } %>
+      <% end %>
+
+      <h3>いいね登録写真</h3>
+      <% @pictures.each do |picture| %>
+        <%= render 'hits/picture_hits', { picture: picture } %>
+      <% end %>
+
       <%= link_to "プロフィール編集", edit_user_path %>
-   </div>
  </div>
 </div>

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @fields = Field.joins(:favorites).where("favorites.user_id = ?", @user.id)
+    @pictures = Picture.all
   end
 
   def edit
