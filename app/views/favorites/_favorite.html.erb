@@ -13,3 +13,7 @@
     </p>
   <% end %>
 <% end %>
+
+<% if field_signed_in? %>
+  (お気に入り<%= field.favorites.count %>件)
+<% end %>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @fields = Field.where(field_id: current_field.id)
+    @fields = Field.joins(:favorites).where("favorites.user_id = ?", @user.id)
   end
 
   def edit
