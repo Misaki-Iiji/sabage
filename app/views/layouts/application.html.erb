@@ -5,72 +5,68 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Sawarabi+Gothic&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div class="d-flex align-items-center justify-content-center">
-    <ul class="nav pull-right nav-pills">
+    <header>
+        <%= link_to root_path do %>
+      <div class="bg-white text-dark">
+          <%= image_tag "icon.jpg", :size => "40x40" %>
+          <span>HELLO SURVIVAL</span>
+      </div>
+        <% end %>
+
+    <ul class="d-flex justify-content-center align-items-center">
     <% if field_signed_in? %>
       <li>
-        <%= link_to "top page", root_path, class:"title btn m-3" %>
+        <%= link_to "my page", mypage_field_path(current_field), class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to "my page", mypage_field_path(current_field), class:"btn m-3" %>
+        <%= link_to "my field", field_path(current_field), class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to "my field", field_path(current_field), class:"btn m-3" %>
+        <%= link_to "pictures", post_path(current_field), class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to "pictures", post_path(current_field), class:"btn m-3" %>
+        <%= link_to "ranking", fields_ranking_path, class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to "ranking", fields_ranking_path, class:"btn m-3" %>
-      </li>
-      <li>
-        <%= link_to "log out", destroy_field_session_path, class:"btn m-3", method: :delete %>
+        <%= link_to "log out", destroy_field_session_path, class:"btn m-3 text-light", method: :delete %>
       </li>
     <% elsif user_signed_in? %>
       <li>
-        <%= link_to "top page", root_path, class:"title btn m-3" %>
+        <%= link_to " just started", homes_about_path, class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to " just started", homes_about_path, class:"btn m-3" %>
+        <%= link_to "field ranking", fields_ranking_path, class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to "field ranking", fields_ranking_path, class:"btn m-3" %>
+        <%= link_to "my page", user_path(current_user), class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to "my page", user_path(current_user), class:"btn m-3" %>
-      </li>
-      <li>
-        <%= link_to "log out", destroy_user_session_path, class:"btn m-3", method: :delete %>
+        <%= link_to "log out", destroy_user_session_path, class:"btn m-3 text-light", method: :delete %>
       </li>
     <% else %>
       <li>
-        <%= link_to "top page", root_path, class:"title btn m-3" %>
+        <%= link_to " just started", homes_about_path, class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to " just started", homes_about_path, class:"btn m-3" %>
+        <%= link_to "field ranking", fields_ranking_path, class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to "field ranking", fields_ranking_path, class:"btn m-3", method: :delete %>
+        <%= link_to "sign up", new_user_registration_path, class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to "sign up", new_user_registration_path, class:"btn m-3" %>
+        <%= link_to "log in", new_user_session_path, class:"btn m-3 text-light" %>
       </li>
       <li>
-        <%= link_to "log in", new_user_session_path, class:"btn m-3" %>
-      </li>
-      <li>
-        <%= link_to "field manager", new_field_session_path, class:"btn m-3 text-muted" %>
+        <%= link_to "field manager", new_field_session_path, class:"btn m-3 text-light" %>
       </li>
     <% end %>
     </ul>
-    </div>
+    </header>
     <div class="top"></div> <!--スマホ用top-->
     <main style="min-height: 100vh;">
       <div class="container">

@@ -1,6 +1,6 @@
 <div class="col vh-100">
-  <div class="mx-auto" style="width: 344px;">
-    <div class="col text-center bg-light">
+  <div class="mx-auto" style="width: 500px;">
+    <div class="col text-center">
 
       <h2>パスワードを<br>忘れた場合</h2>
 
@@ -12,8 +12,8 @@
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "Send me reset password instructions" %>
+        <div class="actions m-3">
+          <%= f.submit "リセット", class: "w-100" %>
         </div>
       <% end %>
 

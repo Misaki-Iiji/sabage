@@ -1,10 +1,14 @@
 <div class="col vh-100">
-  <div class="mx-auto" style="width: 344px;">
-    <div class="col text-center bg-light">
+  <div class="mx-auto" style="width: 800px;">
+    <div class="col text-center">
 
     <h2>フィールドログイン</h2>
 
     <%= form_with model: @field, url: field_session_path, local: true do |f| %>
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value) %>
+      <% end %>
+
       <div class="field m-3">
         <%= f.label :Eメール %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
@@ -28,7 +32,7 @@
       </div>
     <% end %>
 
-    <div class="text-center bg-light mt-20 border-top">
+    <div class="text-center">
       <p>登録がまだの方はこちら</p>
       <div class="col text-center">
         <%= render "fields/shared/links" %>

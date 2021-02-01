@@ -25,44 +25,39 @@
   box-sizing: border-box;
 }
 
-@font-face {
-  font-family: 'gomarice_mukasi_mukasi';
-  src: font-url('gomarice_mukasi_mukasi.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-header, li {
-  font-family: 'Permanent Marker', cursive;
-}
-
 footer {
   height: 80px;
+  color: white;
 }
 
 ul {
   list-style: none;
+  margin: 20px;
 }
 
 h1 {
-  font-family: 'Permanent Marker', cursive;
   color: #666633;
   font-size: 15px;
+  font-color: white;
 }
 
 h2 {
-  font-family: 'gomarice_mukasi_mukasi', cursive;
   font-size: 50px;
-  margin-top: 30px;
-  
+  color: white;
+}
+
+h3 {
+  margin-top: 10%;
+  color: white;
 }
 
 body {
-  font-family: 'Sawarabi Gothic', sans-serif;
-  background-image: url('top.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
+  // background-image: image_url("top.jpg");
+  background-color: black;
+  color: white;
 }
+
+
 
 
 /* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
@@ -83,9 +78,10 @@ body {
      color: blue;
   }
 
-  body {
-    background-image: none;
-    // background_color: red;
+.top {
+  // background-repeat: no-repeat;
+  background-size: cover;
+
   }
 
   .top {
