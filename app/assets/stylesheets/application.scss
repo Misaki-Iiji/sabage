@@ -25,6 +25,11 @@
   box-sizing: border-box;
 }
 
+.top {
+  max-width: 100%;
+  height: auto;
+}
+
 footer {
   height: 80px;
   color: white;
@@ -75,24 +80,5 @@ body {
 @media screen and (max-width: 425px) {
   h2 {
      color: blue;
-  }
-
-.top {
-  // background-repeat: no-repeat;
-  background-size: cover;
-
-  }
-
-  .top {
-    background: url('top.jpg');
-    height: 300px;
-    width: 100%;
-    background-size: cover;
-    position: relative;
-  }
-
-  .catch_copy {
-    position: absolute;
-    top: 30px;
   }
 }
