@@ -1,4 +1,4 @@
-<div class="mx-auto" style="width: 800px;">
+<div class="mx-auto" style="width: 900px;">
   <div class="text-center">
 
     <h2>HOME</h2>
@@ -9,7 +9,6 @@
 
     <div>
       ようこそ　<%= @user.nickname %>さん<br>
-      <%= link_to "プロフィール編集", edit_user_path %>
     </div>
   </div>
 </div>
@@ -19,7 +18,7 @@
 <div class="row">
   <% @fields.each do |field| %>
     <div class="col-xs-3">
-      <div class="card m-3">
+      <div class="card m-1">
         <div class="card-header">
           <%= attachment_image_tag field, :image, :size => '160x100', fallback: "no_image.jpg" %>
         </div>
@@ -37,8 +36,7 @@
   <div class="row">
     <% @pictures.each do |picture| %>
       <% @posts.each do |post| %>
-      <%= attachment_image_tag picture, :image, :size => '150x150' %>
-      <%= render 'hits/picture_hits', { picture: picture, post: post } %>
+      <%= attachment_image_tag picture, :image, :size => '150x150', class: "m-1" %>
       <% end %>
     <% end %>
   </div>
