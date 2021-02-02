@@ -13,8 +13,9 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about'
-  get 'users' => 'users#dummy'
   get 'fields/ranking'
+  get 'chat/:id' => 'chats#show', as: 'chat'
+  resources :chats, only: [:index, :create]
 
   resources :fields do
     resource :favorite, only: [:create, :destroy]
@@ -26,5 +27,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:show, :edit, :update, :destroy]
+  resources :users
 end

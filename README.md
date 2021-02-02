@@ -45,6 +45,7 @@ https://docs.google.com/spreadsheets/d/1d4mNh3NjGQ3AXpqV__lrRUROuI06P4-8sZqx7dDy
 pixabay　https://pixabay.com/ja/images/search/
 photoAC　https://www.photo-ac.com/
 o-dan https://o-dan.net/ja/
+ICOOON MONO https://icooon-mono.com/
 
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
 - 使用しない場合は、使用素材の項目をREADMEから削除してください。
