@@ -1,11 +1,14 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+    @users = User.all
+  end
+
   def show
-    @user = current_user
+    @user = User.find(params[:id])
     @fields = Field.joins(:favorites).where("favorites.user_id = ?", @user.id)
-    @posts = Post.all
-    @pictures = Picture.all
+    @pictures = @user.pictures
   end
 
   def edit
@@ -20,10 +23,6 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_back(fallback_location: edit_user_path)
     end
-  end
-
-  def dummy
-    redirect_to new_user_registration_path
   end
 
  private

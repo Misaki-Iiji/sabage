@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_123442) do
+ActiveRecord::Schema.define(version: 2021_02_02_072526) do
+
+  create_table "chats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.text "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
@@ -60,6 +68,28 @@ ActiveRecord::Schema.define(version: 2021_01_29_123442) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "field_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "follow_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["follow_id"], name: "index_relationships_on_follow_id"
+    t.index ["user_id", "follow_id"], name: "index_relationships_on_user_id_and_follow_id", unique: true
+    t.index ["user_id"], name: "index_relationships_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
