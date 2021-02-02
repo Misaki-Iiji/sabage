@@ -12,11 +12,13 @@
   <body>
     <header>
   <nav class="navbar navbar-expand-lg p-4">
-    <ul class="navbar-nav mr-auto">
-        <%= link_to "HELLO SURVIVAL", root_path %>
+    <% if field_signed_in? %>
+    <ul class="navbar-nav mr-auto logo">
+       <li>
+        <%= link_to image_tag("logo.png", :size => "100x100"), root_path %>
+        <%= current_field.name %>
       </li>
     </ul>
-    <% if field_signed_in? %>
     <ul class="navbar-nav">
       <li class="nav-item">
         <%= link_to image_tag("icon7.png", :size => "25x25"), field_path(current_field), class:"m-3" %>
@@ -34,21 +36,30 @@
         <%= link_to image_tag("icon5.png", :size => "25x25"), edit_field_path(current_field), class:"m-3" %>
       </li>
     <% elsif user_signed_in? %>
+      <ul class="navbar-nav mr-auto logo">
+        <li>
+          <%= link_to image_tag("logo.png", :size => "100x100"), root_path %>
+      <%= current_user.nickname %>
+        </li>
+      </ul>
       <li class="nav-item">
-        <%= link_to image_tag("icon2.png", :size => "25x25"), fields_ranking_path, class:"m-3" %>
+        <%= link_to image_tag("icon9.png", :size => "25x25"), users_path, class:"m-2" %>
       </li>
       <li class="nav-item">
-        <%= link_to image_tag("icon4.png", :size => "25x25"), user_path(current_user), class:"m-3" %>
+        <%= link_to image_tag("icon8.png", :size => "25x25"), chats_path, class:"m-2" %>
       </li>
       <li class="nav-item">
-        <%= link_to image_tag("icon5.png", :size => "25x25"), edit_user_path(current_user), class:"m-3" %>
+        <%= link_to image_tag("icon2.png", :size => "25x25"), fields_ranking_path, class:"m-2" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to image_tag("icon4.png", :size => "25x25"), user_path(current_user), class:"m-2" %>
       </li>
     <% else %>
       <li class="nav-item">
-        <%= link_to image_tag("icon2.png", :size => "25x25"), fields_ranking_path, class:"m-3" %>
+        <%= link_to image_tag("icon2.png", :size => "25x25"), fields_ranking_path, class:"m-2" %>
       </li>
       <li class="nav-item">
-        <%= link_to image_tag("icon4.png", :size => "25x25"), new_user_session_path, class:"m-3" %>
+        <%= link_to image_tag("icon4.png", :size => "25x25"), new_user_session_path, class:"m-2" %>
       </li>
     <% end %>
     </ul>
