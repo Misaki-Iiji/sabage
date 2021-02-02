@@ -1,16 +1,12 @@
 class FieldsController < ApplicationController
-  before_action :authenticate_field!, only: [:mypage, :edit] #index, ranking, showはフィールドでログインしてなくても見れる
-
-  def mypage
-    @field = Field.find(params[:id])
-  end
+  before_action :authenticate_field!, only: [ :edit] #index, ranking, showはフィールドでログインしてなくても見れる
 
   def index
     @field = Field.all
   end
 
   def ranking
-      @all_ranks = Field.find(Favorite.group(:field_id).order('count(field_id) desc').limit(3).pluck(:field_id))
+      @all_ranks = Field.find(Favorite.group(:field_id).order('count(field_id) desc').limit(5).pluck(:field_id))
       # Favorite.group(:field_id)→field_idが同じものにグループを分ける
       # order('count(field_id) desc')→それを番号の多い順に並び替える
       # limit(3)→表示する最大数を3個に指定する
@@ -22,6 +18,7 @@ class FieldsController < ApplicationController
   def show
     @field = Field.find(params[:id])
     @posts = Post.where(field_id: @field.id)
+
   end
 
   def edit #フィールド詳細
