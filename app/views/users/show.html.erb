@@ -1,18 +1,43 @@
-<div class="col vh-100">
-  <div class="mx-auto" style="width: 800px;">
-    <div class="col text-center">
+<div class="mx-auto" style="width: 900px;">
+  <div class="text-center">
 
-      <h2>マイページ</h2>
+    <h2>HOME</h2>
 
-      <% if flash[:notice] %>
-        <p><%= flash[:notice] %></p>
-      <% end %>
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
 
-      <div>
+    <div>
       ようこそ　<%= @user.nickname %>さん<br>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <h3 class="text-center">お気に入りフィールド</h3>
+<div class="row">
+  <% @fields.each do |field| %>
+    <div class="col-xs-3">
+      <div class="card m-1">
+        <div class="card-header">
+          <%= attachment_image_tag field, :image, :size => '160x100', fallback: "no_image.jpg" %>
+        </div>
+        <div class="card-body">
+         <%= link_to field.name, field_path(field) %>
+        </div>
       </div>
-      <%= render partial: 'users/favorite_fields', locals: { fields: @fields} %><br>
-      <%= link_to "プロフィール編集", edit_user_path %>
-   </div>
- </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <h3 class="text-center">いいね登録写真</h3>
+  <div class="row">
+    <% @pictures.each do |picture| %>
+      <% @posts.each do |post| %>
+      <%= attachment_image_tag picture, :image, :size => '150x150', class: "m-1" %>
+      <% end %>
+    <% end %>
+  </div>
 </div>
