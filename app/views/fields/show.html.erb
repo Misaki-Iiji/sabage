@@ -24,7 +24,7 @@
             <%= link_to post_picture_path(picture) do %>
               <%= attachment_image_tag picture, :image, :size => '100x100', class: "m-1" %>
             <% end %>
-            <%= render 'hits/picture_hits', picture: picture %>
+            <%= render 'hits/picture_hits', picture: picture, post: post %>
           <% end %>
           </td>
         </tbody>

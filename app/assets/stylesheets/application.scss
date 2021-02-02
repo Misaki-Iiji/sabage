@@ -30,12 +30,16 @@
   height: auto;
 }
 
+header {
+  padding: 0;
+}
+
 footer {
   height: 80px;
   color: white;
 }
 
-li {
+.nav-item {
   list-style: none;
 }
 
@@ -78,7 +82,7 @@ body {
 }
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width: 425px) {
-  h2 {
-     color: blue;
+  .nav-item {
+
   }
 }
