@@ -2,17 +2,20 @@
   <div class="text-center">
 
     <h2>HOME</h2>
-      <div class="text-right"><%= link_to image_tag("icon5.png", :size => "25x25"), edit_user_path(current_user), class:"m-2" %></div>
     <% if flash[:notice] %>
       <p><%= flash[:notice] %></p>
     <% end %>
-
   </div>
 </div>
 
-<% if current_user != @user %>
-  <%= link_to 'チャットする', chat_path(@user.id) %>
-<% end %>
+      <%= link_to image_tag("icon5.png", :size => "25x25"), edit_user_path(current_user), class:"m-2" %>
+      <%= render 'relationships/follow_button', user: @user %>
+      <%# if current_user.following?(info) %>
+        <% if current_user != @user %>
+          <%= link_to image_tag("icon8.png", :size => "25x25"), chat_path(@user.id) %>
+        <% end %>
+      <%# end %>
+
 
 <div class="container">
   <h3 class="text-center">お気に入りフィールド</h3>
@@ -36,9 +39,7 @@
   <h3 class="text-center">いいね登録写真</h3>
   <div class="row">
     <% @pictures.each do |picture| %>
-      <% @posts.each do |post| %>
       <%= attachment_image_tag picture, :image, :size => '150x150', class: "m-1" %>
-      <% end %>
     <% end %>
   </div>
 </div>

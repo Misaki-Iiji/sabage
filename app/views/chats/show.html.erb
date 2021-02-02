@@ -9,6 +9,7 @@
         <p class="text-left ml-3"><%= chat.message %></p>
       <% end %>
     <% end %>
+  </div>
 
     <div class="text-right mr-3">
       <%= form_with model: @chat do |f| %>
@@ -16,6 +17,4 @@
         <%= f.hidden_field :room_id %>
       <% end %>
     </div>
-
-  </div>
 </div>

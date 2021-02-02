@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       resource :picture_hit, only: [:create, :destroy]
     end
   end
-
+  
   resources :users
+  resources :relationships, only: [:create, :destroy]
 end
