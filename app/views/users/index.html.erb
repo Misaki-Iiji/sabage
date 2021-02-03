@@ -1,3 +1,15 @@
-<% @users.each do |user| %>
-  <%= link_to user.nickname, user_path(user) %>
-<% end %>
+<div class="mx-auto" style="width: 800px;">
+  <div class="col text-center">
+    
+    <%= search_form_for @q do |f| %>
+      <%= f.search_field :nickname_cont, placeholder: "ユーザー名で検索" %> <!--_contは検索ワードを含むデータの取得-->
+      <%= f.submit "検索" %>
+    <% end %>
+
+    <% @users.each do |user| %>
+      ニックネーム:<%= link_to user.nickname, user_path(user) %>
+      フォロー:<%= user.followings.count %>
+      フォロワー:<%= user.followers.count %>
+    <% end %>
+  </div>
+</div>

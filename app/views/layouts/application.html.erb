@@ -11,14 +11,14 @@
 
   <body>
     <header>
-  <nav class="navbar navbar-expand-lg navbar-inverse navbar-fixed-top">
-    <li class="nav-item">
-      <%= link_to image_tag("logo.png", :size => "90x90"), root_path, class: "m-2" %>
-    </li>
-    <% if field_signed_in? %>
-    <ul class="navbar-nav mr-auto">
-    </ul>
+    <nav class="navbar navbar-expand navbar-inverse navbar-fixed-top">
+      <ul class="navbar-nav mr-auto">
+        <li>
+          <%= link_to image_tag("logo.png", :size => "90x90"), root_path, class: "m-2" %>
+        </li>
+      </ul>
     <ul class="navbar-nav">
+    <% if field_signed_in? %>
       <li class="nav-item">
         <%= link_to image_tag("icon7.png", :size => "25x25"), field_path(current_field), class:"m-3" %>
       </li>
@@ -28,15 +28,7 @@
       <li class="nav-item">
         <%= link_to image_tag("icon2.png", :size => "25x25"), fields_ranking_path, class:"m-3" %>
       </li>
-      <li class="nav-item">
-        <%= link_to image_tag("icon3.png", :size => "25x25"), new_post_path, class:"m-3" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to image_tag("icon5.png", :size => "25x25"), edit_field_path(current_field), class:"m-3" %>
-      </li>
     <% elsif user_signed_in? %>
-      <ul class="navbar-nav mr-auto logo">
-      </ul>
       <li class="nav-item">
         <%= link_to image_tag("icon9.png", :size => "25x25"), users_path, class:"m-2" %>
       </li>
@@ -48,6 +40,9 @@
       </li>
     <% else %>
       <li class="nav-item">
+        <%= link_to image_tag("icon1.png", :size => "25x25"), homes_about_path, class:"m-2" %>
+      </li>
+      <li class="nav-item">
         <%= link_to image_tag("icon2.png", :size => "25x25"), fields_ranking_path, class:"m-2" %>
       </li>
       <li class="nav-item">
@@ -55,20 +50,10 @@
       </li>
     <% end %>
     </ul>
-    </div>
     </header>
     <div class="top"></div> <!--スマホ用top-->
     <main style="min-height: 100vh;">
       <div class="container">
-        <div class="text-right">
-          <% if field_signed_in? %>
-            <%= image_tag "icon10.png", :size => "20x20" %>
-            <%= current_field.name %>
-          <% elsif user_signed_in? %>
-            <%= image_tag "icon10.png", :size => "20x20" %>
-            <%= current_user.nickname %>
-          <% end %>
-        </div>
         <div class="row">
           <%= yield %>
         </div>

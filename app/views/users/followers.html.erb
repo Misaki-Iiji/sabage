@@ -1,0 +1,6 @@
+<h2>フォロワーの皆さん</h2>
+
+<% @users.each do |user| %>
+  <%= "nickname: " %>
+  <%= link_to user.nickname, user_path(user.id) %>
+<% end %>

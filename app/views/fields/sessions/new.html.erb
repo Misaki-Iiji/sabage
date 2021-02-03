@@ -6,7 +6,9 @@
 
     <%= form_with model: @field, url: field_session_path, local: true do |f| %>
       <% flash.each do |key, value| %>
-        <%= content_tag(:div, value) %>
+        <% if flash[key] != "ログアウトしました。" %>
+          <%= content_tag(:div, value) %>
+        <% end %>
       <% end %>
 
       <div class="field m-3">

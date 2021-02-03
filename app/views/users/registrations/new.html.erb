@@ -8,13 +8,13 @@
         <%= render "users/shared/error_messages", resource: resource %>
 
         <div class="field m-3">
-          <%= f.label :nickname, "ニックネーム" %><br />
-          <%= f.text_field :nickname, autofocus: true, class: "w-100" %>
+          <%= f.label :nickname, "ニックネーム" %>
+          <%= f.text_field :nickname, autofocus: true, placeholder: "ニックネーム", class: "w-100" %>
         </div>
 
         <div class="field m-3">
           <%= f.label :email, "Eメール" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
+          <%= f.email_field :email, autofocus: true, placeholder: "Eメール", autocomplete: "email", class: "w-100" %>
         </div>
 
         <div class="field m-3">
