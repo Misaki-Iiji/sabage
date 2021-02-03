@@ -5,11 +5,27 @@
       <h2>ユーザー編集</h2>
       <%= form_with model:@user, local:true do |f| %>
         <div class="field m-3">
-          <%= f.label :nickname %><br />
+          <%= f.label :image %><br>
+          <%= f.attachment_field :image, class: "w-100" %>
+        </div>
+        <div class="field m-3">
+          <%= f.label :nickname, "Nickname" %><br />
           <%= f.text_field :nickname, autofocus: true, class: "w-100" %>
         </div>
-         <div class="field m-3">
-          <%= f.label :email %><br />
+        <div class="field m-3">
+          <%= f.label :profile %><br />
+          <%= f.text_field :introduction, class: "w-100" %>
+        </div>
+        <div class="field m-3">
+          <%= f.label :main_gun %><br />
+          <%= f.text_field :main_gun, class: "w-100" %>
+        </div>
+        <div class="field m-3">
+          <%= f.label :sub_gun %><br />
+          <%= f.text_field :sub_gun, autofocus: true, class: "w-100" %>
+        </div>
+        <div class="field m-3">
+          <%= f.label :email, "Email" %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
         </div>
         <div class="actions">
