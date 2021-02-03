@@ -1,45 +1,57 @@
-<div class="mx-auto" style="width: 900px;">
+<div class="mx-auto" style="width: 600px;">
   <div class="text-center">
-
-    <h2>HOME</h2>
     <% if flash[:notice] %>
       <p><%= flash[:notice] %></p>
     <% end %>
   </div>
 </div>
 
-      <%= link_to image_tag("icon5.png", :size => "25x25"), edit_user_path(current_user), class:"m-2" %>
-      <%= render 'relationships/follow_button', user: @user %>
-      <%# if current_user.following?(info) %>
-        <% if current_user != @user %>
-          <%= link_to image_tag("icon8.png", :size => "25x25"), chat_path(@user.id) %>
-        <% end %>
-      <%# end %>
-
-
 <div class="container">
-  <h3 class="text-center">お気に入りフィールド</h3>
-<div class="row">
-  <% @fields.each do |field| %>
-    <div class="col-xs-3">
-      <div class="card m-1">
-        <div class="card-header">
-          <%= attachment_image_tag field, :image, :size => '160x100', fallback: "no_image.jpg" %>
-        </div>
-        <div class="card-body">
-         <%= link_to field.name, field_path(field) %>
-        </div>
+  <div class="mx-auto" style="width: 400px;">
+    <div class="text-center">
+      <%= current_user.nickname %><br>
+      <div class="m-1">
+        <%= link_to "#{@user.followings.count} Followings", followings_user_path(@user.id), class: "text-light" %>
+        <%= "|" %>
+        <%= link_to "#{@user.followers.count} Followers", followers_user_path(@user.id), class: "text-light" %>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+      <%= render 'relationships/follow_button', user: @user %>
+        <% if current_user.following?(@user) %>
+          <%= link_to image_tag("icon8.png", :size => "23x23"), chat_path(@user.id), class: "btn btn-dark m-2" %>
+        <% end %>
+      <% if current_user == @user %>
+        <%= link_to "Edit Profile", edit_user_path(current_user), class:"btn btn-dark m-2" %>
+      <% end %>
       </div>
     </div>
-    <% end %>
   </div>
 </div>
 
-<div class="container">
-  <h3 class="text-center">いいね登録写真</h3>
+<div class="container m-5">
+  <h3 class="text-center">Like Field</h3>
+  <div class="row">
+    <% @fields.each do |field| %>
+    <div class="card m-1">
+      <%= attachment_image_tag field, :image, :size => '160x100', fallback: "no_image.jpg" %>
+      <%= link_to field.name, field_path(field), class: "text-dark text-center field_name" %>
+    </div>
+    <% end %>
+  </div>
+  <div class="d-flex justify-content-center">
+    <%= paginate @fields %>
+  </div>
+</div>
+
+
+<div class="container m-5">
+  <h3 class="text-center">Phots</h3>
   <div class="row">
     <% @pictures.each do |picture| %>
-      <%= attachment_image_tag picture, :image, :size => '150x150', class: "m-1" %>
-    <% end %>
+      <%= link_to post_picture_path(post_id: picture.post_id, id: picture.id) do %>
+        <%= attachment_image_tag picture, :image, :size => '160x160', class: "m-1" %>
+      <% end %>
+     <% end %>
+    <%= paginate @pictures %>
   </div>
 </div>

@@ -1,7 +1,12 @@
 <div class="mx-auto" style="width: 800px;">
   <div class="col text-center">
 
-    <% @field.each do |field| %>
+    <%= search_form_for @q do |f| %>
+      <%= f.search_field :name_cont, placeholder: "フィールド名で検索" %> <!--_contは検索ワードを含むデータの取得-->
+      <%= f.submit "検索" %>
+    <% end %>
+
+    <% @fields.each do |field| %>
       <div class="bg-light">
       <h3><%= link_to field.name, field_path(field), class: "text-dark" %></h3>
       </div>
@@ -14,7 +19,7 @@
           <%= render partial: 'favorites/favorite', locals: { field: field } %>
         </div>
     <% end %>
-
+    <%= paginate @fields %>
 
     <%= link_to "ランキング一覧に戻る", fields_ranking_path %>
   </div>
