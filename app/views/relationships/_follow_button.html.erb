@@ -2,12 +2,12 @@
   <% if current_user.following?(user) %>
     <%= form_for(current_user.relationships.find_by(follow_id: user.id), html: { method: :delete }) do |f| %>
       <%= hidden_field_tag :follow_id, user.id %>
-      <%= image_submit_tag "icon12.png", :size => "25x25" %>
+      <%= f.submit 'Unfollow', class: 'btn btn-dark btn-block' %>
     <% end %>
   <% else %>
     <%= form_for(current_user.relationships.build) do |f| %>
       <%= hidden_field_tag :follow_id, user.id %>
-      <%= image_submit_tag "icon11.png", :size => "25x25" %>
+      <%= f.submit 'Follow', class: 'btn btn-dark btn-block' %>
     <% end %>
   <% end %>
 <% end %>

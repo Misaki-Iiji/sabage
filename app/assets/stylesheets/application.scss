@@ -43,6 +43,10 @@ footer {
   list-style: none;
 }
 
+li {
+  list-style: none;
+}
+
 h1 {
   color: #666633;
   font-size: 15px;
@@ -68,21 +72,34 @@ body {
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
-/* タブレット横置きサイズ（1024px）以下の際に適用される設定 */
-@media screen and (max-width: 1024px) {
-  h2 {
-    color: green;
-  }
+.field_name {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 160px;
+  text-overflow: ellipsis;
 }
+
+.pagination>li>a {
+  margin: 10px;
+  color: white;
+}
+
+.pagination>.active>a {
+  border-radius: 15px;     /*角を丸くする*/
+  margin: 10px;
+  color: gray;
+}
+
+.pagination>li>a:hover {
+  color: #696969;   /*文字の色を変える*/
+  color: gray;
+}
+
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width: 768px) {
-  h2 {
-    color: red;
-  }
+
 }
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width: 425px) {
-  .nav-item {
 
-  }
 }

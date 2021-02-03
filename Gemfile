@@ -73,3 +73,4 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'jquery-rails'#非同期通信
 gem 'rails-i18n'
+gem 'ransack' #検索機能

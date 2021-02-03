@@ -2,7 +2,8 @@ class FieldsController < ApplicationController
   before_action :authenticate_field!, only: [:edit] #index, ranking, showはフィールドでログインしてなくても見れる
 
   def index
-    @field = Field.all
+    @q = Field.ransack(params[:q]) #検索ワードをparams[:q]で受け取り
+    @fields = @q.result(distinct: true).page(params[:page]).per(10) #該当した結果をデータ表示
   end
 
   def ranking
@@ -17,8 +18,7 @@ class FieldsController < ApplicationController
 
   def show
     @field = Field.find(params[:id])
-    @posts = Post.where(field_id: @field.id)
-
+    @posts = Post.where(field_id: @field.id).page(params[:page]).per(2)
   end
 
   def edit #フィールド詳細
