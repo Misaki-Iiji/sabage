@@ -1,9 +1,9 @@
 class PicturesController < ApplicationController
 
   def show
-    @picture = Picture.where(id: params[:id])
-    @post = Picture.find_by(params[:id])
-    @field = Field.find_by(params[:id])
+    @picture = Picture.find(params[:id])
+    @post = Post.find(@picture.post_id)
+    @field = Field.find(@post.field_id)
   end
 
   def edit
