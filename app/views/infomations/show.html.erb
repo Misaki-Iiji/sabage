@@ -1,0 +1,52 @@
+<div class="mx-auto" style="width: 800px;">
+  <div class="container m-5 text-center">
+    <h3>
+      <%= @infomation.title %>
+    </h3>
+    (<%= @field.name %>)<br>
+      <% if current_field == @field %>
+        <%= link_to '編集', edit_infomation_path(@infomation) %>/
+        <%= link_to '削除', infomation_path(@infomation),
+          method: :delete,
+          data: { confirm: '削除しますか?' } %>
+      <% end %>
+
+    <p class="m-5">
+      <%= @infomation.body %>
+    </p>
+
+    <div>
+      <p>コメント件数：<%= @infomation.infomation_comments.count %></p>
+      <div class="container">
+      <% @infomation.infomation_comments.each do |infomation_comment| %>
+      <div class="row align-items-center border-top mt-2">
+        <div class="col-md-4">
+          <%= attachment_image_tag infomation_comment.user, :image, class: "comment_plofile_image m-1", fallback: "no_profile.jpg" %>
+          <%= link_to infomation_comment.user.nickname, user_path(infomation_comment.user) %><br>
+        </div>
+        <div class="col-md-2">
+        <%= infomation_comment.created_at.strftime('%Y/%m/%d') %>
+        </div>
+        <div class="col-md-4">
+        <%= infomation_comment.comment %>
+        </div>
+        <div class="col-md-2">
+        <% if infomation_comment.user == current_user %>
+          <%= link_to "削除", infomation_infomation_comment_path(infomation_comment.infomation, infomation_comment), method: :delete %>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+    </div>
+
+    <% if user_signed_in? %>
+      <div>
+        <%= form_with(model:[@infomation, @infomation_comment], method: :post, local: true) do |f| %>
+        <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-75 mt-4" %><br>
+        <%= f.submit "送信する" %>
+      <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
