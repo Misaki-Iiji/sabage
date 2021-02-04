@@ -1,0 +1,24 @@
+<div class="mx-auto" style="width: 600px;">
+
+  <div class="text-center">
+    <h2>Infomation</h2>
+  </div>
+
+  <div class="container">
+    <% @infomations.each do |infomation| %>
+    <div class="row align-items-center mt-3 border-top">
+      <div class="col-md-3">
+        <%= infomation.field_id %>
+      </div>
+      <div class="col-md-6 index_infomation_body">
+        <%= link_to infomation.title, infomation_path(infomation), class: "h4" %><br>
+        <%= infomation.body %>
+      </div>
+      <div class="col-md-3">
+        <%= link_to "#{infomation.infomation_comments.count} コメント", infomation_path(infomation.id) %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div>

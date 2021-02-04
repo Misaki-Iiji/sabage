@@ -19,6 +19,7 @@ class FieldsController < ApplicationController
   def show
     @field = Field.find(params[:id])
     @posts = Post.where(field_id: @field.id).page(params[:page]).per(2)
+    @infomations = @field.infomation.limit(4)
   end
 
   def edit #フィールド詳細
@@ -28,7 +29,7 @@ class FieldsController < ApplicationController
   def update #フィールド詳細
     @field = Field.find(params[:id])
     if @field.update(field_params)
-      redirect_to mypage_field_path(@field.id), notice: "フィールド情報をを編集しました"
+      redirect_to field_path(@field.id), notice: "フィールド情報をを編集しました"
     else
       @field = Field.find(current_field[:id])
       render 'mypage'

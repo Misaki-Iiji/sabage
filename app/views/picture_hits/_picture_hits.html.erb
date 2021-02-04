@@ -2,13 +2,13 @@
   <% if picture.favorited_by?(current_user) %>
     <p>
       <%= link_to post_picture_picture_hit_path(post_id: post, picture_id: picture), method: :delete, remote: true do %>
-        ♥<%= picture.picture_hits.count %>
+        ♥いいね(<%= picture.picture_hits.count %>)
       <% end %>
     </p>
     <% else %>
     <p>
       <%= link_to post_picture_picture_hit_path(post_id: post, picture_id: picture), method: :post, remote: true do %>
-        ♡<%= picture.picture_hits.count %>
+        ♡いいね(<%= picture.picture_hits.count %>)
       <% end %>
     </p>
   <% end %>
