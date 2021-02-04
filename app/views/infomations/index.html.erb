@@ -7,10 +7,10 @@
   <div class="container">
     <% @infomations.each do |infomation| %>
     <div class="row align-items-center mt-3 border-top">
-      <div class="col-md-3">
-        <%= infomation.field_id %>
+      <div class="col-md-4">
+        <%= infomation.field %>
       </div>
-      <div class="col-md-6 index_infomation_body">
+      <div class="col-md-5 index_infomation_body mt-3">
         <%= link_to infomation.title, infomation_path(infomation), class: "h4" %><br>
         <%= infomation.body %>
       </div>

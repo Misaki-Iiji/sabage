@@ -132,13 +132,28 @@ a {
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width: 768px) {
-  .fav_field {
-    margin: 2px;
-    height: auto;
-    width: 160px;
+
+  .comment_plofile_image {
+    height: 30px;
+    width: 30px;
   }
 }
+
+
+
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width: 425px) {
+  .fav_photo {
+    height: 60px;
+    width: 60px;
+  }
+
+  .fav_field {
+    height: auto;
+    width: 100px;
+  }
+
+  .field_name {
+    }
 
 }
