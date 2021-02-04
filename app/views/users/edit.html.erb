@@ -1,3 +1,12 @@
+<div class="mx-auto" style="width: 600px;">
+  <div class="text-center">
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+</div>
+
+
 <div class="col vh-100">
   <div class="mx-auto" style="width: 500px;">
     <div class="col text-center">
@@ -23,10 +32,6 @@
         <div class="field m-3">
           <%= f.label :sub_gun %><br />
           <%= f.text_field :sub_gun, autofocus: true, class: "w-100" %>
-        </div>
-        <div class="field m-3">
-          <%= f.label :email, "Email" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
         </div>
         <div class="actions">
           <%= f.submit "更新", class: "btn btn-warning w-100 mb-4" %>

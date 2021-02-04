@@ -4,11 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true, length: { maximum: 10 }
-  validates :introduction, presence: true, length: { maximum: 100 }
-  validates :main_gun, presence: true, length: { maximum: 20 }
-  validates :sub_gun, presence: true, length: { maximum: 20 }
-  validates :image, presence: true, length: { maximum: 20 }
+  validates :nickname, presence: true, length: { maximum: 15 }
+  validates :introduction, length: { maximum: 100 }
+  validates :main_gun, length: { maximum: 30 }
+  validates :sub_gun, length: { maximum: 30 }
+ 
 
 
   attachment :image

@@ -79,6 +79,22 @@ body {
   text-overflow: ellipsis;
 }
 
+.plofile_image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid white;
+}
+
+.index_plofile_image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid white;
+}
+
 .pagination>li>a {
   margin: 10px;
   color: white;
@@ -97,6 +113,7 @@ body {
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width: 768px) {
+
 
 }
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
