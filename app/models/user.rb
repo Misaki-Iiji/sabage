@@ -4,7 +4,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true, length: { maximum: 20 }
+  validates :nickname, presence: true, length: { maximum: 15 }
+  validates :introduction, length: { maximum: 100 }
+  validates :main_gun, length: { maximum: 30 }
+  validates :sub_gun, length: { maximum: 30 }
+ 
+
+
+  attachment :image
 
   # ユーザーの`deleted_at`をタイムスタンプで更新
   def soft_delete
@@ -20,17 +27,17 @@ class User < ApplicationRecord
   def inactive_message
     !deleted_at ? super : :deleted_account
   end
-  
+
   has_many :picture_hits
   has_many :pictures, through: :picture_hits
-  
+
   has_many :favorites
   has_many :fields, through: :favorites, dependent: :destroy
-  
+
   has_many :user_rooms
   has_many :chats
   has_many :rooms, through: :user_rooms
-  
+
   has_many :relationships #（foreign_key: 'user_id'は省略されてる）
   has_many :followings, through: :relationships, source: :follow #relationshipsテーブルのfollow_idを参考にして、followingsモデル(架空)にアクセス
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
@@ -39,13 +46,13 @@ class User < ApplicationRecord
 
   def follow(other_user)
     unless self == other_user #フォローしようとしている other_user が自分自身ではないかを検証
-      self.relationships.find_or_create_by(follow_id: other_user.id) #見つかれば Relation を返し、見つからなければ self.relationships.create(follow_id: other_user.id) 
+      self.relationships.find_or_create_by(follow_id: other_user.id) #見つかれば Relation を返し、見つからなければ self.relationships.create(follow_id: other_user.id)
     end
   end
 
   def unfollow(other_user) #フォローがあればアンフォロー
     relationship = self.relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship #relationship が存在すれば destroy 
+    relationship.destroy if relationship #relationship が存在すれば destroy
   end
 
   def following?(other_user)
