@@ -17,47 +17,52 @@
   </div>
 
 
-<div class="container text-center">
-  <h3 class="text-center">
-    Infomation
-    <% if current_field == @field %>
-    <%= link_to image_tag("icon3.png", :size => "25x25"), new_infomation_path %>
+  <div class="container text-center">
+    <h3 class="text-center">
+      Infomation
+      <% if current_field == @field %>
+      <%= link_to image_tag("icon3.png", :size => "25x25"), new_infomation_path %>
+      <% end %>
+    </h3>
+    <% if @field.infomation.present? %>
+      <% @infomations.each do |infomation| %>
+          <%=  %>
+          <%= link_to infomation.title, infomation_path(infomation) %><br>
+      <% end %>
+      <% else %>
+      <div class="text-center">No Infomation</div>
     <% end %>
-  </h3>
+  </div>
+  </div>
 
-    <% @infomations.each do |infomation| %>
-        <%=  %>
-        <%= link_to infomation.title, infomation_path(infomation) %><br>
-    <% end %>
-</div>
-
-<div class="container">
-  <h3 class="text-center">
-    Photo
-    <% if current_field == @field %>
-        <%= link_to image_tag("icon3.png", :size => "25x25"), new_post_path %>
-    <% end %>
-  </h3>
-  <div class="row">
-  <% if @field.posts.present? %>
-    <% @posts.each do |post| %>
-      <div class="mt-2">
-        <%= post.created_at.strftime('%Y/%m/%d') %>
-      </div>
-      <div>
-          <% post.pictures.each do |picture| %>
-            <%= link_to post_picture_path(post, picture) do %>
-              <%= attachment_image_tag picture, :image, :size => '100x100', class: "mb-1" %>
+  <div class="container">
+    <h3 class="text-center">
+      Photo
+      <% if current_field == @field %>
+          <%= link_to image_tag("icon3.png", :size => "25x25"), new_post_path %>
+      <% end %>
+    </h3>
+    <% if @field.posts.present? %>
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="mt-2">
+          <%= post.created_at.strftime('%Y/%m/%d') %>
+        </div>
+        <div>
+            <% post.pictures.each do |picture| %>
+              <%= link_to post_picture_path(post, picture) do %>
+                <%= attachment_image_tag picture, :image, :size => '100x100', class: "mb-1" %>
+              <% end %>
             <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <% else %>
-        投稿写真はありません。
-      <% end %>
-    <div class="d-flex justify-content-center">
-      <%= paginate @posts %>
+        </div>
+        <div class="d-flex justify-content-center">
+          <%= paginate @posts %>
+        </div>
     </div>
+    <% else %>
+      <div class="text-center">No Photo</div>
+    <% end %>
   </div>
-</div>
+
 </div>
