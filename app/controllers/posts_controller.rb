@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.where(field_id: current_field.id)
+    @posts = Post.where(field_id: current_field.id).page(params[:page]).per(10)
   end
 
   private

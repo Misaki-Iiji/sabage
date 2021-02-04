@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 100 }
   validates :main_gun, length: { maximum: 30 }
   validates :sub_gun, length: { maximum: 30 }
- 
+
 
 
   attachment :image
@@ -43,6 +43,8 @@ class User < ApplicationRecord
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   #has_many :relaitonshipsの「逆方向」、class_name: 'Relationship'でrelationsipモデルの事、relaitonshipsテーブルにアクセスする時、follow_idを入口とする
   has_many :followers, through: :reverse_of_relationships, source: :user
+
+  has_many :infomation_comments, dependent: :destroy
 
   def follow(other_user)
     unless self == other_user #フォローしようとしている other_user が自分自身ではないかを検証

@@ -20,15 +20,18 @@
     <ul class="navbar-nav">
     <% if field_signed_in? %>
       <li class="nav-item">
-        <%= link_to image_tag("icon7.png", :size => "25x25"), field_path(current_field), class:"m-3" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to image_tag("icon6.png", :size => "25x25"), post_path(current_field), class:"m-3" %>
+        <%= link_to image_tag("icon10.png", :size => "25x25"), infomations_path, class:"m-3" %>
       </li>
       <li class="nav-item">
         <%= link_to image_tag("icon2.png", :size => "25x25"), fields_ranking_path, class:"m-3" %>
       </li>
+      <li class="nav-item">
+        <%= link_to image_tag("icon4.png", :size => "25x25"), field_path(current_field), class:"m-3" %>
+      </li>
     <% elsif user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to image_tag("icon10.png", :size => "25x25"), infomations_path, class:"m-2" %>
+      </li>
       <li class="nav-item">
         <%= link_to image_tag("icon9.png", :size => "25x25"), users_path, class:"m-2" %>
       </li>

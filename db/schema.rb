@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_134453) do
+ActiveRecord::Schema.define(version: 2021_02_04_094222) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id"
@@ -50,6 +50,22 @@ ActiveRecord::Schema.define(version: 2021_02_03_134453) do
     t.datetime "deleted_at"
     t.index ["email"], name: "index_fields_on_email", unique: true
     t.index ["reset_password_token"], name: "index_fields_on_reset_password_token", unique: true
+  end
+
+  create_table "infomation_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "infomation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "infomations", force: :cascade do |t|
+    t.integer "field_id"
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "picture_hits", force: :cascade do |t|

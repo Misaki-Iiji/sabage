@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :fields, controllers: {
     sessions:      'fields/sessions',
     passwords:     'fields/passwords',
@@ -21,12 +22,16 @@ Rails.application.routes.draw do
     resource :favorite, only: [:create, :destroy]
   end
 
+  resources :infomations do
+    resources :infomation_comments, only: [:create, :destroy]
+  end
+
   resources :posts, only: [:new, :create, :show] do
     resources :pictures, only: [:show, :create, :show] do
       resource :picture_hit, only: [:create, :destroy]
     end
   end
-  
+
   resources :users do
     get :followings, on: :member
     get :followers, on: :member

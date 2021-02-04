@@ -11,13 +11,27 @@
       <%= render 'favorites/favorite', field: @field %>
     </div>
 
-    <%= attachment_image_tag @field, :image, :size => '800x400'%><br>
+    <%= attachment_image_tag @field, :image, :size => '760x400'%><br>
     住所：<%= @field.address %><br>
     <%= simple_format(@field.introduction) %>
   </div>
+
+
+<div class="container text-center">
+  <h3 class="text-center">
+    Infomation
+    <% if current_field == @field %>
+    <%= link_to image_tag("icon3.png", :size => "25x25"), new_infomation_path %>
+    <% end %>
+  </h3>
+
+    <% @infomations.each do |infomation| %>
+        <%=  %>
+        <%= link_to infomation.title, infomation_path(infomation) %><br>
+    <% end %>
 </div>
 
-<div class="container m-5">
+<div class="container">
   <h3 class="text-center">
     Photo
     <% if current_field == @field %>
@@ -27,16 +41,17 @@
   <div class="row">
   <% if @field.posts.present? %>
     <% @posts.each do |post| %>
-        <%= post.created_at.strftime('%Y/%m/%d') %><br>
+      <div class="mt-2">
+        <%= post.created_at.strftime('%Y/%m/%d') %>
+      </div>
+      <div>
           <% post.pictures.each do |picture| %>
-            <%= link_to post_picture_path(picture) do %>
-              <%= attachment_image_tag picture, :image, :size => '100x100', class: "m-1" %>
+            <%= link_to post_picture_path(post, picture) do %>
+              <%= attachment_image_tag picture, :image, :size => '100x100', class: "mb-1" %>
             <% end %>
-            <div id="likes_buttons_<%= picture.id %>">
-              <%= render 'picture_hits/picture_hits', picture: picture, post: post %>
-            </div>
           <% end %>
         <% end %>
+      </div>
       <% else %>
         投稿写真はありません。
       <% end %>
@@ -44,4 +59,5 @@
       <%= paginate @posts %>
     </div>
   </div>
+</div>
 </div>

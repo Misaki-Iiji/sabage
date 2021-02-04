@@ -1,0 +1,20 @@
+<div class="mx-auto" style="width: 600px;">
+  <div class="m-5 text-center">
+    <h2>New Infomation</h2>
+    <%= form_with scope: :infomation, url: infomations_path, local: true do |info| %>
+        <p>
+          <%= info.label :title %><br>
+          <%= info.text_field :title, class: "w-100" %>
+        </p>
+
+        <p>
+          <%= info.label :body %><br>
+          <%= info.text_area :body, class: "w-100" %>
+        </p>
+
+        <p>
+          <%= info.submit %>
+        </p>
+    <% end %>
+  </div>
+</div>
