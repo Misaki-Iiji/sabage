@@ -1,0 +1,20 @@
+<div class="mx-auto" style="width: 600px;">
+<div class="m-5 text-center">
+  <h3>
+    Edit Infomation
+  </h3>
+  <%= form_with(model: @infomation, local: true) do |infomation| %>
+    <p>
+      <%= infomation.label :title %><br>
+      <%= infomation.text_field :title, class: "w-100" %>
+    </p>
+    <p>
+      <%= infomation.label :body %><br>
+      <%= infomation.text_area :body, class: "w-100" %>
+    </p>
+    <p>
+      <%= infomation.submit %>
+    </p>
+  <% end %>
+</div>
+</div>
