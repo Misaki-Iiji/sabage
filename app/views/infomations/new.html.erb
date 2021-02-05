@@ -4,12 +4,12 @@
     <%= form_with scope: :infomation, url: infomations_path, local: true do |info| %>
         <p>
           <%= info.label :title %><br>
-          <%= info.text_field :title, class: "w-100" %>
+          <%= info.text_field :title, class: "w-85" %>
         </p>
 
         <p>
           <%= info.label :body %><br>
-          <%= info.text_area :body, class: "w-100" %>
+          <%= info.text_area :body, class: "w-85" %>
         </p>
 
         <p>
