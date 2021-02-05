@@ -11,10 +11,10 @@
 
   <body>
     <header>
-    <nav class="navbar navbar-expand navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-expand">
       <ul class="navbar-nav mr-auto">
         <li>
-          <%= link_to image_tag("logo.png", :size => "90x90"), root_path, class: "m-2" %>
+          <%= link_to image_tag("logo.png", :size => "60x60"), root_path, class: "m-2" %>
         </li>
       </ul>
     <ul class="navbar-nav">
@@ -33,10 +33,13 @@
         <%= link_to image_tag("icon10.png", :size => "25x25"), infomations_path, class:"m-2" %>
       </li>
       <li class="nav-item">
-        <%= link_to image_tag("icon9.png", :size => "25x25"), users_path, class:"m-2" %>
+        <%= link_to image_tag("icon13.png", :size => "23x23"), fields_path, class:"m-2" %>
       </li>
       <li class="nav-item">
         <%= link_to image_tag("icon2.png", :size => "25x25"), fields_ranking_path, class:"m-2" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to image_tag("icon9.png", :size => "25x25"), users_path, class:"m-2" %>
       </li>
       <li class="nav-item">
         <%= link_to image_tag("icon4.png", :size => "25x25"), user_path(current_user), class:"m-2" %>
@@ -54,13 +57,8 @@
     <% end %>
     </ul>
     </header>
-    <div class="top"></div> <!--スマホ用top-->
-    <main style="min-height: 100vh;">
-      <div class="container">
-        <div class="row">
-          <%= yield %>
-        </div>
-      </div>
+    <main style="min-height: 80vh;">
+      <%= yield %>
     </main>
     <footer class="d-flex align-items-center justify-content-center text-light">
       © 2021 iijima inc.

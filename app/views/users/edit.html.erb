@@ -15,26 +15,26 @@
       <%= form_with model:@user, local:true do |f| %>
         <div class="field m-3">
           <%= f.label :image %><br>
-          <%= f.attachment_field :image, class: "w-100" %>
+          <%= f.attachment_field :image, class: "w-85" %>
         </div>
         <div class="field m-3">
           <%= f.label :nickname, "Nickname" %><br />
-          <%= f.text_field :nickname, autofocus: true, class: "w-100" %>
+          <%= f.text_field :nickname, autofocus: true, class: "w-85" %>
         </div>
         <div class="field m-3">
           <%= f.label :profile %><br />
-          <%= f.text_field :introduction, class: "w-100" %>
+          <%= f.text_field :introduction, class: "w-85" %>
         </div>
         <div class="field m-3">
           <%= f.label :main_gun %><br />
-          <%= f.text_field :main_gun, class: "w-100" %>
+          <%= f.text_field :main_gun, class: "w-85" %>
         </div>
         <div class="field m-3">
           <%= f.label :sub_gun %><br />
-          <%= f.text_field :sub_gun, autofocus: true, class: "w-100" %>
+          <%= f.text_field :sub_gun, autofocus: true, class: "w-85" %>
         </div>
         <div class="actions">
-          <%= f.submit "更新", class: "btn btn-warning w-100 mb-4" %>
+          <%= f.submit "更新", class: "btn btn-warning w-85 mb-4" %>
         </div>
       <% end %>
       <%= link_to "log out", destroy_user_session_path, class:"btn m-3 text-light", method: :delete %>

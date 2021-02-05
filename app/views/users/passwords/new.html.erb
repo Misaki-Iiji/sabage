@@ -1,23 +1,19 @@
-<div class="col vh-100">
-  <div class="mx-auto" style="width: 500px;">
-    <div class="col text-center">
+<div class="text-center">
 
-      <h2>パスワードを<br>忘れた場合</h2>
+  <h2>パスワードを<br>忘れた場合</h2>
 
-      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-        <%= render "users/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
 
-        <div class="field m-3">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
-        </div>
-
-        <div class="actions m-3">
-          <%= f.submit "リセット", class: "w-100" %>
-        </div>
-      <% end %>
-
-      <%= render "users/shared/links" %>
+    <div class="field m-3">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-85" %>
     </div>
-  </div>
+
+    <div class="actions m-3">
+      <%= f.submit "リセット", class: "w-85" %>
+    </div>
+  <% end %>
+
+  <%= render "users/shared/links" %>
 </div>

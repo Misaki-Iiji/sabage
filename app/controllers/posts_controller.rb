@@ -10,11 +10,11 @@ class PostsController < ApplicationController
     @post.save!
     redirect_to post_path(current_field)
     # @field = Field.where(id: params[:id])
-    @posts = Post.all
+    @posts = Post.all.order(id: "DESC")
   end
 
   def show
-    @posts = Post.where(field_id: current_field.id).page(params[:page]).per(10)
+    @posts = Post.where(field_id: current_field.id).order(id: "DESC").page(params[:page]).per(10)
   end
 
   private
