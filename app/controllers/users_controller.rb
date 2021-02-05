@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @fields = Field.joins(:favorites).where("favorites.user_id = ?", @user.id)
-    @pictures = @user.pictures.page(params[:page])
+    @fields = Field.joins(:favorites).where("favorites.user_id = ?", @user.id).order(id: "DESC")
+    @pictures = @user.pictures.page(params[:page]).order(id: "DESC")
   end
 
   def edit

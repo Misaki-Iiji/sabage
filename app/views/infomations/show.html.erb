@@ -1,14 +1,12 @@
-<div class="mx-auto" style="width: 800px;">
+<div class="mx-auto">
   <div class="text-center">
     <h3>
       <%= @infomation.title %>
     </h3>
-    (<%= @field.name %>)<br>
+    <%= link_to @field.name, field_path(@field) %>
       <% if current_field == @field %>
         <%= link_to '編集', edit_infomation_path(@infomation) %>/
-        <%= link_to '削除', infomation_path(@infomation),
-          method: :delete,
-          data: { confirm: '削除しますか?' } %>
+        <%= link_to '削除', infomation_path(@infomation), method: :delete, data: { confirm: '削除しますか?' } %>
       <% end %>
     <p class="m-5">
       <%= @infomation.body %>
@@ -19,9 +17,11 @@
       <% @infomation.infomation_comments.each do |infomation_comment| %>
         <div class="row align-items-center border-top mt-2">
           <div class="col-sm-4">
-            <%= link_to user_path(infomation_comment.user) do %>
+            <div class="comment_plofile_image_box">
+              <%= link_to user_path(infomation_comment.user) do %>
               <%= attachment_image_tag infomation_comment.user, :image, class: "comment_plofile_image m-1", fallback: "logo.png" %>
-              <%= infomation_comment.user.nickname %>
+            </div>
+            <%= infomation_comment.user.nickname %>
             <% end %>
           </div>
           <div class="col-sm-2">
@@ -32,7 +32,7 @@
           </div>
           <div class="col-sm-2">
             <% if infomation_comment.user == current_user %>
-            <%= link_to "削除", infomation_infomation_comment_path(infomation_comment.infomation, infomation_comment), method: :delete %>
+            <%= link_to "削除", infomation_infomation_comment_path(infomation_comment.infomation, infomation_comment), method: :delete, data: { confirm: '削除しますか?' } %>
             <% end %>
           </div>
         </div>

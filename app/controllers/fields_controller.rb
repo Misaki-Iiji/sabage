@@ -18,8 +18,8 @@ class FieldsController < ApplicationController
 
   def show
     @field = Field.find(params[:id])
-    @posts = Post.where(field_id: @field.id).page(params[:page]).per(2)
-    @infomations = @field.infomation.limit(4)
+    @posts = Post.where(field_id: @field.id).order(id: "DESC").page(params[:page]).per(2)
+    @infomations = @field.infomation.limit(4).order(id: "DESC")
   end
 
   def edit #フィールド詳細
@@ -32,7 +32,8 @@ class FieldsController < ApplicationController
       redirect_to field_path(@field.id), notice: "フィールド情報をを編集しました"
     else
       @field = Field.find(current_field[:id])
-      render 'mypage'
+      flash[:notice] = "フィールド名20文字、フィールド説明500文字まで"
+      render 'edit'
     end
   end
 
