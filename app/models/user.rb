@@ -9,8 +9,6 @@ class User < ApplicationRecord
   validates :main_gun, length: { maximum: 30 }
   validates :sub_gun, length: { maximum: 30 }
 
-
-
   attachment :image
 
   # ユーザーの`deleted_at`をタイムスタンプで更新
@@ -61,4 +59,11 @@ class User < ApplicationRecord
     self.followings.include?(other_user) #self.followings によりフォローしている User 達を取得、include?(other_user) によって other_user が含まれていないかを確認
   end
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+    end
+  end
+  
 end

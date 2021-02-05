@@ -18,7 +18,7 @@ class FieldsController < ApplicationController
 
   def show
     @field = Field.find(params[:id])
-    @posts = Post.where(field_id: @field.id).order(id: "DESC").page(params[:page]).per(2)
+    @posts = Post.where(field_id: @field.id).order(id: "DESC").page(params[:page]).per(5)
     @infomations = @field.infomation.limit(4).order(id: "DESC")
   end
 
