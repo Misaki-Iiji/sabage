@@ -20,7 +20,6 @@
 @charset "UTF-8";
 
 * {
-  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
@@ -32,6 +31,7 @@
 
 header {
   padding: 0;
+
 }
 
 footer {
@@ -54,7 +54,7 @@ h1 {
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 40px;
   color: white;
     font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
@@ -70,10 +70,16 @@ body {
   background-color: black;
   color: white;
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  margin: 0 auto;
+
 }
 
 a {
   color: white;
+}
+
+a:hover {
+  color: gray;
 }
 
 .field_name {
@@ -98,6 +104,21 @@ a {
   padding: 5px;
   border: 1px solid white;
 }
+
+.field_index_box {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 250px;
+  text-overflow: ellipsis;
+}
+
+.follow_plofile_image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid white;
+  }
 
 .comment_plofile_image {
   width: 60px;
@@ -130,15 +151,118 @@ a {
   color: gray;
 }
 
+.message {
+  width: 80vw;
+}
+
+.message_body {
+  width: 70vw;
+}
+
+.message_box {
+  width: 73vw;
+  margin: 0 auto;
+}
+
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width: 768px) {
-  .fav_field {
-    margin: 2px;
+
+  .about_image {
+    width: 100vw;
     height: auto;
-    width: 160px;
   }
+
+  .about_images {
+    width: 40vw;
+    height: 100px;
+  }
+
+  .comment_plofile_image_box {
+    width: 10vw;
+  }
+
+  .comment_plofile_image {
+    height: 30px;
+    width: 30px;
+  }
+
+  .plofile_image_box {
+    margin: 0px 130px;
+  }
+
+  .plofile_image {
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid white;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .photo {
+    height: 80px;
+    width: 80px;
+    display: flex;
+  }
+
+  .fav_photo {
+    height: 80px;
+    width: 80px;
+  }
+
+  .fav_field_name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100px;
+  }
+
+  .field-fav {
+    display: block;
+  }
+
+  .fav_field_image {
+    display: none;
+  }
+
+  .followings_btn {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  .follow_plofile_image_box {
+    width: 10vw;
+  }
+
+  .follow_plofile_image {
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid white;
+  }
+
+  .followings_btn {
+    display: flex;
+  }
+
 }
+
+
+
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width: 425px) {
+
+  .index_infomation_body {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 350px;
+    text-overflow: ellipsis;
+  }
+
+  .field_show_main {
+    width: 100vw;
+  }
 
 }

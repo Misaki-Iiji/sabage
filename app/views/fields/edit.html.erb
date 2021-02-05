@@ -1,35 +1,35 @@
-<div class="col vh-100">
-  <div class="mx-auto" style="width: 500px;">
-    <div class="col text-center">
+<div class="text-center">
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
 
-      <h2>フィールド編集</h2>
-      <%= form_with model: @field, local: true do |f| %>
-        <div class="field m-3">
-          <%= f.label :name, "フィールド名" %><br>
-          <%= f.text_field :name, autofocus: true, class: "w-100" %>
-        </div>
-        <div class="field m-3">
-          <%= f.label :image, "フィールドイメージ" %><br>
-          <%= f.attachment_field :image, class: "w-100" %>
-        </div>
-        <div class="field m-3">
-          <%= f.label :address, "フィールド住所" %><br>
-          <%= f.text_field :address, class: "w-100" %>
-        </div>
-        <div class="field m-3">
-          <%= f.label :introduction, "フィールド説明（300文字以内）" %><br>
-          <%= f.text_area :introduction, class: "w-100" %>
-        </div>
-        <div class="field m-3">
-          <%= f.label :email %><br>
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
-        </div>
-        <div class="actions">
-          <%= f.submit "更新", class: "btn btn-warning w-100 mb-4" %>
-        </div>
-      <% end %>
-
-        <%= link_to "log out", destroy_field_session_path, class:"btn m-3 text-light", method: :delete %>
+  <h2>フィールド編集</h2>
+  <%= form_with model: @field, local: true do |f| %>
+    <div class="field m-3">
+      <%= f.label :name, "フィールド名" %><br>
+      <%= f.text_field :name, autofocus: true, class: "w-85" %>
     </div>
-  </div>
+    <div class="field m-3">
+      <%= f.label :image, "フィールドイメージ" %><br>
+      <%= f.attachment_field :image, class: "w-10850" %>
+    </div>
+    <div class="field m-3">
+      <%= f.label :address, "フィールド住所" %><br>
+      <%= f.text_field :address, class: "w-18500" %>
+    </div>
+    <div class="field m-3">
+      <%= f.label :introduction, "フィールド説明（300文字以内）" %><br>
+      <%= f.text_area :introduction, class: "w-85" %>
+    </div>
+    <div class="field m-3">
+      <%= f.label :email %><br>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-85" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "更新", class: "btn btn-warning w-85 mb-4" %>
+    </div>
+  <% end %>
+
+    <%= link_to "log out", destroy_field_session_path, class:"btn m-3 text-light", method: :delete %>
+
 </div>

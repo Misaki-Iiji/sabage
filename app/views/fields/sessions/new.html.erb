@@ -1,8 +1,8 @@
 <div class="col vh-100">
-  <div class="mx-auto" style="width: 500px;">
-    <div class="col text-center">
+  <div class="mx-auto">
+    <div class="text-center">
 
-    <h2>フィールドログイン</h2>
+    <h2>Field</h2>
 
     <%= form_with model: @field, url: field_session_path, local: true do |f| %>
       <% flash.each do |key, value| %>
@@ -13,13 +13,13 @@
 
       <div class="field m-3">
         <%= f.label :Eメール %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-100" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-85" %>
       </div>
 
       <div class="field m-3">
         <%= f.label :パスワード %>
        <span>(6文字以上)</span><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "w-100" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "w-85" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
@@ -30,7 +30,7 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "ログイン", class: "btn btn-warning text-center w-100 mb-4 login" %>
+        <%= f.submit "ログイン", class: "btn btn-warning text-center w-85 mb-4 login" %>
       </div>
     <% end %>
 

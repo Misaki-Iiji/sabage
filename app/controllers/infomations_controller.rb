@@ -2,7 +2,7 @@ class InfomationsController < ApplicationController
   before_action :authenticate_field!, only: [:new, :create, :update, :edit, :destroy]
 
   def index
-    @infomations = Infomation.all.limit(15)
+    @infomations = Infomation.order(id: "DESC").all.limit(15)
   end
 
   def show
@@ -42,6 +42,7 @@ class InfomationsController < ApplicationController
 
   def destroy
     @infomation = Infomation.find(params[:id])
+    @infomation.field_id = current_field.id
     @infomation.destroy
     redirect_to infomations_path
     flash[:notice] = "削除しました"
