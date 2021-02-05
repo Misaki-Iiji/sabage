@@ -1,80 +1,82 @@
-<div class="mx-auto" style="width: 600px;">
-  <div class="text-center">
-    <% if flash[:notice] %>
-      <p><%= flash[:notice] %></p>
-    <% end %>
-  </div>
-</div>
+  <div class="mx-auto">
 
-<div class="container">
-  <div class="mx-auto" style="width: 400px;">
     <div class="text-center">
-      <%= attachment_image_tag @user, :image, class: "plofile_image m-3", fallback: "logo.png" %><br>
-      <%= @user.nickname %><br>
+      <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+      <% end %>
+    </div>
+
+    <div class="text-center">
+      <div class="plofile_image_box">
+        <%= attachment_image_tag @user, :image, class: "plofile_image", fallback: "logo.png" %><br>
+      </div>
 
       <div class="m-2">
-        main-<%= @user.main_gun %>/
-        sub-<%= @user.sub_gun %></div>
-      <%= @user.introduction %>
+        <%= @user.nickname %><br>
+        main-<%= @user.main_gun %>/sub-<%= @user.sub_gun %><br>
+        <%= @user.introduction %>
+      </div>
 
       <% if user_signed_in? %> <!--user用-->
-      <div class="m-1">
-        <%= link_to "#{@user.followings.count} Followings", followings_user_path(@user.id), class: "text-light" %>
-        <%= "|" %>
-        <%= link_to "#{@user.followers.count} Followers", followers_user_path(@user.id), class: "text-light" %>
-      </div>
+        <div class="m-1">
+          <%= link_to "#{@user.followings.count} Followings", followings_user_path(@user.id), class: "text-light" %>
+          <%= "|" %>
+          <%= link_to "#{@user.followers.count} Followers", followers_user_path(@user.id), class: "text-light" %>
+        </div>
         <div class="d-flex align-items-center justify-content-center">
-        <%= render 'relationships/follow_button', user: @user %>
+          <%= render 'relationships/follow_button', user: @user %>
 
           <% if current_user.following?(@user) %> <!--フォローユーザー用-->
             <%= link_to image_tag("icon8.png", :size => "23x23"), chat_path(@user.id), class: "btn btn-dark m-2" %>
           <% end %>
 
-        <% if current_user == @user %> <!--ログインユーザー用-->
-          <%= link_to "Edit Profile", edit_user_path(current_user), class:"btn btn-dark m-2" %>
-        <% end %>
-        <% elsif field_signed_in? %> <!--フィールド用-->
+          <% if current_user == @user %> <!--ログインユーザー用-->
+            <%= link_to "Edit Profile", edit_user_path(current_user), class:"btn btn-dark m-2" %>
+          <% end %>
+        </div>
+      <% elsif field_signed_in? %> <!--フィールド用-->
           <p>
             <%= @user.followings.count %>Followings/
             <%= @user.followers.count %>Followers
           </p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container ml-2">
-  <h3 class="text-center border-bottom">Favorite Field</h3>
-  <% if @user.fields.present? %>
-    <div class="row mx-auto" style="width: 780px;">
-      <% @fields.each do |field| %>
-      <div class="col-6 mb-3">
-        <%= attachment_image_tag field, :image, :size => '120x80', fallback: "no_image.jpg", class: "fav_field_image" %>
-        <%= link_to field.name, field_path(field), class: "text-center field_name" %>
-      </div>
       <% end %>
     </div>
-  <% else %>
-     <div class="text-center">No Field</div>
-  <% end %>
-</div>
+
+    <div class="m-5">
+    <h3 class="text-center border-bottom">Favorite Field</h3>
+    <% if @user.fields.present? %>
+      <div class="row m-3 field-fav">
+        <% @fields.each do |field| %>
+        <div class="col-4 mb-3">
+          <%= attachment_image_tag field, :image, :size => '120x80', fallback: "no_image.jpg", class: "fav_field_image" %>
+          <%= link_to field.name, field_path(field), class: "text-center fav_field_name" %>
+        </div>
+        <% end %>
+      </div>
+    <% else %>
+       <div class="text-center">No Field
+       </div>
+    <% end %>
+    </div>
 
 
-<div class="container ml-2">
-  <h3 class="text-center border-bottom">Photo</h3>
-  <% if @user.pictures.present? %>
-      <% @pictures.each do |picture| %>
-          <%= link_to post_picture_path(post_id: picture.post_id, id: picture.id) do %>
-            <%= attachment_image_tag picture, :image, :size => '160x160', class: "m-2 fav_photo" %>
-          <% end %>
-       <% end %>
-      <div class="d-flex justify-content-center">
-        <%= paginate @pictures %>
-      </div>
-  <% else %>
-     <div class="text-center">
-         No Photo
-      </div>
-  <% end %>
+
+    <div class="photo-fav m-5">
+      <h3 class="text-center border-bottom">Photo</h3>
+      <% if @user.pictures.present? %>
+          <% @pictures.each do |picture| %>
+              <%= link_to post_picture_path(post_id: picture.post_id, id: picture.id) do %>
+                <%= attachment_image_tag picture, :image, :size => '160x160', class: "m-1 fav_photo" %>
+              <% end %>
+           <% end %>
+          <div class="d-flex justify-content-center">
+            <%= paginate @pictures %>
+          </div>
+      <% else %>
+        <div class="text-center">
+           No Photo
+        </div>
+      <% end %>
+    </div>
+
 </div>

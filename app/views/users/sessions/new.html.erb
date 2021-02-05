@@ -1,43 +1,41 @@
-<div class="col vh-100">
-  <div class="mx-auto" style="width: 500px;">
-    <div class="col text-center">
+<div class="mx-auto">
+  <div class="text-center">
 
-      <h2>HELLO SURVIVALにログイン</h2>
+    <h2>HELLO SURVIVAL</h2>
 
-      <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-        <% flash.each do |key, value| %>
-          <% if flash[key] != "ログアウトしました。" %>
-            <%= content_tag(:div, value) %>
-          <% end %>
+    <%= form_with model: @user, url: user_session_path, local: true do |f| %>
+      <% flash.each do |key, value| %>
+        <% if flash[key] != "ログアウトしました。" %>
+          <%= content_tag(:div, value) %>
         <% end %>
+      <% end %>
 
+      <div class="field m-3">
+        <%= f.label :email, "Eメール" %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eメール", class: "w-85" %>
+      </div>
+
+      <div class="field m-3">
+        <%= f.label :password, "パスワード(6文字以上)" %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "w-85"  %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
         <div class="field m-3">
-          <%= f.label :email, "Eメール" %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Eメール", class: "w-100" %>
-        </div>
-
-        <div class="field m-3">
-          <%= f.label :password, "パスワード(6文字以上)" %><br />
-          <%= f.password_field :password, autocomplete: "current-password", class: "w-100"  %>
-        </div>
-
-        <% if devise_mapping.rememberable? %>
-          <div class="field m-3">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me, "ログイン状態を保存する" %>
-          </div>
-        <% end %>
-
-        <div class="actions">
-          <%= f.submit "ログイン", class: "btn btn-warning text-center w-100 mb-4" %>
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, "ログイン状態を保存する" %>
         </div>
       <% end %>
 
-     <div class="text-center">
-      <p>または</p>
-        <div class="col text-center">
-          <%= render "users/shared/links" %>
-        </div>
+      <div class="actions">
+        <%= f.submit "ログイン", class: "btn btn-warning text-center w-85 mb-4" %>
+      </div>
+    <% end %>
+
+   <div class="text-center">
+    <p>または</p>
+      <div class="col text-center">
+        <%= render "users/shared/links" %>
       </div>
     </div>
   </div>
