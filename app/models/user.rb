@@ -45,6 +45,7 @@ class User < ApplicationRecord
   has_many :infomation_comments, dependent: :destroy
 
   has_many :chat_group_to_users
+  has_many :group_chats
   has_many :chat_groups, through: :chat_group_to_users
 
   def follow(other_user)

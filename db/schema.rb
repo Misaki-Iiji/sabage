@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_05_144724) do
+ActiveRecord::Schema.define(version: 2021_02_06_083025) do
 
   create_table "chat_group_to_users", force: :cascade do |t|
     t.integer "chat_group_id"
@@ -66,6 +66,14 @@ ActiveRecord::Schema.define(version: 2021_02_05_144724) do
     t.datetime "deleted_at"
     t.index ["email"], name: "index_fields_on_email", unique: true
     t.index ["reset_password_token"], name: "index_fields_on_reset_password_token", unique: true
+  end
+
+  create_table "group_chats", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "chat_group_id"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "infomation_comments", force: :cascade do |t|

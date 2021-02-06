@@ -20,28 +20,25 @@
 
     <ul>
 
-      <% if @chat_group == [] %>
-        <p>Clanに参加してみませんか？</p>
+      <%# if @chat_group == [] %>
+        <!--<p>Clanに参加してみませんか？</p>-->
+
         <% @chat_groups.each do |chat_group| %>
-          <%= link_to"/chat_groups/#{chat_group.id}" do %>
-            <%= chat_group.chat_group_name %>
-            (<%= chat_group.user_ids.count %>)
-          <% end %>
-        <% end %>
-      <% else %>
-        <% @chat_groups.each do |chat_group| %>
-          <% if chat_group.user_ids.include?(current_user.id) %>
+          <%# if chat_group.user_ids.include?(current_user.id) %>
           <li>
-            <%= link_to"/chat_groups/#{chat_group.id}" do %>
-              <%= chat_group.chat_group_name %>
-              (<%= chat_group.user_ids.count %>)
+              <% unless ChatGroupToUser.exists?(chat_group_id: chat_group.id, user_id: current_user.id) %>
+                <%= link_to grouxp_chats_path(chat_group.id) do %>
+                  <%= chat_group.chat_group_name %>
+                  (<% chat_group.user_ids.count %>)参加する
+                <% end %>
+              <% else %>
+                <%= chat_group.chat_group_name %>
+                (<% chat_group.user_ids.count %>)参加中
             <% end %>
           </li>
-          <% end %>
-        <% end %>
       <% end %>
     </ul>
-    
+
   </div>
 
   <div class="chat_group_user_page">

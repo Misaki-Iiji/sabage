@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'group_chats/show'
   devise_for :fields, controllers: {
     sessions:      'fields/sessions',
     passwords:     'fields/passwords',
@@ -16,6 +17,8 @@ Rails.application.routes.draw do
   get 'homes/about'
   get 'fields/ranking'
   get 'chat/:id' => 'chats#show', as: 'chat'
+  get 'group_chats/:id' => 'group_chats#show', as: 'group_chats'
+  post 'group_chats/:id' => 'group_chats#create', as: 'group_chat'
   resources :chats, only: [:index, :create]
 
   resources :fields do
