@@ -1,0 +1,50 @@
+<div class="chat-group">
+　<h2>Group</h2>
+
+　<div class="text-center">
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+
+　<div class="chat_group_search">
+    <div class="chat_group_search_form">
+      <%= form_with url: chat_groups_path do |f| %>
+        <%= f.text_field :keyword, placeholder: "Clan Search", class: "chat_group_search_form_input" %>
+        <%= f.submit '検索' %>
+      <% end %>
+    </div>
+    <div class="chat_group_new">
+      <%= link_to "グループ新規登録", new_chat_group_path %>
+    </div>
+
+    <ul>
+
+      <% if @chat_group == [] %>
+        <p>Clanに参加してみませんか？</p>
+        <% @chat_groups.each do |chat_group| %>
+          <%= link_to"/chat_groups/#{chat_group.id}" do %>
+            <%= chat_group.chat_group_name %>
+            (<%= chat_group.user_ids.count %>)
+          <% end %>
+        <% end %>
+      <% else %>
+        <% @chat_groups.each do |chat_group| %>
+          <% if chat_group.user_ids.include?(current_user.id) %>
+          <li>
+            <%= link_to"/chat_groups/#{chat_group.id}" do %>
+              <%= chat_group.chat_group_name %>
+              (<%= chat_group.user_ids.count %>)
+            <% end %>
+          </li>
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+    
+  </div>
+
+  <div class="chat_group_user_page">
+    <%# link_to "ユーザーページへ", user_page_user_path %>
+  </div>
+</div>

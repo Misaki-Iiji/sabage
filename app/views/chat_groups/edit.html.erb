@@ -1,0 +1,11 @@
+<h2>Edit</h2>
+
+<%= form_with url: chat_group_path(@chat_group), model: @chat_group, method: :patch do |f| %>
+  <%= f.label :chat_group_name %>
+  <%= f.text_field :chat_group_name %>
+  <%= f.label :chat_group_description %>
+  <%= f.text_area :chat_group_description %>
+  <%= f.submit "更新" %>
+<% end %>
+
+<%= link_to "クラン一覧に戻る", chat_group_path %>

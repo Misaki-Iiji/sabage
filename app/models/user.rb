@@ -44,6 +44,9 @@ class User < ApplicationRecord
 
   has_many :infomation_comments, dependent: :destroy
 
+  has_many :chat_group_to_users
+  has_many :chat_groups, through: :chat_group_to_users
+
   def follow(other_user)
     unless self == other_user #フォローしようとしている other_user が自分自身ではないかを検証
       self.relationships.find_or_create_by(follow_id: other_user.id) #見つかれば Relation を返し、見つからなければ self.relationships.create(follow_id: other_user.id)
@@ -65,5 +68,5 @@ class User < ApplicationRecord
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
-  
+
 end
