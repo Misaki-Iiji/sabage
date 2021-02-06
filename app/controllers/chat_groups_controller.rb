@@ -2,13 +2,7 @@ class ChatGroupsController < ApplicationController
 
   def index
     @chat_groups = ChatGroup.all
-    @chat_group = ChatGroupToUser.where(user_id: current_user.id)
-  end
-
-  def show
-    @chat_group = ChatGroup.find(params[:id])
-    @chat_members = ChatGroupToUser.where(chat_group_id: @chat_group.id)
-    @users = User.find(@chat_members.ids)
+    # @chat_group = ChatGroupToUser.where(chat_group: chat_group, user: current_user)
   end
 
   def new
@@ -57,7 +51,7 @@ class ChatGroupsController < ApplicationController
 
   private
   def chat_group_params
-    params.require(:chat_group).permit(:chat_group_name, :chat_group_description)
+    params.require(:chat_group).permit(:chat_group_name, :chat_group_description, user_ids:[])
   end
 
 end
