@@ -1,0 +1,15 @@
+<h2>New Clan</h2>
+
+<%= form_with url: chat_groups_path, model: @chat_group do |f| %>
+  <div>
+    <div>
+      <%= f.label :chat_group_name, "Clan Name" %>
+      <%= f.text_field :chat_group_name %>
+    </div>
+    <div>
+      <%= f.label :chat_group_description, "Clan Infomation" %>
+      <%= f.text_area :chat_group_description %>
+    </div>
+    <%= f.submit "作成" %>
+  </div>
+<% end %>
