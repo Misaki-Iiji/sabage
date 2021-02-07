@@ -1,0 +1,18 @@
+<h2>New Clan</h2>
+
+<%= form_with url: chat_groups_path, model: @chat_group do |f| %>
+  <% text_field_tag 'chat_group[user_ids]',"#{current_user.id}", type: 'hidden' %>
+  <!--chat_group_to_usersの情報を送る。type: 'hidden'でフォームがなくなる。-->
+
+  <div>
+    <div>
+      <%= f.label :chat_group_name, "Clan Name" %>
+      <%= f.text_field :chat_group_name %>
+    </div>
+    <div>
+      <%= f.label :chat_group_description, "Clan Infomation" %>
+      <%= f.text_area :chat_group_description %>
+    </div>
+    <%= f.submit "作成" %>
+  </div>
+<% end %>
