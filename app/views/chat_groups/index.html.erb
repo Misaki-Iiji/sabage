@@ -27,13 +27,11 @@
           <%# if chat_group.user_ids.include?(current_user.id) %>
           <li>
               <% unless ChatGroupToUser.exists?(chat_group_id: chat_group.id, user_id: current_user.id) %>
-                <%= link_to grouxp_chats_path(chat_group.id) do %>
-                  <%= chat_group.chat_group_name %>
-                  (<% chat_group.user_ids.count %>)参加する
-                <% end %>
+                <%= link_to chat_group.chat_group_name, group_chats_path(chat_group.id) %>
+                (<%= chat_group.joins.count %>人)
               <% else %>
-                <%= chat_group.chat_group_name %>
-                (<% chat_group.user_ids.count %>)参加中
+                <%= link_to chat_group.chat_group_name, group_chats_path(chat_group.id) %>
+                (<%= chat_group.joins.count %>人)
             <% end %>
           </li>
       <% end %>

@@ -1,7 +1,21 @@
 <div class="mx-auto">
   <div class="container message">
-
     <h3 class="text-left border-bottom m-3"><%= @chat_group.chat_group_name %></h3>
+    
+    <% if @chat_group.joined_by?(current_user) %>
+      <p>
+        <%= link_to chat_group_join_path(@chat_group), method: :delete do %>
+          参加<%= @chat_group.joins.count %>
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to chat_group_join_path(@chat_group), method: :post do %>
+          脱退<%= @chat_group.joins.count %>
+        <% end %>
+      </p>
+    <% end %>
+
     <% @group_chats.each do |chat| %>
       <% if chat.user_id == current_user.id %>
         <p class="text-right mr-3"><%= chat.message %></p>
@@ -11,6 +25,7 @@
       <% end %>
     <% end %>
   </div>
+
 
     <div class="text-right message_box">
       <%= form_with model: @group_chat, method: :post do |f| %>

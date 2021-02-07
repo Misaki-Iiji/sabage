@@ -39,7 +39,11 @@ Rails.application.routes.draw do
     get :followings, on: :member
     get :followers, on: :member
   end
+  
   resources :relationships, only: [:create, :destroy]
-  resources :chat_groups
+  
+  resources :chat_groups do
+    resource :join, only: [:create, :destroy]
+  end
   post '/homes/guest_sign_in', to: 'homes#new_guest' #ゲストログイン
 end

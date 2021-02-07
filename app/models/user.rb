@@ -47,6 +47,7 @@ class User < ApplicationRecord
   has_many :chat_group_to_users
   has_many :group_chats
   has_many :chat_groups, through: :chat_group_to_users
+  has_many :joins, dependent: :destroy
 
   def follow(other_user)
     unless self == other_user #フォローしようとしている other_user が自分自身ではないかを検証
