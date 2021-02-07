@@ -1,0 +1,1 @@
+$('#joins_buttons_<%= @chat_group.id %>').html("<%= j(render partial: 'joins/join', locals: {chat_group: @chat_group, group_chats: @group_chats, group_chat: @group_chat}) %>");
