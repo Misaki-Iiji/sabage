@@ -14,7 +14,7 @@
     <nav class="navbar navbar-expand">
       <ul class="navbar-nav mr-auto">
         <li>
-          <%= link_to image_tag("logo.png", :size => "60x60"), root_path, class: "m-2" %>
+          <%= link_to image_tag("main_logo.png", :size => "90x90"), root_path, class: "m-2" %>
         </li>
       </ul>
     <ul class="navbar-nav">
@@ -39,7 +39,10 @@
         <%= link_to image_tag("icon2.png", :size => "25x25"), fields_ranking_path, class:"m-2" %>
       </li>
       <li class="nav-item">
-        <%= link_to image_tag("icon9.png", :size => "25x25"), users_path, class:"m-2" %>
+        <%= link_to image_tag("icon9.png", :size => "25x25"), chat_groups_path, class:"m-2" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to image_tag("icon6.png", :size => "25x25"), users_path, class:"m-2" %>
       </li>
       <li class="nav-item">
         <%= link_to image_tag("icon4.png", :size => "25x25"), user_path(current_user), class:"m-2" %>
