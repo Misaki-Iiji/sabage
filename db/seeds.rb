@@ -94,10 +94,33 @@ Field.create!([
 ])
 
 
-5.times do |n|
-  User.create!(
-    email: "user#{n + 1}@user.com",
-    nickname: "ユーザー#{n + 1}",
-    password: '111111',
-  )
-end
+# 5.times do |n|
+#   User.create!(
+#     email: "user#{n + 1}@user.com",
+#     nickname: "ユーザー#{n + 1}",
+#     password: '111111',
+#   )
+# end
+
+# ユーザー作成
+user1 = User.create({nickname:"USER1", email: "user1@user.com", password: "111111"})
+user2 = User.create({nickname:"USER2", email: "user2@user.com", password: "111111"})
+user3 = User.create({nickname:"USER3", email: "user3@user.com", password: "111111"})
+
+#グループ作成
+chat_group1 = ChatGroup.create({chat_group_name:"GROUP1"})
+chat_group2 = ChatGroup.create({chat_group_name:"GROUP2"})
+chat_group3 = ChatGroup.create({chat_group_name:"GROUP3"})
+
+#関連付けを追加
+user1.chat_groups << chat_group1
+user1.chat_groups << chat_group2
+user1.save
+
+user2.chat_groups << chat_group2
+user2.chat_groups << chat_group3
+user2.save
+
+user3.chat_groups << chat_group3
+user3.chat_groups << chat_group1
+user3.save
