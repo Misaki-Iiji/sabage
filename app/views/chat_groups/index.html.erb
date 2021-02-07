@@ -1,45 +1,58 @@
-<div class="chat-group">
-　<h2>Group</h2>
+<div class="mx-auto">
+  <div class="text-center">
 
-　<div class="text-center">
-    <% if flash[:notice] %>
-      <p><%= flash[:notice] %></p>
-    <% end %>
-  </div>
+    <div class="chat-group">
+    　<h2>Clan</h2>
 
-　<div class="chat_group_search">
-    <div class="chat_group_search_form">
-      <%= form_with url: chat_groups_path do |f| %>
-        <%= f.text_field :keyword, placeholder: "Clan Search", class: "chat_group_search_form_input" %>
-        <%= f.submit '検索' %>
-      <% end %>
-    </div>
-    <div class="chat_group_new">
-      <%= link_to "グループ新規登録", new_chat_group_path %>
-    </div>
+    　<div class="text-center">
+        <% if flash[:notice] %>
+          <p><%= flash[:notice] %></p>
+        <% end %>
+      </div>
 
-    <ul>
+    　<div class="chat_group_search">
+        <div class="chat_group_search_form">
+          <%= form_with url: chat_groups_path do |f| %>
+            <%= f.text_field :keyword, placeholder: "Clan", class: "chat_group_search_form_input" %>
+            <%= f.submit 'Search' %>
+          <% end %>
+        </div>
+        <div class="chat_group_new">
+          <%= link_to "New Clan", new_chat_group_path, class: "btn btn-dark m-4" %>
+        </div>
 
-      <%# if @chat_group == [] %>
+        <ul>
+        <%# if @chat_group == [] %>
         <!--<p>Clanに参加してみませんか？</p>-->
 
-        <% @chat_groups.each do |chat_group| %>
+        <% @chat_groups.reverse_each do |chat_group| %>
           <%# if chat_group.user_ids.include?(current_user.id) %>
-          <li>
-              <% unless ChatGroupToUser.exists?(chat_group_id: chat_group.id, user_id: current_user.id) %>
-                <%= link_to chat_group.chat_group_name, group_chats_path(chat_group.id) %>
+          <li class="m-1">
+              <% if chat_group.joined_by?(current_user) %>
+              <span>★</span>
+              <%= link_to group_chats_path(chat_group.id) do %>
+                <%= chat_group.chat_group_name %>
                 (<%= chat_group.joins.count %>人)
-              <% else %>
-                <%= link_to chat_group.chat_group_name, group_chats_path(chat_group.id) %>
+              <% end %>
+            <% else %>
+              <%= link_to group_chats_path(chat_group.id) do %>
+                <%= chat_group.chat_group_name %>
                 (<%= chat_group.joins.count %>人)
+              <% end %>
             <% end %>
           </li>
-      <% end %>
-    </ul>
+          <% end %>
+        </ul>
+        <div class="d-flex justify-content-center">
+            <%= paginate @chat_groups %>
+          </div>
 
-  </div>
+      </div>
 
-  <div class="chat_group_user_page">
-    <%# link_to "ユーザーページへ", user_page_user_path %>
+      <div class="chat_group_user_page">
+        <%# link_to "ユーザーページへ", user_page_user_path %>
+      </div>
+    </div>
+
   </div>
 </div>

@@ -17,4 +17,8 @@
         <%= f.hidden_field :room_id %>
       <% end %>
     </div>
+
+    <div class="d-flex justify-content-center">
+      <%= paginate @chats %>
+    </div>
 </div>
