@@ -24,6 +24,13 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: '07Takibi-Heavy.otf';
+  src: font-url('07Takibi-Heavy.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .top {
   max-width: 100%;
   height: auto;
@@ -31,12 +38,12 @@
 
 header {
   padding: 0;
-
 }
 
 footer {
-  height: 80px;
+  height: 50px;
   color: white;
+  margin: 60px 0;
 }
 
 .nav-item {
@@ -56,22 +63,23 @@ h1 {
 h2 {
   font-size: 40px;
   color: white;
-    font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
 
 h3 {
-  font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   margin-top: 10%;
   color: white;
 }
 
 body {
-  // background-image: image_url("top.jpg");
-  background-color: black;
+  height: 100%;
   color: white;
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   margin: 0 auto;
-
+  background-image: image_url("top.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: '07Takibi-Heavy.otf';
 }
 
 a {

@@ -20,7 +20,7 @@
             </div>
             <div class="col-xs-3 border-top followings_btn">
             <% if current_user.following?(user) %>
-              <%= link_to "message", chat_path(user.id), class: "btn btn-dark mb-2 mr-2 w-100" %>
+              <%= link_to "Message", chat_path(user.id), class: "btn btn-dark mb-2 mr-2 w-100" %>
             <% end %>
             <%= render 'relationships/follow_button', user: user %>
             </div>

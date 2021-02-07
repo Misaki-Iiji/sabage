@@ -1,7 +1,7 @@
 class ChatGroupsController < ApplicationController
 
   def index
-    @chat_groups = ChatGroup.all
+    @chat_groups = ChatGroup.all.page(params[:page])
     # @chat_group = ChatGroupToUser.where(chat_group: chat_group, user: current_user)
   end
 

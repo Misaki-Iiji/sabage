@@ -1,9 +1,9 @@
 class ChatsController < ApplicationController
-  
+
   def index
     @rooms = current_user.user_rooms.pluck(:room_id)
   end
-  
+
   def show
     @user = User.find(params[:id])
     #ログインしているユーザーのidが入ったroom_idのみを配列で取得（該当するroom_idが複数でも全て取得）
@@ -24,7 +24,7 @@ class ChatsController < ApplicationController
       @room = user_rooms.room
     end
     #if文の中で定義した@roomに紐づくchatsテーブルのレコードを代入
-    @chats = @room.chats
+    @chats = @room.chats.page(params[:page]).per(13)
     #@room.idを代入したChat.newを用意しておく
     @chat = Chat.new(room_id: @room.id)
   end
