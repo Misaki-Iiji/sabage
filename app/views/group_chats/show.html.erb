@@ -2,7 +2,22 @@
   <div class="container">
 
     <h3 class="text-left border-bottom m-3"><%= @chat_group.chat_group_name %></h3>
-    <h4><%= @chat_group.chat_group_description %></h4>
+    <h4 class="h6"><%= @chat_group.chat_group_description %></h4>
+
+      <%= link_to "Edit", edit_chat_group_path(@chat_group) %>
+
+    <div class="d-flex justify-content-center">
+      <% @chat_group.joins.each do |member| %>
+        <div class="text-center m-2">
+          <%= link_to user_path(member.user)do %>
+            <%= attachment_image_tag member.user, :image, class: "group_chat_profile_image", fallback: "logo.png" %>
+            <div class="group_chat_profile_name">
+              <%= member.user.nickname %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
 
     <div id="joins_buttons_<%= @chat_group.id %>">
       <%= render 'joins/join', chat_group: @chat_group, group_chats: @group_chats, group_chat: @group_chat %>

@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @fields = Field.joins(:favorites).where("favorites.user_id = ?", @user.id).order(id: "DESC")
     @pictures = @user.pictures.page(params[:page]).order(id: "DESC")
     @chat_groups = ChatGroup.joins(:joins).where("joins.user_id = ?", @user.id).order(id: "DESC")
+    @infomations = Infomation.all
   end
 
   def edit

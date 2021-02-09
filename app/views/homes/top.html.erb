@@ -1,12 +1,20 @@
 <div class="mx-auto">
   <div class="text-center">
-    <%= link_to "player ?", new_user_session_path, class:"btn m-3 text-light" %>
-    <%= link_to "field manager ?", new_field_session_path, class:"btn m-3 text-light" %>
-    <%= link_to "guest ?", homes_guest_sign_in_path, method: :post, class:"btn m-3 text-light" %><br>
-    <div style="letter-spacing: 0.1em;">
+
+    <div class="text-center">
+      <% if flash[:notice] %>
+        <p><%= flash[:notice] %></p>
+      <% end %>
+    </div>
+
       <div class="catch_copy text-center mb-5">
         <h3>BOREDOM or DIE.</h3>
       </div>
+
+    <%= link_to "player ?", new_user_session_path, class:"btn m-2 text-light" %>
+    <%= link_to "field manager ?", new_field_session_path, class:"btn m-1 text-light" %>
+    <%= link_to "guest ?", homes_guest_sign_in_path, method: :post, class:"btn m-2 text-light" %><br>
+    <div style="letter-spacing: 0.1em;">
     </div>
   </div>
 </div>

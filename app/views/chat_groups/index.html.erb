@@ -11,48 +11,39 @@
       </div>
 
     　<div class="chat_group_search">
-        <div class="chat_group_search_form">
-          <%= form_with url: chat_groups_path do |f| %>
-            <%= f.text_field :keyword, placeholder: "Clan", class: "chat_group_search_form_input" %>
-            <%= f.submit 'Search' %>
-          <% end %>
-        </div>
-        <div class="chat_group_new">
-          <%= link_to "New Clan", new_chat_group_path, class: "btn btn-dark m-4" %>
-        </div>
+        <%= search_form_for @q do |f| %>
+          <%= f.search_field :chat_group_name_or_chat_group_description_cont, placeholder: "Clan or Word", class: "w-50" %>
+          <%= f.submit "Search" %>
+        <% end %>
+      </div>
+       
+      <div class="chat_group_new">
+        <%= link_to "New Clan", new_chat_group_path, class: "btn btn-dark m-4" %>
+      </div>
 
-        <ul>
-        <%# if @chat_group == [] %>
-        <!--<p>Clanに参加してみませんか？</p>-->
-
-        <% @chat_groups.reverse_each do |chat_group| %>
-          <%# if chat_group.user_ids.include?(current_user.id) %>
-          <li class="m-1">
-              <% if chat_group.joined_by?(current_user) %>
-              <span>★</span>
-              <%= link_to group_chats_path(chat_group.id) do %>
-                <%= chat_group.chat_group_name %>
-                (<%= chat_group.joins.count %>人)
-              <% end %>
-            <% else %>
-              <%= link_to group_chats_path(chat_group.id) do %>
-                <%= chat_group.chat_group_name %>
-                (<%= chat_group.joins.count %>人)
-              <% end %>
+      <ul>
+      <% @chat_groups.reverse_each do |chat_group| %>
+        <li class="m-1">
+            <% if chat_group.joined_by?(current_user) %>
+            <span>★</span>
+            <%= link_to group_chats_path(chat_group.id) do %>
+              <%= chat_group.chat_group_name %>
+              (<%= chat_group.joins.count %>人)
             <% end %>
-          </li>
+          <% else %>
+            <%= link_to group_chats_path(chat_group.id) do %>
+              <%= chat_group.chat_group_name %>
+              (<%= chat_group.joins.count %>人)
+            <% end %>
           <% end %>
-        </ul>
-        <div class="d-flex justify-content-center">
-            <%= paginate @chat_groups %>
-          </div>
-
+        </li>
+        <% end %>
+      </ul>
+      
+      <div class="d-flex justify-content-center">
+        <%= paginate @chat_groups %>
       </div>
-
-      <div class="chat_group_user_page">
-        <%# link_to "ユーザーページへ", user_page_user_path %>
-      </div>
+      
     </div>
-
   </div>
 </div>
