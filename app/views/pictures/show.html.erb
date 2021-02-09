@@ -2,10 +2,10 @@
   <div class="text-center">
     <%= attachment_image_tag @picture, :image, :size => "1000x500", class: "top" %><br>
 
-    <%= link_to @field.name, field_path(@field) %>
-
-    <div id="likes_buttons_<%= @picture.id %>">
-      <%= render 'picture_hits/picture_hits', picture: @picture, post: @post%>
-    </div>
+    <h2 class="h4"><%= link_to @field.name, field_path(@field) %>
+      <div id="likes_buttons_<%= @picture.id %>">
+        <%= render 'picture_hits/picture_hits', picture: @picture, post: @post%>
+      </div>
+    </h2>
   </div>
 </div>

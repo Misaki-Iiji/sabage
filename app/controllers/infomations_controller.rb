@@ -8,7 +8,7 @@ class InfomationsController < ApplicationController
   def show
     @infomation = Infomation.find(params[:id])
     @infomation_comment = InfomationComment.new
-    @field = Field.find(params[:id])
+    @field = @infomation.field
   end
 
   def new
@@ -20,6 +20,7 @@ class InfomationsController < ApplicationController
     @infomation.field_id = current_field.id
     if @infomation.save
       redirect_to @infomation
+      flash[:notice] = "投稿しました"
     else
       render 'new'
       flash[:notice] = "タイトルを記入してください"
@@ -34,6 +35,7 @@ class InfomationsController < ApplicationController
     @infomation = Infomation.find(params[:id])
     if @infomation.update(infomation_params)
       redirect_to @infomation
+      flash[:notice] = "更新しました"
     else
       # @infoamtion = Infomation.find(params[:id])
       render 'edit'

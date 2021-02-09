@@ -1,20 +1,25 @@
-<div class="mx-auto">
+
+ <div class="text-center">
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+
   <div class="m-5 text-center">
     <h2>New Infomation</h2>
     <%= form_with scope: :infomation, url: infomations_path, local: true do |info| %>
         <p>
           <%= info.label :title %><br>
-          <%= info.text_field :title, class: "w-85" %>
+          <%= info.text_field :title, class: "w-75" %>
         </p>
 
         <p>
           <%= info.label :body %><br>
-          <%= info.text_area :body, class: "w-85" %>
+          <%= info.text_area :body, rows: 10, class: "w-75" %>
         </p>
 
         <p>
-          <%= info.submit %>
+          <%= info.submit "Create" %>
         </p>
     <% end %>
   </div>
-</div>
