@@ -90,6 +90,11 @@ a:hover {
   color: gray;
 }
 
+.about_images {
+  width: 17vw;
+  height: 16vh;
+}
+
 .field_name {
   overflow: hidden;
   white-space: nowrap;
@@ -103,6 +108,26 @@ a:hover {
   border-radius: 50%;
   padding: 5px;
   border: 1px solid white;
+}
+
+.fav_field_image {
+    width: 200px;
+    height: 160px;
+  }
+
+.group_chat_profile_image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid white;
+}
+
+.group_chat_profile_name {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 80px;
+  text-overflow: ellipsis;
 }
 
 .index_plofile_image {
@@ -195,7 +220,7 @@ a:hover {
   }
 
   .plofile_image_box {
-    margin: 0px 130px;
+    margin: 0px 280px;
   }
 
   .plofile_image {
@@ -225,15 +250,12 @@ a:hover {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    width: 100px;
-  }
-
-  .field-fav {
-    display: block;
+    width: 110px;
   }
 
   .fav_field_image {
-    display: none;
+    width: 110px;
+    height: 80px;
   }
 
   .followings_btn {
@@ -254,6 +276,15 @@ a:hover {
   .followings_btn {
     display: flex;
   }
+
+  .group_chat_profile_image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid white;
+}
+
 
 }
 

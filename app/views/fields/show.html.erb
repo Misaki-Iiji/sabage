@@ -16,7 +16,7 @@
       <%= render 'favorites/favorite', field: @field %>
     </div>
 
-    <%= attachment_image_tag @field, :image, :size => '760x400'%><br>
+    <%= attachment_image_tag @field, :image, :size => '760x400', fallback: "logo.png"%><br>
     住所：<%= @field.address %><br>
     <%= simple_format(@field.introduction) %>
   </div>
@@ -52,7 +52,7 @@
         <div class="m-2 text-center">
           <%= post.created_at.strftime('%Y/%m/%d') %>
         </div>
-          <div class="row">
+          <div class="row field_photo">
             <% post.pictures.each do |picture| %>
             <div class="col-sx-2">
                 <div class="photo">

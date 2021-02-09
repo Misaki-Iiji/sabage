@@ -1,12 +1,19 @@
 <div class="mx-auto">
+
+ <div class="text-center">
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+
   <div class="text-center">
     <h3>
       <%= @infomation.title %>
     </h3>
     <%= link_to @field.name, field_path(@field) %>
       <% if current_field == @field %>
-        <%= link_to '編集', edit_infomation_path(@infomation) %>/
-        <%= link_to '削除', infomation_path(@infomation), method: :delete, data: { confirm: '削除しますか?' } %>
+        <%= link_to 'Edit', edit_infomation_path(@infomation) %>/
+        <%= link_to 'Delete', infomation_path(@infomation), method: :delete, data: { confirm: '削除しますか?' } %>
       <% end %>
     <p class="m-5">
       <%= @infomation.body %>
@@ -32,7 +39,7 @@
           </div>
           <div class="col-sm-2">
             <% if infomation_comment.user == current_user %>
-            <%= link_to "削除", infomation_infomation_comment_path(infomation_comment.infomation, infomation_comment), method: :delete, data: { confirm: '削除しますか?' } %>
+            <%= link_to "Delete", infomation_infomation_comment_path(infomation_comment.infomation, infomation_comment), method: :delete, data: { confirm: '削除しますか?' } %>
             <% end %>
           </div>
         </div>
@@ -43,8 +50,8 @@
       <div class="container">
         <div>
           <%= form_with(model:[@infomation, @infomation_comment], method: :post, local: true) do |f| %>
-          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに", class: "w-75 mt-4" %><br>
-          <%= f.submit "送信する" %>
+          <%= f.text_area :comment, rows:'5', class: "w-50 mt-4" %><br>
+          <%= f.submit "Comment" %>
         <% end %>
         </div>
       </div>
