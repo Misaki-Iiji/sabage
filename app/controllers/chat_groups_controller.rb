@@ -2,31 +2,22 @@ class ChatGroupsController < ApplicationController
 
   def index
     @chat_groups = ChatGroup.all.page(params[:page])
-    # @chat_group = ChatGroupToUser.where(chat_group: chat_group, user: current_user)
+    @q = ChatGroup.ransack(params[:q])
+    @chats = @q.result(distinct: true)
   end
 
   def new
     @chat_group = ChatGroup.new
-    # @chat_group.users << current_user #尖ってる方に情報を付け加える(自分を含めたユーザー)
   end
 
   def create
     chat_group = ChatGroup.new(chat_group_params)
-    chat_group_to_user = ChatGroupToUser.new(chat_group: chat_group, user: current_user)
+    chat_group_to_user = ChatGroupToUser.new(chat_group_id: chat_group, user_id: current_user)
     if chat_group_to_user.save
       redirect_to action: 'index'
       flash[:notice] = "Clanを作成しました"
     else
       render 'new', alert: "Clan作成に失敗しました"
-    end
-  end
-
-  def invite
-    chat_group = ChatGroup.find(params[:id])
-    chat_group_to_user = ChatGroupToUser.new(chat_group: chat_group, user: current_user)
-    if chat_group_to_user.save
-      redirect_to action: 'index'
-      flash[:notice] = chat_group.chat_group_name + "参加しました。"
     end
   end
 
@@ -36,7 +27,12 @@ class ChatGroupsController < ApplicationController
 
   def update
     chat_group = ChatGroup.find(params[:id])
-    chat_group.update(chat_group_params)
+    if chat_group.update(chat_group_params)
+      redirect_to action: 'index'
+      flash[:notice] = "編集しました"
+    else
+      render action: 'edit'
+    end
   end
 
   def destroy

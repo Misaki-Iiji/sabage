@@ -1,20 +1,27 @@
 <div class="mx-auto">
-<div class="m-5 text-center">
-  <h3>
-    Edit Infomation
-  </h3>
-  <%= form_with(model: @infomation, local: true) do |infomation| %>
-    <p>
-      <%= infomation.label :title %><br>
-      <%= infomation.text_field :title, class: "w-85" %>
-    </p>
-    <p>
-      <%= infomation.label :body %><br>
-      <%= infomation.text_area :body, class: "w-85" %>
-    </p>
-    <p>
-      <%= infomation.submit %>
-    </p>
-  <% end %>
-</div>
+
+ <div class="text-center">
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+  
+  <div class="m-5 text-center">
+    <h3>
+      Edit Infomation
+    </h3>
+    <%= form_with(model: @infomation, local: true) do |infomation| %>
+      <p>
+        <%= infomation.label :title %><br>
+        <%= infomation.text_field :title, class: "w-50" %>
+      </p>
+      <p>
+        <%= infomation.label :body %><br>
+        <%= infomation.text_area :body, rows: 5, class: "w-50" %>
+      </p>
+      <p>
+        <%= infomation.submit "Update" %>
+      </p>
+    <% end %>
+  </div>
 </div>

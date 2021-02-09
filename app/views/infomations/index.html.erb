@@ -1,5 +1,12 @@
 <div class="mx-auto">
 
+ <div class="text-center">
+    <% if flash[:notice] %>
+      <p><%= flash[:notice] %></p>
+    <% end %>
+  </div>
+
+
   <div class="text-center">
     <h2>Infomation
       <% if field_signed_in? %>

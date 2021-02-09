@@ -6,7 +6,7 @@
 
   <div class="contaner m-5">
     <% @all_ranks.each.with_index(1) do |field, i| %>
-    <h3 class="ml-5">第<%= i %>位</h3>
+    <h3 class="ml-5"><%= i %>位</h3>
     <div class="row mx-auto border-top align-items-center ranking_field">
       <div  class="col-sm-4 ranking_field_image">
         <%= attachment_image_tag field, :image, fallback: "no_image.jpg", :size => '260x160', fallback: "no_image.jpg" %>

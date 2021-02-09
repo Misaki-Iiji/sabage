@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.field_id = current_field.id
     @post.save!
-    redirect_to post_path(current_field)
+    redirect_to field_path(current_field)
     # @field = Field.where(id: params[:id])
     @posts = Post.all.order(id: "DESC")
   end
