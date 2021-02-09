@@ -3,7 +3,7 @@ class ChatGroupsController < ApplicationController
   def index
     @chat_groups = ChatGroup.all.page(params[:page])
     @q = ChatGroup.ransack(params[:q])
-    @chats = @q.result(distinct: true)
+    @chat_groups = @q.result(distinct: true)
   end
 
   def new
@@ -29,9 +29,10 @@ class ChatGroupsController < ApplicationController
     chat_group = ChatGroup.find(params[:id])
     if chat_group.update(chat_group_params)
       redirect_to action: 'index'
-      flash[:notice] = "編集しました"
+      flash[:notice] = "編集しました。"
     else
       render action: 'edit'
+      flash[:notice] = "編集に失敗しました。"
     end
   end
 
@@ -39,9 +40,10 @@ class ChatGroupsController < ApplicationController
     chat_group = ChatGroup.find(params[:id])
     if chat_group.destroy
       redirect_to action: 'index'
+      flash[:notice] = "Clan削除しました。"
     else
       render 'edit'
-      flash[:notice] = "Clan更新に失敗しました。"
+      flash[:notice] = "Clan削除に失敗しました。"
     end
   end
 

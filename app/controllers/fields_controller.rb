@@ -32,7 +32,7 @@ class FieldsController < ApplicationController
       redirect_to field_path(@field.id), notice: "フィールド情報をを編集しました"
     else
       @field = Field.find(current_field[:id])
-      flash[:notice] = "フィールド名20文字、フィールド説明500文字まで"
+      flash[:notice] = "フィールド名20文字、フィールド説明300文字まで"
       render 'edit'
     end
   end
