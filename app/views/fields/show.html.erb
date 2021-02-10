@@ -16,7 +16,7 @@
       <%= render 'favorites/favorite', field: @field %>
     </div>
 
-    <%= attachment_image_tag @field, :image, :size => '760x400', fallback: "logo.png"%><br>
+    <%= attachment_image_tag @field, :image, :size => '760x400', fallback: "no_image.jpg"%><br>
     住所：<%= @field.address %><br>
     <%= simple_format(@field.introduction) %>
   </div>

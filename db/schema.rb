@@ -120,7 +120,7 @@ ActiveRecord::Schema.define(version: 2021_02_06_123646) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "follow_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
