@@ -9,10 +9,10 @@
     <div container>
     <div class="row">
       <% @fields.each do |field| %>
-        <div class="col-sm-4 field_index_box justify-content-flex-start ">
+        <div class="col-md-4 field_index_box justify-content-flex-start ">
           <%= link_to field_path(field) do %>
-            <h4 class="text-light field_index_name"><%= field.name %></h4>
-            <%= attachment_image_tag field, :image, :size => '250x200', fallback: "no_image.jpg" %><br>
+            <h4 class="field_index_name"><%= field.name %></h4>
+            <%= attachment_image_tag field, :image, :size => '250x200', fallback: "no_image.jpg", class: "field_index_image" %><br>
             <%= field.address %>
           <% end %>
           <div id="favorites_buttons_<%= field.id %>">
