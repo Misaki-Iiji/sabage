@@ -2,9 +2,7 @@
   <div class="container">
 
     <h3 class="text-left border-bottom m-3"><%= @chat_group.chat_group_name %></h3>
-    <h4 class="h6"><%= @chat_group.chat_group_description %></h4>
-
-      <%= link_to "Edit", edit_chat_group_path(@chat_group) %>
+    <h4 class="h6 text-center"><%= @chat_group.chat_group_description %></h4>
 
     <div class="d-flex justify-content-center">
       <% @chat_group.joins.each do |member| %>

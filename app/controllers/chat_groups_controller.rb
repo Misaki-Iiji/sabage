@@ -12,12 +12,13 @@ class ChatGroupsController < ApplicationController
 
   def create
     chat_group = ChatGroup.new(chat_group_params)
-    chat_group_to_user = ChatGroupToUser.new(chat_group_id: chat_group, user_id: current_user)
+    chat_group_to_user = ChatGroupToUser.new(chat_group: chat_group, user: current_user)
     if chat_group_to_user.save
       redirect_to action: 'index'
       flash[:notice] = "Clanを作成しました"
     else
-      render 'new', alert: "Clan作成に失敗しました"
+      render 'new'
+      flash[:notice] = "Clan名20文字以内、説明文200文字以内"
     end
   end
 

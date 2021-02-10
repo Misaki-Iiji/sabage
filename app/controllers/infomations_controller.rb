@@ -23,7 +23,7 @@ class InfomationsController < ApplicationController
       flash[:notice] = "投稿しました"
     else
       render 'new'
-      flash[:notice] = "タイトルを記入してください"
+      flash[:notice] = "投稿に失敗しました"
     end
   end
 
