@@ -1,11 +1,15 @@
-<h2>Edit</h2>
+<div class="text-center">
 
-<%= form_with url: chat_group_path(@chat_group), model: @chat_group, method: :patch do |f| %>
-  <%= f.label :chat_group_name %>
-  <%= f.text_field :chat_group_name, class: "w-50" %>
-  <%= f.label :chat_group_description %>
-  <%= f.text_area :chat_group_description, rows: 5, class: "w-50" %>
-  <%= f.submit "Update" %>
-<% end %>
+  <h2>Edit</h2>
 
-<%= link_to "クラン一覧に戻る", chat_group_path %>
+  <%= form_with url: chat_group_path(@chat_group), model: @chat_group, method: :patch do |f| %>
+    <%= f.label :chat_group_name %><br>
+    <%= f.text_field :chat_group_name, class: "w-75" %><br>
+    <%= f.label :chat_group_description %><br>
+    <%= f.text_area :chat_group_description, rows: 5, class: "w-75" %><br>
+    <%= f.submit "Update", class: "btn btn-warning mb-4" %>
+  <% end %>
+
+  <%= link_to "クラン一覧に戻る", chat_group_path, class:"btn btn-dark m-2" %>
+
+</div>

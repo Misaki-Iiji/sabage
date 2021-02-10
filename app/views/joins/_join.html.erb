@@ -1,35 +1,38 @@
-<% if chat_group.joined_by?(current_user) %>
-  <p>
-    <%= link_to chat_group_join_path(chat_group), method: :delete, remote: true, class: "btn btn-dark m-2" do %>
-      除隊する<%= chat_group.joins.count %>
-    <% end %>
-  </p>
-  <% else %>
-  <p>
-    <%= link_to chat_group_join_path(chat_group), method: :post, remote: true, class: "btn btn-dark m-2" do %>
-      入隊する<%= chat_group.joins.count %>
-    <% end %>
-  </p>
-<% end %>
-  <div class="container message">
+<div class="text-center">
   <% if chat_group.joined_by?(current_user) %>
-    <% group_chats.each do |chat| %>
-      <% if chat.user_id == current_user.id %>
-        <p class="text-right mr-3">
-          <%= chat.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-        <p class=text-right "ml-3"><%= chat.message %></p>
-      <% else %>
-        <p class="text-left ml-3"><%= chat.user.nickname %>
-          <%= chat.created_at.strftime('%Y/%m/%d %H:%M') %></p>
-        <p class="text-left ml-3"><%= chat.message %></p>
+    <p>
+      <%= link_to chat_group_join_path(chat_group), method: :delete, remote: true, class: "btn btn-dark m-2" do %>
+        除隊する<%= chat_group.joins.count %>
       <% end %>
-    <% end %>
-  </div>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to chat_group_join_path(chat_group), method: :post, remote: true, class: "btn btn-dark m-2" do %>
+        入隊する<%= chat_group.joins.count %>
+      <% end %>
+    </p>
+  <% end %>
+</div>
 
-  <div class="text-right">
-    <%= form_with url: group_chat_path(group_chat.chat_group_id), model: group_chat, method: :post do |f| %>
-      <%= f.text_field :message %>
-      <%= f.hidden_field :chat_group_id %>
+<div class="container message">
+<% if chat_group.joined_by?(current_user) %>
+  <% group_chats.each do |chat| %>
+    <% if chat.user_id == current_user.id %>
+      <p class="text-right mr-3">
+        <%= chat.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+      <p class=text-right "ml-3"><%= chat.message %></p>
+    <% else %>
+      <p class="text-left ml-3"><%= chat.user.nickname %>
+        <%= chat.created_at.strftime('%Y/%m/%d %H:%M') %></p>
+      <p class="text-left ml-3"><%= chat.message %></p>
     <% end %>
-  </div>
+  <% end %>
+</div>
+
+<div class="text-right">
+  <%= form_with url: group_chat_path(group_chat.chat_group_id), model: group_chat, method: :post do |f| %>
+    <%= f.text_field :message %>
+    <%= f.hidden_field :chat_group_id %>
+  <% end %>
+</div>
 <% end %>
