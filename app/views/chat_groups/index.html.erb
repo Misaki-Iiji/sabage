@@ -16,13 +16,13 @@
           <%= f.submit "Search" %>
         <% end %>
       </div>
-       
+
       <div class="chat_group_new">
         <%= link_to "New Clan", new_chat_group_path, class: "btn btn-dark m-4" %>
       </div>
 
       <ul>
-      <% @chat_groups.reverse_each do |chat_group| %>
+      <% @all_chat_groups.reverse_each do |chat_group| %>
         <li class="m-1">
             <% if chat_group.joined_by?(current_user) %>
             <span>★</span>
@@ -39,11 +39,11 @@
         </li>
         <% end %>
       </ul>
-      
+
       <div class="d-flex justify-content-center">
-        <%= paginate @chat_groups %>
+        <%= paginate @all_chat_groups %>
       </div>
-      
+
     </div>
   </div>
 </div>

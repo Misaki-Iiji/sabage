@@ -3,7 +3,7 @@
     <div class="text-center m-4">
       <h2>Followers</h2>
     </div>
-
+    <% if @user.followers.present? %>
       <div class="row">
         <% @users.each do |user| %>
         <div class="col-md-6">
@@ -27,8 +27,10 @@
           </div>
         </div>
         <% end %>
-
-    </div>
+      </div>
+    <% else %>
+      <div class="text-center">フォロワーがいません</div>
+    <% end %>
 
   </div>
 </div><!--container-->
