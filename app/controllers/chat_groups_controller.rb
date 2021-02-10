@@ -1,7 +1,7 @@
 class ChatGroupsController < ApplicationController
 
   def index
-    @chat_groups = ChatGroup.all.page(params[:page])
+    @all_chat_groups = ChatGroup.all.page(params[:page])
     @q = ChatGroup.ransack(params[:q])
     @chat_groups = @q.result(distinct: true)
   end

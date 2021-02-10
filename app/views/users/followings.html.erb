@@ -4,6 +4,7 @@
       <h2>Followings</h2>
     </div>
 
+    <% if @user.followings.present? %>
       <div class="row">
         <% @users.each do |user| %>
         <div class="col-md-6">
@@ -27,8 +28,12 @@
           </div>
         </div>
         <% end %>
-
-    </div>
+      </div>
+    <% else %>
+      <div class="text-center">
+        <%= link_to "仲間をフォローしてみましょう", users_path, class: "btn btn-dark w-75" %>
+      </div>
+    <% end %>
 
   </div>
 </div><!--container-->
