@@ -1,5 +1,5 @@
 class InfomationsController < ApplicationController
-  before_action :authenticate_field!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :authenticate_any!
 
   def index
     @infomations = Infomation.order(id: "DESC").all.limit(15)
@@ -23,7 +23,7 @@ class InfomationsController < ApplicationController
       flash[:notice] = "投稿しました"
     else
       render 'new'
-      flash[:notice] = "タイトルを記入してください"
+      flash[:notice] = "投稿に失敗しました"
     end
   end
 

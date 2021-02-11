@@ -1,10 +1,11 @@
 class GroupChatsController < ApplicationController
+  before_action :authenticate_user!
 
   def show
     @chat_group = ChatGroup.find(params[:id])
     @group_chats = @chat_group.group_chats.page(params[:page]).per(13)
     @group_chat = GroupChat.new(chat_group_id: @chat_group.id)
-    
+
   end
 
   def create
