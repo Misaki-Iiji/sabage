@@ -1,4 +1,5 @@
 class GroupChatsController < ApplicationController
+  before_action :authenticate_user!
 
   def show
     @chat_group = ChatGroup.find(params[:id])

@@ -1,5 +1,5 @@
 class InfomationsController < ApplicationController
-  before_action :authenticate_field!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :authenticate_any!
 
   def index
     @infomations = Infomation.order(id: "DESC").all.limit(15)
