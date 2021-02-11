@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe User, "モデルに関するテスト", type: :model do
+RSpec.describe User, "UserModel", type: :model do
   before do
     @user = User.create(
       nickname: "taro",
@@ -104,5 +104,5 @@ RSpec.describe User, "モデルに関するテスト", type: :model do
       end
     end
   end
-
+  
 end
