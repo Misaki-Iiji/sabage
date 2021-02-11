@@ -1,4 +1,5 @@
 class InfomationCommentsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     infomation = Infomation.find(params[:infomation_id])
@@ -12,7 +13,7 @@ class InfomationCommentsController < ApplicationController
     InfomationComment.find_by(id: params[:id], infomation_id: params[:infomation_id]).destroy
     redirect_to infomation_path(params[:infomation_id])
   end
-  
+
   private
 
   def infomation_comment_params

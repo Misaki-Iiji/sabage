@@ -2,10 +2,9 @@
 
 require 'rails_helper'
 
-RSpec.describe Infomation, "モデルに関するテスト", type: :model do
+RSpec.describe Infomation, "InfomationModel", type: :model do
   before do
     @field = FactoryBot.create(:field)
-  
     @infomation = Infomation.create(
       title: "title",
       body: "text",
