@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
   def authenticate_any!
-    if field_signed_in?
-      return true
-    end
+    return true if field_signed_in?
+
     authenticate_user!
   end
 end

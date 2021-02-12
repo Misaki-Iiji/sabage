@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-
   def show
     @user = current_user
   end
@@ -15,6 +14,4 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(field_id: @field.id)
     favorite.destroy
   end
-  
-  
 end
