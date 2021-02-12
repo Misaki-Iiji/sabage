@@ -15,7 +15,6 @@ class Field < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
-  attachment :image #refile使うときのルール
+  attachment :image # refile使うときのルール
   accepts_attachments_for :pictures, attachment: :picture
-
 end

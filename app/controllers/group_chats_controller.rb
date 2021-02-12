@@ -5,7 +5,6 @@ class GroupChatsController < ApplicationController
     @chat_group = ChatGroup.find(params[:id])
     @group_chats = @chat_group.group_chats.page(params[:page]).per(13)
     @group_chat = GroupChat.new(chat_group_id: @chat_group.id)
-
   end
 
   def create
@@ -14,6 +13,7 @@ class GroupChatsController < ApplicationController
   end
 
   private
+
   def chat_params
     params.require(:group_chat).permit(:message, :chat_group_id)
   end

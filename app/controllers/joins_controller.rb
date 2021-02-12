@@ -1,5 +1,4 @@
 class JoinsController < ApplicationController
-
   def create
     @chat_group = ChatGroup.find(params[:chat_group_id])
     @group_chat = GroupChat.new(chat_group_id: @chat_group.id)
@@ -15,5 +14,4 @@ class JoinsController < ApplicationController
     join = current_user.joins.find_by(chat_group_id: @chat_group.id)
     join.destroy
   end
-
 end
