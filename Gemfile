@@ -72,4 +72,5 @@ gem 'refile', require: 'refile/rails', github: 'manfe/refile'
 gem 'refile-mini_magick'
 gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
-gem 'dotenv-rails' #S3
+gem 'dotenv-rails'
+gem 'refile-s3' # S3
