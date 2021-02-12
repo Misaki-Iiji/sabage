@@ -19,17 +19,19 @@
 @import 'font-awesome';
 @charset "UTF-8";
 
-* {
-  padding: 0;
-  box-sizing: border-box;
-}
-
 @font-face {
   font-family: '07Takibi-Heavy.otf';
   src: font-url('07Takibi-Heavy.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+// homes
 
 .top {
   max-width: 100%;
@@ -95,6 +97,9 @@ a:hover {
   height: 16vh;
 }
 
+
+// field
+
 .field_name {
   overflow: hidden;
   white-space: nowrap;
@@ -102,32 +107,33 @@ a:hover {
   text-overflow: ellipsis;
 }
 
+.fav_field_image {
+    width: 200px;
+    height: 160px;
+  }
+
+.field_index_box {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 250px;
+  text-overflow: ellipsis;
+}
+
+.index_infomation_body {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 700px;
+  text-overflow: ellipsis;
+}
+
+// user
+
 .plofile_image {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   padding: 5px;
   border: 1px solid white;
-}
-
-.fav_field_image {
-    width: 200px;
-    height: 160px;
-  }
-
-.group_chat_profile_image {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  padding: 5px;
-  border: 1px solid white;
-}
-
-.group_chat_profile_name {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 80px;
-  text-overflow: ellipsis;
 }
 
 .index_plofile_image {
@@ -138,21 +144,22 @@ a:hover {
   border: 1px solid white;
 }
 
-.field_index_box {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 250px;
-  text-overflow: ellipsis;
+.group_chat_profile_image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid white;
 }
 
 .follow_plofile_image {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    padding: 5px;
-    border: 1px solid white;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid white;
   }
-
+  
 .comment_plofile_image {
   width: 60px;
   height: 60px;
@@ -160,13 +167,32 @@ a:hover {
   padding: 5px;
   border: 1px solid white;
 }
-
-.index_infomation_body {
+  
+  
+  // chat
+  
+.group_chat_profile_name {
   overflow: hidden;
   white-space: nowrap;
-  width: 700px;
+  width: 80px;
   text-overflow: ellipsis;
 }
+
+.message {
+  width: 80vw;
+}
+
+.message_body {
+  width: 70vw;
+}
+
+.message_box {
+  width: 73vw;
+  margin: 0 auto;
+}
+
+
+// paginate
 
 .pagination>li>a {
   margin: 10px;
@@ -184,21 +210,11 @@ a:hover {
   color: gray;
 }
 
-.message {
-  width: 80vw;
-}
-
-.message_body {
-  width: 70vw;
-}
-
-.message_box {
-  width: 73vw;
-  margin: 0 auto;
-}
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width: 768px) {
+
+// homes
 
   body {
     background-image: image_url("back.jpg");
@@ -215,6 +231,8 @@ a:hover {
     width: 40vw;
     height: 100px;
   }
+
+// user
 
   .comment_plofile_image_box {
     width: 10vw;
@@ -267,6 +285,17 @@ a:hover {
     height: 80px;
   }
 
+  .group_chat_profile_image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    padding: 5px;
+    border: 1px solid white;
+  }
+
+
+// follow
+
   .followings_btn {
     display: flex;
     margin: 0 auto;
@@ -286,13 +315,8 @@ a:hover {
     display: flex;
   }
 
-  .group_chat_profile_image {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    padding: 5px;
-    border: 1px solid white;
-  }
+
+// field
 
   .field_index_box {
     margin: 0 auto;
@@ -300,10 +324,12 @@ a:hover {
 
 }
 
-
-
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width: 425px) {
+
+  .top_btn {
+    font-size: 13px;
+  }
 
   .index_infomation_body {
     overflow: hidden;
@@ -315,9 +341,5 @@ a:hover {
   .field_show_main {
     width: 100vw;
   }
-
-  .top_btn {
-    font-size: 13px;
-  }
-
+  
 }

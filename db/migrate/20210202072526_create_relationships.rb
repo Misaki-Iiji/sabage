@@ -6,7 +6,7 @@ class CreateRelationships < ActiveRecord::Migration[5.0]
 
       t.timestamps
 
-      t.index [:user_id, :follow_id], unique: true
+      t.index %i[user_id follow_id], unique: true
       # user_id と follow_id のペアで重複するものが保存されないようにするデータベースの設定
     end
   end
