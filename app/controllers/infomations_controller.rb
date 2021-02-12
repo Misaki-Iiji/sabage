@@ -2,7 +2,7 @@ class InfomationsController < ApplicationController
   before_action :authenticate_any!
 
   def index
-    @infomations = Infomation.order(id: "DESC").all.limit(15)
+    @infomations = Infomation.order(id: 'DESC').all.limit(15)
   end
 
   def show
@@ -20,10 +20,10 @@ class InfomationsController < ApplicationController
     @infomation.field_id = current_field.id
     if @infomation.save
       redirect_to @infomation
-      flash[:notice] = "投稿しました"
+      flash[:notice] = '投稿しました'
     else
       render 'new'
-      flash[:notice] = "投稿に失敗しました"
+      flash[:notice] = '投稿に失敗しました'
     end
   end
 
@@ -35,7 +35,7 @@ class InfomationsController < ApplicationController
     @infomation = Infomation.find(params[:id])
     if @infomation.update(infomation_params)
       redirect_to @infomation
-      flash[:notice] = "更新しました"
+      flash[:notice] = '更新しました'
     else
       # @infoamtion = Infomation.find(params[:id])
       render 'edit'
@@ -47,13 +47,12 @@ class InfomationsController < ApplicationController
     @infomation.field_id = current_field.id
     @infomation.destroy
     redirect_to infomations_path
-    flash[:notice] = "削除しました"
+    flash[:notice] = '削除しました'
   end
 
   private
 
   def infomation_params
-      params.require(:infomation).permit(:title, :body)
+    params.require(:infomation).permit(:title, :body)
   end
-
 end

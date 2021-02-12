@@ -7,9 +7,7 @@ class ChatGroup < ApplicationRecord
   validates :chat_group_name, presence: true, length: { maximum: 20 }
   validates :chat_group_description, presence: true, length: { maximum: 200 }
 
-
   def joined_by?(user)
     joins.where(user_id: user.id).exists?
   end
-
 end

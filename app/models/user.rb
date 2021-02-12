@@ -36,10 +36,10 @@ class User < ApplicationRecord
   has_many :chats
   has_many :rooms, through: :user_rooms
 
-  has_many :relationships #（foreign_key: 'user_id'は省略されてる）
-  has_many :followings, through: :relationships, source: :follow #relationshipsテーブルのfollow_idを参考にして、followingsモデル(架空)にアクセス
+  has_many :relationships
+  has_many :followings, through: :relationships, source: :follow # relationshipsテーブルのfollow_idを参考にして、followingsモデル(架空)にアクセス
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
-  #has_many :relaitonshipsの「逆方向」、class_name: 'Relationship'でrelationsipモデルの事、relaitonshipsテーブルにアクセスする時、follow_idを入口とする
+  # has_many :relaitonshipsの「逆方向」、class_name: 'Relationship'でrelationsipモデルの事、relaitonshipsテーブルにアクセスする時、follow_idを入口とする
   has_many :followers, through: :reverse_of_relationships, source: :user
 
   has_many :infomation_comments, dependent: :destroy
@@ -50,18 +50,19 @@ class User < ApplicationRecord
   has_many :joins, dependent: :destroy
 
   def follow(other_user)
-    unless self == other_user #フォローしようとしている other_user が自分自身ではないかを検証
-      self.relationships.find_or_create_by(follow_id: other_user.id) #見つかれば Relation を返し、見つからなければ self.relationships.create(follow_id: other_user.id)
+    unless self == other_user # フォローしようとしている other_user が自分自身ではないかを検証
+      relationships.find_or_create_by(follow_id: other_user.id) # 見つかれば Relation を返し、見つからなければ self.relationships.create(follow_id: other_user.id)
     end
   end
 
-  def unfollow(other_user) #フォローがあればアンフォロー
-    relationship = self.relationships.find_by(follow_id: other_user.id)
-    relationship.destroy if relationship #relationship が存在すれば destroy
+  # フォローがあればアンフォロー
+  def unfollow(other_user)
+    relationship = relationships.find_by(follow_id: other_user.id)
+    relationship&.destroy # relationship が存在すれば destroy
   end
 
   def following?(other_user)
-    self.followings.include?(other_user) #self.followings によりフォローしている User 達を取得、include?(other_user) によって other_user が含まれていないかを確認
+    followings.include?(other_user) # self.followings によりフォローしている User 達を取得、include?(other_user) によって other_user が含まれていないかを確認
   end
 
   def self.guest
@@ -70,5 +71,4 @@ class User < ApplicationRecord
       # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
-
 end
