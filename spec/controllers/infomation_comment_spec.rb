@@ -34,6 +34,15 @@ RSpec.describe InfomationCommentsController, type: :controller do
         other_user = FactoryBot.create(:user)
         @infomation_comment = FactoryBot.create(:infomation_comment, user: other_user)
       end
+      
+      it '投稿できること' do
+        infomation_comment_params = FactoryBot.attributes_for(:infomation_comment)
+        sign_in @user
+        expect do
+          post infomation_infomation_comments_path(infomation_id: @infomation.id),
+               params: { infomation_comment: infomation_comment_params }
+        end.to_not change(InfomationComment, :count)
+      end
 
       it '削除できないこと' do
         sign_in @user
