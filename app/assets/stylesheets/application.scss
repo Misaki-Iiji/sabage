@@ -80,6 +80,7 @@ body {
   background-image: image_url("top.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-size: cover;
   font-family: '07Takibi-Heavy.otf';
 }
 
@@ -215,10 +216,21 @@ a:hover {
 
 // homes
 
-  body {
-    background-image: image_url("back.jpg");
-    background-attachment: fixed;
-  }
+ 
+  
+    body::before {
+    background:url('back.jpg') no-repeat left top;
+    background-size: 100% auto;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 108px;
+    content: "";
+    z-index: -1;
+  }   
 
   .about_image {
     width: 100vw;
