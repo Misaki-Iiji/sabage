@@ -2,9 +2,8 @@ class ChatGroupsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @all_chat_groups = ChatGroup.all.page(params[:page])
     @q = ChatGroup.ransack(params[:q])
-    @chat_groups = @q.result(distinct: true)
+    @chat_groups = @q.result(distinct: true).page(params[:page])
   end
 
   def new

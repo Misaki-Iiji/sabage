@@ -5,9 +5,8 @@ class PicturesController < ApplicationController
     @field = Field.find(@post.field_id)
   end
 
-  def edit; end
-
-  def update; end
-
-  def destroy; end
+  def destroy
+    Picture.find_by(id: params[:id], post_id: params[:post_id]).destroy
+    redirect_to field_path(params[:field_id])
+  end
 end

@@ -18,19 +18,19 @@ Rails.application.routes.draw do
   get 'chat/:id' => 'chats#show', as: 'chat'
   get 'group_chats/:id' => 'group_chats#show', as: 'group_chats'
   post 'group_chats/:id' => 'group_chats#create', as: 'group_chat'
-  resources :chats, only: %i[index create]
+  resources :chats, only: [:index, :create]
 
   resources :fields do
-    resource :favorite, only: %i[create destroy]
+    resource :favorite, only: [:create, :destroy]
   end
 
   resources :infomations do
-    resources :infomation_comments, only: %i[create destroy]
+    resources :infomation_comments, only: [:create, :destroy]
   end
 
-  resources :posts, only: %i[new create show] do
-    resources :pictures, only: %i[show create show] do
-      resource :picture_hit, only: %i[create destroy]
+  resources :posts, only: [:new, :create, :show] do
+    resources :pictures, only: [:show, :create, :show, :destroy] do
+      resource :picture_hit, only: [:create, :destroy]
     end
   end
 
@@ -39,10 +39,10 @@ Rails.application.routes.draw do
     get :followers, on: :member
   end
 
-  resources :relationships, only: %i[create destroy]
+  resources :relationships, only: [:create, :destroy]
 
-  resources :chat_groups, only: %i[index new create edit update destroy] do
-    resource :join, only: %i[create destroy]
+  resources :chat_groups, only: [:index, :new, :create, :edit, :update, :destroy] do
+    resource :join, only: [:create, :destroy]
   end
   post '/homes/guest_sign_in', to: 'homes#new_guest' # ゲストログイン
 end

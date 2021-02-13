@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: %i[edit update followings followers]
+  before_action :authenticate_user!, only: [:edit, :update, :followings, :followers]
 
   def index
     @q = User.ransack(params[:q]) # 検索ワードをparams[:q]で受け取り
