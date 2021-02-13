@@ -10,7 +10,8 @@ class InfomationCommentsController < ApplicationController
   end
 
   def destroy
-    InfomationComment.find_by(id: params[:id], infomation_id: params[:infomation_id]).destroy
+    InfomationComment.find(params[:id]).destroy
+    # InfomationComment.find_by(id: params[:id], infomation_id: params[:infomation_id]).destroy
     redirect_to infomation_path(params[:infomation_id])
   end
 

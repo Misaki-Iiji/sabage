@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
   end
 
   def destroy
-    Picture.find_by(id: params[:id], post_id: params[:id]).destroy
+    Picture.find_by(id: params[:id], post_id: params[:post_id]).destroy
     redirect_to field_path(params[:field_id])
   end
 end
