@@ -7,7 +7,7 @@
         <%= render 'picture_hits/picture_hits', picture: @picture, post: @post%>
       </div>
       <% if current_field == @field %>
-        <%= link_to 'Delete', post_picture_path(@picture), method: :delete, data: { confirm: '削除しますか?' } %>
+        <%= link_to 'Delete', post_picture_path(@post, @picture), method: :delete, data: { confirm: '削除しますか?' } %>
       <% end %>
     </h2>
   </div>
