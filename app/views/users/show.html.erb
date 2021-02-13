@@ -31,7 +31,7 @@
           <% end %>
 
           <% if current_user == @user %> <!--ログインユーザー用-->
-            <%= link_to "Edit Profile", edit_user_path(current_user), class:"btn btn-dark m-2" %>
+            <%= link_to "Edit Profile", edit_user_path(current_user), class:"btn btn-dark m-2", data: {"turbolinks"=>false}  %>
           <% end %>
         </div>
       <% elsif field_signed_in? %> <!--フィールド用-->
