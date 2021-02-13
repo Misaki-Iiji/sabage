@@ -72,30 +72,16 @@ h3 {
   color: white;
 }
 
-// body {
-//   height: 100%;
-//   color: white;
-//   font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-//   margin: 0 auto;
-//   background-image: image_url("top.jpg");
-//   background-attachment: fixed;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   font-family: '07Takibi-Heavy.otf';
-// }
-
-  body::before {
-  background:url('back.jpg') no-repeat left top;
-  background-size: 100% auto;
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+body {
   height: 100%;
-  padding-bottom: 108px;
-  content: "";
-  z-index: -1;
+  color: white;
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  margin: 0 auto;
+  background-image: image_url("top.jpg");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: '07Takibi-Heavy.otf';
 }
 
 a {
@@ -173,7 +159,7 @@ a:hover {
   padding: 5px;
   border: 1px solid white;
   }
-
+  
 .comment_plofile_image {
   width: 60px;
   height: 60px;
@@ -181,10 +167,10 @@ a:hover {
   padding: 5px;
   border: 1px solid white;
 }
-
-
+  
+  
   // chat
-
+  
 .group_chat_profile_name {
   overflow: hidden;
   white-space: nowrap;
@@ -230,21 +216,26 @@ a:hover {
 
 // homes
 
+  // body {
+  //   background-image: image_url("back.jpg");
+  //   background-attachment: fixed;
+  //   background-size: cover;
+  // }
+  
+    body::before {
+    background: image-url('back.jpg') no-repeat left top;
+    background-size: 100% auto;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 108px;
+    content: "";
+    z-index: -1;
+  }   
 
-
-  body::before {
-  background:url('back.jpg') no-repeat left top;
-  background-size: 100% auto;
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-bottom: 108px;
-  content: "";
-  z-index: -1;
-}
 
   .about_image {
     width: 100vw;
@@ -365,5 +356,5 @@ a:hover {
   .field_show_main {
     width: 100vw;
   }
-
+  
 }
