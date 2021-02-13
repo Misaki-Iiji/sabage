@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe InfomationCommentsController, type: :controller do
@@ -35,7 +33,7 @@ RSpec.describe InfomationCommentsController, type: :controller do
         @infomation_comment = FactoryBot.create(:infomation_comment, user: other_user)
       end
       
-      it '投稿できること' do
+      it '投稿できないこと' do
         infomation_comment_params = FactoryBot.attributes_for(:infomation_comment)
         sign_in @user
         expect do
