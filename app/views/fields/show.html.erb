@@ -5,6 +5,8 @@
       <p><%= flash[:notice] %></p>
     <% end %>
 
+
+<!----------field画像、名前--------------->
     <h2>
       <%= @field.name %>
       <% if current_field == @field %>
@@ -21,7 +23,7 @@
     <%= simple_format(@field.introduction) %>
   </div>
 
-
+<!----------------Infomation-------------->
   <div class="container text-center field_show_main">
     <h3>
       Infomation
@@ -39,6 +41,8 @@
   </div>
 </div>
 
+
+<!-------------Editボタン------------------->
   <div class="container">
     <h3 class="text-center">
       Photo
@@ -46,7 +50,27 @@
           <%= link_to image_tag("icon3.png", :size => "25x25"), new_post_path %>
       <% end %>
     </h3>
+    
+<!--------------GoogleMap------------------->
+  <div id='map'></div>
 
+  <style>
+  #map{
+    height: 400px;
+  }
+  </style>
+  
+  <script>
+  function initMap(){
+    let map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: -34.397, lng: 150.644},
+    zoom: 8
+    });
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    
+<!--------------写真一覧-------------------->
     <% if @field.posts.present? %>
       <% @posts.each do |post| %>
         <div class="m-2 text-center">

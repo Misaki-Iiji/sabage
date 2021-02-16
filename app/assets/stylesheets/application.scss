@@ -215,12 +215,6 @@ a:hover {
 @media screen and (max-width: 768px) {
 
 // homes
-
-  // body {
-  //   background-image: image_url("back.jpg");
-  //   background-attachment: fixed;
-  //   background-size: cover;
-  // }
   
     body::before {
     background: image-url('back.jpg') no-repeat left top;
