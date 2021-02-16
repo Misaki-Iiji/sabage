@@ -1,11 +1,11 @@
-field1 = Field.create({ name: 'the シールズ', email: 'test1@test1', password: '111111', image: File.open('./app/assets/images/field1.jpg'), address: '千葉県千葉市若葉区小倉町1番地',
+field1 = Field.create({ name: 'the シールズ', email: 'test1@test1', password: '111111', image: File.open('./app/assets/images/field1.jpg'), address: '千葉県千葉市若葉区小倉町１３３６',
                         introduction: '弾数制限	：	無制限
 参加資格	：	18歳以上
 開催日	：	第１～４日曜 第２土曜 第１月曜 第３水曜 第４火曜・木曜
 料金	：	￥3,500(税込)
 ※食事代込み（食事抜きの方・女性の方￥５００ OFF）' })
 
-field2 = Field.create({ name: 'Rock234', email: 'test2@test2', password: '111111', image: File.open('./app/assets/images/field2.jpg'), address: '埼玉県大里郡寄居町西ノ入１１',
+field2 = Field.create({ name: 'Rock234', email: 'test2@test2', password: '111111', image: File.open('./app/assets/images/field2.jpg'), address: '埼玉県大里郡寄居町西ノ入１１８３',
                         introduction: '関東最大級のサバイバルゲームフィールド
 弾数制限	：	無制限
 参加資格	：	18歳以上
@@ -13,7 +13,7 @@ field2 = Field.create({ name: 'Rock234', email: 'test2@test2', password: '111111
 料金	：	￥3,500(税込)
 ※食事代込み（食事抜きの方・女性の方￥５００ OFF）' })
 
-field3 = Field.create({ name: 'HEAD SHOW', email: 'test3@test3', password: '111111', image: File.open('./app/assets/images/field3.jpg'), address: '千葉県印西市平賀55',
+field3 = Field.create({ name: 'HEAD SHOW', email: 'test3@test3', password: '111111', image: File.open('./app/assets/images/field3.jpg'), address: '千葉県印西市平賀２４７０',
                         introduction: '総敷地面積約8,000坪。
 弾数制限	：	無制限
 参加資格	：	18歳以上
@@ -21,7 +21,7 @@ field3 = Field.create({ name: 'HEAD SHOW', email: 'test3@test3', password: '1111
 料金	：	￥3,500(税込)
 ※食事代込み（食事抜きの方・女性の方￥５００ OFF）' })
 
-field4 = Field.create({ name: 'TENKOOOOO', email: 'test4@test4', password: '111111', image: File.open('./app/assets/images/field4.jpg'), address: '東京都八王子市高月05',
+field4 = Field.create({ name: 'TENKOOOOO', email: 'test4@test4', password: '111111', image: File.open('./app/assets/images/field4.jpg'), address: '東京都八王子市高月町２２０５',
                         introduction: '大きな市街地フィールドです。
 弾数制限	：	無制限
 参加資格	：	18歳以上
@@ -29,7 +29,7 @@ field4 = Field.create({ name: 'TENKOOOOO', email: 'test4@test4', password: '1111
 料金	：	￥3,500(税込)
 ※食事代込み（食事抜きの方・女性の方￥５００ OFF）' })
 
-field5 = Field.create({ name: '東京サバゲパーカー', email: 'test5@test5', password: '111111', image: File.open('./app/assets/images/field5.jpg'), address: '千葉県印西市草深30',
+field5 = Field.create({ name: '東京サバゲパーカー', email: 'test5@test5', password: '111111', image: File.open('./app/assets/images/field5.jpg'), address: '千葉県印西市草深3筆 草深字仲ノ側258番1他',
                         introduction: '中東をイメージした市街地エリアと、米軍基地を再現したフィールドで、
 臨場感あふれるプレイを楽しめます。
 弾数制限	：	無制限
@@ -38,7 +38,7 @@ field5 = Field.create({ name: '東京サバゲパーカー', email: 'test5@test5
 料金	：	￥3,500(税込)
 ※食事代込み（食事抜きの方・女性の方￥５００ OFF）' })
 
-field6 = Field.create({ name: 'フォレストオニオン', email: 'test1@test', password: '111111', address: '千葉県印西市平賀70',
+field6 = Field.create({ name: 'フォレストオニオン', email: 'test1@test', password: '111111', address: '千葉県印西市平賀２４７０',
                         introduction: '【参加費】
 平日 ：2,500円
 土日祝：3,000円
@@ -47,12 +47,39 @@ field6 = Field.create({ name: 'フォレストオニオン', email: 'test1@test'
 ・車 酒々井ICから約20分
 ・送迎バス（※要予約）京成本線京成酒々井駅 集合' })
 
-field7 = Field.create({ name: 'TENGUSAMA TOKYO', email: 'test2@test', password: '111111', address: '東京都八王子市戸吹町5',
+field7 = Field.create({ name: 'TENGUSAMA TOKYO', email: 'test2@test', password: '111111', address: '東京都八王子市戸吹町５８０',
                         introduction: '弾数制限	：	無制限
 参加資格	：	18歳以上
 開催日	：	第１～４日曜 第２土曜 第１月曜 第３水曜 第４火曜・木曜
 料金	：	￥3,500(税込)
 ※食事代込み（食事抜きの方・女性の方￥５００ OFF）' })
+
+field8 = Field.create({ name: 'Hill', email: 'test3@test', password: '111111', address: '埼玉県上尾市領家１０４３',
+                        introduction: '【参加費】
+平日 ：2,500円
+土日祝：3,000円
+※詳細な情報は公式HPにてご確認ください。
+【アクセス】
+・車 酒々井ICから約20分
+・送迎バス（※要予約）京成本線京成酒々井駅 集合' })
+
+field9 = Field.create({ name: 'Oasss', email: 'test4@test', password: '111111', address: '埼玉県川越市上松原２２１',
+                        introduction: '【参加費】
+平日 ：2,500円
+土日祝：3,000円
+※詳細な情報は公式HPにてご確認ください。
+【アクセス】
+・車 酒々井ICから約20分
+・送迎バス（※要予約）京成本線京成酒々井駅 集合' })
+
+field10 = Field.create({ name: 'ATTACKERATTACKER', email: 'test5@test', password: '111111', address: '神奈川県横浜市港北区新吉田町６０６１',
+                        introduction: '【参加費】
+平日 ：2,500円
+土日祝：3,000円
+※詳細な情報は公式HPにてご確認ください。
+【アクセス】
+・車 酒々井ICから約20分
+・送迎バス（※要予約）京成本線京成酒々井駅 集合' })
 
 # ユーザー作成
 user1 = User.create({ nickname: '宮田くん', email: 'user1@user.com', password: '111111', introduction: 'よろしく',
