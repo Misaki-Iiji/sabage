@@ -5,6 +5,8 @@
       <p><%= flash[:notice] %></p>
     <% end %>
 
+
+<!----------field画像、名前--------------->
     <h2>
       <%= @field.name %>
       <% if current_field == @field %>
@@ -17,11 +19,46 @@
     </div>
 
     <%= attachment_image_tag @field, :image, :size => '760x400', fallback: "no_image.jpg"%><br>
-    住所：<%= @field.address %><br>
     <%= simple_format(@field.introduction) %>
+    住所：<%= @field.address %><br>
   </div>
 
+<!--------------GoogleMap------------------->
+  <script type="text/javascript">
+    function initMap() {
+    // latitude,longitudeから位置を特定
+      var test ={lat: <%= @field.latitude %>, lng: <%= @field.longitude %>};
+      var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: test
+                });
+      var transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
 
+      var contentString = '住所：<%= @field.address %>';
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+
+    // Map上の指定した位置にピンを挿して表示する
+      var marker = new google.maps.Marker({
+                    position:test,
+                    map: map,
+                    title: contentString
+                   });
+
+       marker.addListener('click', function() {
+         infowindow.open(map, marker);
+       });
+    }
+  </script>
+
+  <script async defer
+                src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+  </script>
+  <div id="map" style='height: 250px; width: 60%;' class="mx-auto"></div>
+
+<!----------------Infomation-------------->
   <div class="container text-center field_show_main">
     <h3>
       Infomation
@@ -38,6 +75,8 @@
     <% end %>
   </div>
 </div>
+
+<!--------------写真一覧-------------------->
 
   <div class="container">
     <h3 class="text-center">

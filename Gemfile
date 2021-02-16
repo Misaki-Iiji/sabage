@@ -74,3 +74,4 @@ gem 'rubocop', require: false
 gem 'rubocop-rails', require: false
 gem 'dotenv-rails'
 gem 'refile-s3' # S3
+gem "geocoder" #map表示

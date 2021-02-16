@@ -11,9 +11,14 @@
       <%= f.text_field :name, autofocus: true, class: "w-85" %>
     </div>
 
+     <div class="field m-3">
+      <%= f.label :address, "住所" %><br />
+      <%= f.text_field :address, class: "w-85" %>
+    </div>
+
     <div class="field m-3">
       <%= f.label :Eメール %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "w-85" %>
+      <%= f.email_field :email, autocomplete: "email", class: "w-85" %>
     </div>
 
     <div class="field m-3">
