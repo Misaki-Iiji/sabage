@@ -18,7 +18,7 @@ class Field < ApplicationRecord
 
   attachment :image # refile使うときのルール
   accepts_attachments_for :pictures, attachment: :picture
-  
+
   geocoded_by :address #住所登録した際に緯度と経度のカラムにも自動的に値を入れてくれる
   after_validation :geocode, if: :address_changed?
 end
