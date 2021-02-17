@@ -1,5 +1,5 @@
 class FieldsController < ApplicationController
-  before_action :authenticate_field!, only: [:edit] # index, ranking, showはフィールドでログインしてなくても見れる
+  before_action :authenticate_any!
 
   def index
     @q = Field.ransack(params[:q]) # 検索ワードをparams[:q]で受け取り
