@@ -63,7 +63,7 @@
     <h3>
       Infomation
       <% if current_field == @field %>
-      <%= link_to image_tag("icon3.png", :size => "25x25"), new_infomation_path %>
+      <%= link_to "追加", new_infomation_path %>
       <% end %>
     </h3>
     <% if @field.infomation.present? %>
@@ -82,7 +82,7 @@
     <h3 class="text-center">
       Photo
       <% if current_field == @field %>
-          <%= link_to image_tag("icon3.png", :size => "25x25"), new_post_path %>
+          <%= link_to "追加", new_post_path %>
       <% end %>
     </h3>
 
