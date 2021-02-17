@@ -57,9 +57,7 @@ li {
 }
 
 h1 {
-  color: #666633;
-  font-size: 15px;
-  font-color: white;
+  font-size: 40px;
 }
 
 h2 {
@@ -335,10 +333,6 @@ a:hover {
 
 /* スマートフォンサイズ（425px）以下の際に適用される設定 */
 @media screen and (max-width: 425px) {
-
-  .top_btn {
-    font-size: 13px;
-  }
 
   .index_infomation_body {
     overflow: hidden;

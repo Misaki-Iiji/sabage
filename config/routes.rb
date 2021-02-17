@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
   get 'homes/about'
+  get 'homes/login'
+  get 'homes/signup'
   get 'fields/ranking'
   get 'chat/:id' => 'chats#show', as: 'chat'
   get 'group_chats/:id' => 'group_chats#show', as: 'group_chats'
