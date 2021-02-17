@@ -10,78 +10,87 @@
   </head>
 
   <body>
-    <header>
-    <nav class="navbar navbar-expand">
-    <% if field_signed_in? %>
-      <ul class="navbar-nav mr-auto">
-        <li>
-          <%= link_to image_tag("main_logo.png", :size => "90x90"), field_path(current_field), class: "m-2" %>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to "ホーム", field_path(current_field), class:"m-3" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "お知らせ一覧", infomations_path, class:"m-3" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "フィールドランキング", fields_ranking_path, class:"m-3" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "フィールド一覧", fields_path, class:"m-3" %>
-        </li>
-      </ul>
-    <% elsif user_signed_in? %>
-      <ul class="navbar-nav mr-auto">
-        <li>
-          <%= link_to image_tag("main_logo.png", :size => "90x90"), user_path(current_user), class: "m-2" %>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to "ホーム", user_path(current_user), class:"m-2" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "お知らせ", infomations_path, class:"m-2" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "クラン一覧", chat_groups_path, class:"m-2" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "ユーザー一覧", users_path, class:"m-2" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "フィールドランキング", fields_ranking_path, class:"m-2" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "フィールド一覧", fields_path, class:"m-2" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "what's is this website ?", homes_about_path, class: "m-2" %>
-        </li>
-      </ul>
-      <% else %>
-      <ul class="navbar-nav mr-auto">
-        <li>
-          <%= link_to image_tag("main_logo.png", :size => "90x90"), root_path, class: "m-2" %>
-        </li>
-      </ul>
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <%= link_to "Log in", homes_login_path, class:"m-2" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign up", homes_signup_path, class:"m-2" %>
-        </li>
-      </ul>
-    <% end %>
-    </header>
-    <main style="min-height: 80vh;">
+    <input id="menu" type="checkbox"/>
+    <label for="menu" class="open">🍔</label>
+    <label for="menu" class="back"></label>
+
+    <aside>
+      <div class="sideber">
+        <label for="menu" class="close">×</label>
+
+        <nav>
+          <% if field_signed_in? %>
+            <ul>
+              <li class="list_item">
+                <%= link_to image_tag("main_logo.png", :size => "90x90"), field_path(current_field), class: "m-2" %>
+              </li>
+            </ul>
+            <ul>
+              <li class="list_item">
+                <%= link_to "ホーム", field_path(current_field), class:"m-3 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "お知らせ一覧", infomations_path, class:"m-3 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "フィールドランキング", fields_ranking_path, class:"m-3 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "フィールド一覧", fields_path, class:"m-3 w-100" %>
+              </li>
+            </ul>
+          <% elsif user_signed_in? %>
+            <ul>
+              <li class="list_item">
+                <%= link_to image_tag("main_logo.png", :size => "90x90"), user_path(current_user), class: "m-2 w-100" %>
+              </li>
+            </ul>
+            <ul>
+              <li class="list_item">
+                <%= link_to "ホーム", user_path(current_user), class:"m-2 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "お知らせ", infomations_path, class:"m-2 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "クラン一覧", chat_groups_path, class:"m-2 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "ユーザー一覧", users_path, class:"m-2 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "フィールドランキング", fields_ranking_path, class:"m-2 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "フィールド一覧", fields_path, class:"m-2 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "what's is this website ?", homes_about_path, class: "m- w-100" %>
+              </li>
+            </ul>
+            <% else %>
+            <ul>
+              <li class="list_item">
+                <%= link_to image_tag("main_logo.png", :size => "90x90"), root_path, class: "m-2" %>
+              </li>
+            </ul>
+            <ul>
+              <li class="list_item">
+                <%= link_to "Log in", homes_login_path, class:"m-2 w-100" %>
+              </li>
+              <li class="list_item">
+                <%= link_to "Sign up", homes_signup_path, class:"m-2 w-100" %>
+              </li>
+            </ul>
+          <% end %>
+        </nav>
+        <footer>
+          © 2021 HelloSurvival inc.
+        </footer>
+      </div>
+    </aside>
+    <main>
       <%= yield %>
     </main>
-    <footer class="d-flex align-items-center justify-content-center text-light">
-      © 2021 HelloSurvival inc.
-    </footer>
   </body>
 </html>
