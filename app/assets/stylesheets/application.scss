@@ -33,28 +33,10 @@
 
 // homes
 
-.top {
-  max-width: 100%;
-  height: auto;
-}
-
-header {
-  padding: 0;
-}
-
-footer {
-  height: 50px;
-  color: white;
-  margin: 60px 0;
-}
-
-.nav-item {
-  list-style: none;
-}
-
-li {
-  list-style: none;
-}
+// .top {
+//   max-width: 100%;
+//   height: auto;
+// }
 
 h1 {
   font-size: 40px;
@@ -70,16 +52,64 @@ h3 {
   color: white;
 }
 
+.open,
+.close {
+    display: none;
+}
+input[type="checkbox"] {
+    position: absolute;
+    left: -50vw;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list_item {
+  margin: 6px ;
+}
+
+aside {
+  width: 20%;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sideber {
+    margin: 100px 0;
+    position: -webkit-sticky; /* Safariに対応する */
+    position: sticky; /* 要素を固定/解除する */
+    top: 0; /* 縦方向の閾値 */
+    left: 0;
+
+}
+
 body {
-  height: 100%;
+  margin: 0;
+  display: flex;
+  // font-size: 2rem;
+  min-height: 100vh;
+
+  // height: 100%;
   color: white;
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  margin: 0 auto;
   background-image: image_url("top.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: '07Takibi-Heavy.otf';
+}
+
+main {
+  width: 1000px;
+  margin: 100px auto;
+}
+
+.footer {
+    margin-top: auto;
 }
 
 a {
@@ -89,12 +119,6 @@ a {
 a:hover {
   color: gray;
 }
-
-.about_images {
-  width: 17vw;
-  height: 16vh;
-}
-
 
 // field
 
@@ -206,6 +230,36 @@ a:hover {
 .pagination>li>a:hover {
   color: #696969;   /*文字の色を変える*/
   color: gray;
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    width: 100%;
+    padding-top: 50px;
+  }
+
+  .open,
+  .close {
+      display: block;
+  }
+  .open {
+      position: absolute;
+  }
+  aside {
+      position: absolute;
+      left: -250px;
+      height: 100%;
+      transition: all 0.2s;
+  }
+  input[type="checkbox"]:checked ~ aside {
+      left: 0;
+  }
+  input[type="checkbox"]:checked ~ .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+  }
 }
 
 
