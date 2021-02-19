@@ -22,11 +22,11 @@ module Language
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
       # APIレスポンス出力
-      response_body = JSON.parse(response.body)
-      if (error = response_body['error']).present?
+      response_message = JSON.parse(response.message)
+      if (error = response_message['error']).present?
         raise error['message']
       else
-        response_body['documentSentiment']['score']
+        response_message['documentSentiment']['score']
       end  
     end
   end
