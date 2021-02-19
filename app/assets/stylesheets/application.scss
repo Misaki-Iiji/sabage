@@ -25,6 +25,14 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: '02Takibi-Light.otf';
+  src: font-url('02Takibi-Light.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   padding: 0;
   box-sizing: border-box;
@@ -33,23 +41,25 @@
 
 // homes
 
-// .top {
-//   max-width: 100%;
-//   height: auto;
-// }
-
 h1 {
   font-size: 40px;
+  font-family: '07Takibi-Heavy.otf';
+
 }
 
 h2 {
   font-size: 40px;
   color: white;
+  font-family: '07Takibi-Heavy.otf';
 }
 
 h3 {
-  margin-top: 10%;
   color: white;
+  font-family: '07Takibi-Heavy.otf';
+}
+
+h4 {
+  font-family: '07Takibi-Heavy.otf';
 }
 
 .open,
@@ -57,18 +67,21 @@ h3 {
     display: none;
 }
 input[type="checkbox"] {
-    position: absolute;
-    left: -50vw;
+  position: absolute;
+  left: -50vw;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 5px;
+
 }
 
 .list_item {
-  margin: 6px ;
+  margin: 8px;
+  text-align: center;
 }
 
 aside {
@@ -76,40 +89,33 @@ aside {
   width: 250px;
   display: flex;
   flex-direction: column;
+  background-color: #000D0A;
 }
 
-.sideber {
-    margin: 100px 0;
-    position: -webkit-sticky; /* Safariに対応する */
-    position: sticky; /* 要素を固定/解除する */
-    top: 0; /* 縦方向の閾値 */
-    left: 0;
-
+.sidebar {
+  margin: 100px 0;
+  position: -webkit-sticky; /* Safariに対応する */
+  position: sticky; /* 要素を固定/解除する */
+  top: 0;
+  left: 0;
 }
 
 body {
   margin: 0;
   display: flex;
-  // font-size: 2rem;
   min-height: 100vh;
-
-  // height: 100%;
   color: white;
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background-image: image_url("top.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: '07Takibi-Heavy.otf';
+  font-family: '02Takibi-Light.otf';
 }
 
 main {
   width: 1000px;
-  margin: 100px auto;
-}
-
-.footer {
-    margin-top: auto;
+  margin: 70px auto;
 }
 
 a {
@@ -158,6 +164,14 @@ a:hover {
   border: 1px solid white;
 }
 
+.sidebar_plofile_image {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid white;
+}
+
 .index_plofile_image {
   width: 80px;
   height: 80px;
@@ -200,8 +214,14 @@ a:hover {
   text-overflow: ellipsis;
 }
 
-.message {
-  width: 80vw;
+.chat_area {
+  width: 60vw;
+}
+
+.chat_time {
+  font-size: 13px;
+  color: #DDDDDD;
+  margin-bottom: 0;
 }
 
 .message_body {
@@ -232,7 +252,10 @@ a:hover {
   color: gray;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1030px) {
+
+ // menu
+
   main {
     width: 100%;
     padding-top: 50px;
@@ -241,16 +264,16 @@ a:hover {
   .open,
   .close {
       display: block;
-  }
-  .open {
       position: absolute;
   }
   aside {
-      position: absolute;
-      left: -250px;
-      height: 100%;
-      transition: all 0.2s;
+    position: absolute;
+    left: -250px;
+    height: 100%;
+    transition: all 0.2s;
+    z-index: 1030;
   }
+
   input[type="checkbox"]:checked ~ aside {
       left: 0;
   }
@@ -258,10 +281,9 @@ a:hover {
       position: absolute;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.2);
   }
 }
-
 
 /* タブレット縦置きサイズ（768px）以下の際に適用される設定 */
 @media screen and (max-width: 768px) {

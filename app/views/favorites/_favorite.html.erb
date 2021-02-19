@@ -2,13 +2,13 @@
   <% if field.favorited_by?(current_user) %>
     <p>
       <%= link_to field_favorite_path(field.id), method: :delete, remote: true do %>
-        ♥(お気に入り<%= field.favorites.count %>件)
+        ★(お気に入り<%= field.favorites.count %>件)
       <% end %>
     </p>
   <% else %>
     <p>
       <%= link_to field_favorite_path(field.id), method: :post, remote: true do %>
-        ♡(お気に入り<%= field.favorites.count %>件)
+        ☆(お気に入り<%= field.favorites.count %>件)
       <% end %>
     </p>
   <% end %>
