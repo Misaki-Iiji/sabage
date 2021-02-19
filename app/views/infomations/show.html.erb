@@ -12,8 +12,8 @@
     </h3>
     <%= link_to @field.name, field_path(@field) %>
       <% if current_field == @field %>
-        <%= link_to 'Edit', edit_infomation_path(@infomation) %>/
-        <%= link_to 'Delete', infomation_path(@infomation), method: :delete, data: { confirm: '削除しますか?' } %>
+        <%= link_to 'Edit', edit_infomation_path(@infomation), class: "btn btn-dark" %>
+        <%= link_to 'Delete', infomation_path(@infomation), class: "btn btn-dark", method: :delete, data: { confirm: '削除しますか?' } %>
       <% end %>
     <p class="m-5">
       <%= @infomation.body %>

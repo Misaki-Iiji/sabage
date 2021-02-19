@@ -85,9 +85,9 @@ ul {
 }
 
 aside {
-  width: 20%;
   width: 250px;
   display: flex;
+  height: 100%;
   flex-direction: column;
   background-color: #000D0A;
 }
@@ -103,7 +103,6 @@ aside {
 body {
   margin: 0;
   display: flex;
-  min-height: 100vh;
   color: white;
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background-image: image_url("top.jpg");
@@ -114,8 +113,17 @@ body {
 }
 
 main {
+  min-height: 100vh;
   width: 1000px;
-  margin: 70px auto;
+  margin: 70px auto
+}
+
+footer {
+  display: block;
+  position: static;
+  margin: auto;
+  color: #DDDDDD;
+  font-size: 13px;
 }
 
 a {
@@ -124,6 +132,12 @@ a {
 
 a:hover {
   color: gray;
+}
+
+.about_image {
+  margin: auto;
+  height: 60%;
+  width: 90%;
 }
 
 // field
@@ -228,12 +242,6 @@ a:hover {
   width: 70vw;
 }
 
-.message_box {
-  width: 73vw;
-  margin: 0 auto;
-}
-
-
 // paginate
 
 .pagination>li>a {
@@ -259,6 +267,7 @@ a:hover {
   main {
     width: 100%;
     padding-top: 50px;
+    margin: 0;
   }
 
   .open,
@@ -269,7 +278,7 @@ a:hover {
   aside {
     position: absolute;
     left: -250px;
-    height: 100%;
+    height: 120%;
     transition: all 0.2s;
     z-index: 1030;
   }
@@ -302,17 +311,6 @@ a:hover {
     padding-bottom: 108px;
     content: "";
     z-index: -1;
-  }
-
-
-  .about_image {
-    width: 100vw;
-    height: auto;
-  }
-
-  .about_images {
-    width: 40vw;
-    height: 100px;
   }
 
 // user
