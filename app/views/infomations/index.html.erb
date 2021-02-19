@@ -19,6 +19,7 @@
     <% @infomations.each do |infomation| %>
     <div class="row align-items-center mt-3 border-top">
       <div class="col-md-3 h5">
+        <span><%= infomation.created_at.strftime('%Y/%m/%d') %></span>
         <%= link_to infomation.field.name, field_path(infomation.field) %>
       </div>
       <div class="col-md-6 index_infomation_body mt-3">

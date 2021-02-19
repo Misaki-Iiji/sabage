@@ -23,7 +23,7 @@
 
       <ul>
       <% @chat_groups.reverse_each do |chat_group| %>
-        <li class="m-1">
+        <li class="m-1 h5">
             <% if chat_group.joined_by?(current_user) %>
             <span>★</span>
             <%= link_to group_chats_path(chat_group.id) do %>
