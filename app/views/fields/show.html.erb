@@ -9,9 +9,6 @@
 <!----------field画像、名前--------------->
     <h2>
       <%= @field.name %>
-      <% if current_field == @field %>
-        <%= link_to "編集", edit_field_path(current_field), class:"m-5" %>
-      <% end %>
     </h2>
 
     <div id="favorites_buttons_<%= @field.id %>">
@@ -63,9 +60,6 @@
   <div class="container text-center field_show_main mt-5">
     <h3>
       Infomation
-      <% if current_field == @field %>
-      <%= link_to "追加", new_infomation_path %>
-      <% end %>
     </h3>
     <% if @field.infomation.present? %>
       <% @infomations.each do |infomation| %>
@@ -82,9 +76,6 @@
   <div class="container mt-5">
     <h3 class="text-center">
       Photo
-      <% if current_field == @field %>
-          <%= link_to "追加", new_post_path %>
-      <% end %>
     </h3>
 
     <% if @field.posts.present? %>

@@ -20,13 +20,24 @@
 
         <nav>
           <% if field_signed_in? %>
-            <%= link_to image_tag("main_logo.png", :size => "90x90"), field_path(current_field), class: "m-2" %>
+            <%= link_to root_path do %>
+              <%= image_tag "main_logo.png", :size => "70x70" %>
+               Hello Survival
+            <% end %>
+            <div class="text-center m-3">
+              <%= link_to field_path(current_field) do %>
+                <%= attachment_image_tag current_field, :image, :size => "100x70", fallback: "no_image.jpg" %><br>
+                <%= current_field.name %><br>
+              <% end %>
+            </div>
+            <div class="text-center mb-5">
+              <%= link_to "プロフィール編集", edit_field_path(current_field) %><br>
+              <%= link_to "新規投稿", new_infomation_path %><br>
+              <%= link_to "当日写真追加", new_post_path %>
+            </div>
             <ul>
               <li class="list_item">
-                <%= link_to "ホーム", field_path(current_field), class:"m-3 w-100" %>
-              </li>
-              <li class="list_item">
-                <%= link_to "お知らせ一覧", infomations_path, class:"m-3 w-100" %>
+                <%= link_to "フィールド情報一覧", infomations_path, class:"m-3 w-100" %>
               </li>
               <li class="list_item">
                 <%= link_to "フィールド一覧", fields_path, class:"m-3 w-100" %>
@@ -69,8 +80,10 @@
               </li>
             </ul>
             <% else %>
-            <%= link_to image_tag("main_logo.png", :size => "90x90"), root_path, class: "m-2" %>
-            <ul>
+              <%= link_to root_path do %>
+                <%= image_tag "main_logo.png", :size => "70x70" %>
+                Hello Survival
+            <% end %>            <ul>
               <li class="list_item">
                 <%= link_to "Log in", homes_login_path, class:"m-2 w-100" %>
               </li>
@@ -83,13 +96,13 @@
             </ul>
           <% end %>
         </nav>
+        <footer>
+          <p class="text-center m-5">Copyright (c) 2021 HelloSurvival</p>
+        </footer>
       </div><!--sidebar-->
     </aside>
     <main>
       <%= yield %>
-      <footer>
-        <p class="text-center m-5">Copyright (c) 2021 HelloSurvival</p>
-      </footer>
     </main>
   </body>
 </html>
