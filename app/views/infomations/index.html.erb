@@ -18,11 +18,11 @@
   <div class="container">
     <% @infomations.each do |infomation| %>
     <div class="row align-items-center mt-3 border-top">
-      <div class="col-md-4">
+      <div class="col-md-3 h5">
         <%= link_to infomation.field.name, field_path(infomation.field) %>
       </div>
-      <div class="col-md-5 index_infomation_body mt-3">
-        <%= link_to infomation.title, infomation_path(infomation), class: "h4" %><br>
+      <div class="col-md-6 index_infomation_body mt-3">
+        <h4><%= link_to infomation.title, infomation_path(infomation) %></h4>
         <%= infomation.body %>
       </div>
       <div class="col-md-3">

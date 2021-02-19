@@ -2,7 +2,7 @@
   <div class="text-center">
 
     <div class="chat-group">
-    　<h2>Clan</h2>
+    　<h2>同行者募集</h2>
 
     　<div class="text-center">
         <% if flash[:notice] %>
@@ -12,13 +12,13 @@
 
     　<div class="chat_group_search">
         <%= search_form_for @q do |f| %>
-          <%= f.search_field :chat_group_name_or_chat_group_description_cont, placeholder: "Clan or Word", class: "w-50" %>
+          <%= f.search_field :chat_group_name_or_chat_group_description_cont, placeholder: "Word", class: "w-50" %>
           <%= f.submit "Search" %>
         <% end %>
       </div>
 
       <div class="chat_group_new">
-        <%= link_to "New Clan", new_chat_group_path, class: "btn btn-dark m-4" %>
+        <%= link_to "募集する", new_chat_group_path, class: "btn btn-dark m-4" %>
       </div>
 
       <ul>

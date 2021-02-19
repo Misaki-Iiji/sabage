@@ -4,20 +4,18 @@
     <% if flash[:notice] %>
       <p><%= flash[:notice] %></p>
     <% end %>
-
-    <h2>New Clan</h2>
-
+    <h2>同行者募集</h2>
     <%= form_with url: chat_groups_path, model: @chat_group do |f| %>
       <% text_field_tag 'chat_group[user_ids]',"#{current_user.id}", type: 'hidden' %>
       <!--chat_group_to_usersの情報を送る。type: 'hidden'でフォームがなくなる。-->
 
       <div>
         <div>
-          <%= f.label :chat_group_name, "Clan Name" %><br>
-          <%= f.text_field :chat_group_name, class: "w-50" %>
+          <%= f.label :chat_group_name, "Title" %><br>
+          <%= f.text_field :chat_group_name, class: "w-50 mb-3" %>
         </div>
         <div>
-          <%= f.label :chat_group_description, "Clan Infomation" %><br>
+          <%= f.label :chat_group_description, "Infomation" %><br>
           <%= f.text_area :chat_group_description, rows: 10, class: "w-50" %>
         </div>
         <%= f.submit "Create", class: "m-3" %>

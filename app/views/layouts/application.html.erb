@@ -11,20 +11,16 @@
 
   <body>
     <input id="menu" type="checkbox"/>
-    <label for="menu" class="open">🍔</label>
+    <label for="menu" class="open"><%= image_tag "menu.png", class: "m-2"%></label>
     <label for="menu" class="back"></label>
 
     <aside>
-      <div class="sideber">
-        <label for="menu" class="close">×</label>
+      <label for="menu" class="close"><%= image_tag "close.png", class: "m-2"%></label>
+      <div class="sidebar">
 
         <nav>
           <% if field_signed_in? %>
-            <ul>
-              <li class="list_item">
-                <%= link_to image_tag("main_logo.png", :size => "90x90"), field_path(current_field), class: "m-2" %>
-              </li>
-            </ul>
+            <%= link_to image_tag("main_logo.png", :size => "90x90"), field_path(current_field), class: "m-2" %>
             <ul>
               <li class="list_item">
                 <%= link_to "ホーム", field_path(current_field), class:"m-3 w-100" %>
@@ -33,47 +29,47 @@
                 <%= link_to "お知らせ一覧", infomations_path, class:"m-3 w-100" %>
               </li>
               <li class="list_item">
-                <%= link_to "フィールドランキング", fields_ranking_path, class:"m-3 w-100" %>
+                <%= link_to "フィールド一覧", fields_path, class:"m-3 w-100" %>
               </li>
               <li class="list_item">
-                <%= link_to "フィールド一覧", fields_path, class:"m-3 w-100" %>
+                <%= link_to "フィールドランキング", fields_ranking_path, class:"m-3 w-100" %>
               </li>
             </ul>
           <% elsif user_signed_in? %>
+            <%= link_to root_path do %>
+              <%= image_tag "main_logo.png", :size => "70x70" %>
+              Hello Survival
+            <% end %>
+            <div class="text-center m-5">
+              <%= link_to user_path(current_user) do %>
+                <%= attachment_image_tag current_user, :image, class: "sidebar_plofile_image", fallback: "logo.png" %><br>
+                <%= current_user.nickname %><br>
+              <% end %>
+              <%= link_to "フォロー(#{current_user.followings.count}人)", followings_user_path(current_user.id) %><br>
+              <%= link_to "フォロワー(#{current_user.followers.count}人)", followers_user_path(current_user.id) %><br>
+            </div>
             <ul>
               <li class="list_item">
-                <%= link_to image_tag("main_logo.png", :size => "90x90"), user_path(current_user), class: "m-2 w-100" %>
-              </li>
-            </ul>
-            <ul>
-              <li class="list_item">
-                <%= link_to "ホーム", user_path(current_user), class:"m-2 w-100" %>
+                <%= link_to "同行者募集", chat_groups_path, class:"m-2 w-100" %>
               </li>
               <li class="list_item">
-                <%= link_to "お知らせ", infomations_path, class:"m-2 w-100" %>
+                <%= link_to "ユーザー検索", users_path, class:"m-2 w-100" %>
               </li>
               <li class="list_item">
-                <%= link_to "クラン一覧", chat_groups_path, class:"m-2 w-100" %>
-              </li>
-              <li class="list_item">
-                <%= link_to "ユーザー一覧", users_path, class:"m-2 w-100" %>
+                <%= link_to "フィールド検索", fields_path, class:"m-2 w-100" %>
               </li>
               <li class="list_item">
                 <%= link_to "フィールドランキング", fields_ranking_path, class:"m-2 w-100" %>
               </li>
               <li class="list_item">
-                <%= link_to "フィールド一覧", fields_path, class:"m-2 w-100" %>
+                <%= link_to "フィールド情報", infomations_path, class:"m-2 w-100" %>
               </li>
               <li class="list_item">
-                <%= link_to "what's is this website ?", homes_about_path, class: "m- w-100" %>
+                <%= link_to "このサイトについて", homes_about_path, class: "m-2 w-100" %>
               </li>
             </ul>
             <% else %>
-            <ul>
-              <li class="list_item">
-                <%= link_to image_tag("main_logo.png", :size => "90x90"), root_path, class: "m-2" %>
-              </li>
-            </ul>
+            <%= link_to image_tag("main_logo.png", :size => "90x90"), root_path, class: "m-2" %>
             <ul>
               <li class="list_item">
                 <%= link_to "Log in", homes_login_path, class:"m-2 w-100" %>
@@ -81,16 +77,19 @@
               <li class="list_item">
                 <%= link_to "Sign up", homes_signup_path, class:"m-2 w-100" %>
               </li>
+              <li class="list_item">
+                <%= link_to "about", homes_about_path, class:"m-2 w-100" %>
+              </li>
             </ul>
           <% end %>
         </nav>
-        <footer>
-          © 2021 HelloSurvival inc.
-        </footer>
-      </div>
+      </div><!--sidebar-->
     </aside>
     <main>
       <%= yield %>
+      <footer>
+        <p class="text-center m-5">Copyright (c) 2021 HelloSurvival</p>
+      </footer>
     </main>
   </body>
 </html>
