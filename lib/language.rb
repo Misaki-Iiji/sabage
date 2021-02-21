@@ -18,7 +18,8 @@ module Language
       uri = URI.parse(api_url)
       https = Net::HTTP.new(uri.host, uri.port)
       https.use_ssl = true
-      request = Net::HTTP::Post.new(uri.request_uri)
+      #request = Net::HTTP::Post.new(uri.request_uri)
+      request = Net::HTTP::Post.new(uri.request_uri, {'Referer' => ENV['REFERER_URL']})
       request['Content-Type'] = 'application/json'
       response = https.request(request, params)
       # APIレスポンス出力
