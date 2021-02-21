@@ -9,7 +9,7 @@ class GroupChatsController < ApplicationController
 
   def create
     @group_chat = current_user.group_chats.new(chat_params)
-    # @group_chat.score = Language.get_data(chat_params[:message])
+    @group_chat.score = Language.get_data(chat_params[:message])
     @group_chat.save
   end
 
