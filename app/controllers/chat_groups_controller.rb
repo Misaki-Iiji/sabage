@@ -15,10 +15,10 @@ class ChatGroupsController < ApplicationController
     chat_group_to_user = ChatGroupToUser.new(chat_group: chat_group, user: current_user)
     if chat_group_to_user.save
       redirect_to action: 'index'
-      flash[:notice] = 'Clanを作成しました'
+      flash[:notice] = '仲間募集投稿しました'
     else
       render 'new'
-      flash[:notice] = 'Clan名20文字以内、説明文200文字以内'
+      flash[:notice] = 'タイトル20文字以内、説明文200文字以内'
     end
   end
 
@@ -41,10 +41,10 @@ class ChatGroupsController < ApplicationController
     chat_group = ChatGroup.find(params[:id])
     if chat_group.destroy
       redirect_to action: 'index'
-      flash[:notice] = 'Clan削除しました。'
+      flash[:notice] = '削除しました。'
     else
       render 'edit'
-      flash[:notice] = 'Clan削除に失敗しました。'
+      flash[:notice] = '削除に失敗しました。'
     end
   end
 

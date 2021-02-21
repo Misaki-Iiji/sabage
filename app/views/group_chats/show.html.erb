@@ -1,8 +1,8 @@
 <div class="mx-auto">
 
     <h3 class="text-left border-bottom m-3"><%= @chat_group.chat_group_name %></h3>
+    <p id="score" class="text-right mr-3">団結度[<%= @group_chats.all.sum(:score) %>％]</p>
     <h4 class="h6 text-center"><%= @chat_group.chat_group_description %></h4>
-
     <div class="d-flex justify-content-center">
       <% @chat_group.joins.each do |member| %>
         <div class="text-center m-2">
@@ -14,7 +14,6 @@
           <% end %>
         </div>
       <% end %>
-      <!--<p>感情分析スコア[<%# @group_chats.score %>]</p>-->
     </div>
 
     <div id="joins_buttons_<%= @chat_group.id %>">
