@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'chat/:id' => 'chats#show', as: 'chat'
   get 'group_chats/:id' => 'group_chats#show', as: 'group_chats'
   post 'group_chats/:id' => 'group_chats#create', as: 'group_chat'
-  resources :chats, only: [:index, :create]
+  resources :chats, only: [:create]
 
   resources :fields do
     resource :favorite, only: [:create, :destroy]
@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   resources :users do
     get :followings, on: :member
     get :followers, on: :member
+    get 'rooms/index'
   end
 
   resources :relationships, only: [:create, :destroy]

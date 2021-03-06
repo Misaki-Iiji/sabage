@@ -58,6 +58,7 @@
               <% end %>
               <%= link_to "フォロー(#{current_user.followings.count}人)", followings_user_path(current_user.id) %><br>
               <%= link_to "フォロワー(#{current_user.followers.count}人)", followers_user_path(current_user.id) %><br>
+              <%= link_to "チャット一覧", user_rooms_index_path(current_user) %>
             </div>
             <ul>
               <li class="list_item">
@@ -102,6 +103,9 @@
       </div><!--sidebar-->
     </aside>
     <main>
+      <script>
+      $('main').hide().fadeIn('slow');
+      </script>
       <%= yield %>
     </main>
   </body>
