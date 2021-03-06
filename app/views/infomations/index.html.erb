@@ -8,18 +8,14 @@
 
 
   <div class="text-center">
-    <h2>Infomation
-      <% if field_signed_in? %>
-        <%= link_to image_tag("icon3.png", :size => "25x25"), new_infomation_path %>
-      <% end %>
-    </h2>
+    <h2>Infomation</h2>
   </div>
 
   <div class="container">
     <% @infomations.each do |infomation| %>
     <div class="row align-items-center mt-3 border-top">
       <div class="col-md-3 h5">
-        <span><%= infomation.created_at.strftime('%Y/%m/%d') %></span>
+        <%= infomation.created_at.strftime('%Y/%m/%d') %><br>
         <%= link_to infomation.field.name, field_path(infomation.field) %>
       </div>
       <div class="col-md-6 index_infomation_body mt-3">

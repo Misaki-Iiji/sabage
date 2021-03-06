@@ -16,6 +16,6 @@ class Fields::RegistrationsController < Devise::RegistrationsController
 
   # フィールド認証機能の前にここが行われる
   def configure_permitted_parameters_fields
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :address])
   end
 end

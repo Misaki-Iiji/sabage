@@ -3,7 +3,7 @@ class FieldsController < ApplicationController
 
   def index
     @q = Field.ransack(params[:q]) # 検索ワードをparams[:q]で受け取り
-    @fields = @q.result(distinct: true).page(params[:page]).per(10) # 該当した結果をデータ表示
+    @fields = @q.result(distinct: true).page(params[:page]).per(9) # 該当した結果をデータ表示
   end
 
   def ranking
