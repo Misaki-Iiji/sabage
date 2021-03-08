@@ -176,7 +176,6 @@ a:hover {
   border-radius: 50%;
   padding: 5px;
   border: 1px solid white;
-
 }
 
 .sidebar_plofile_image {
@@ -269,6 +268,19 @@ a:hover {
   color: gray;
 }
 
+// 通知
+.n-circle {
+  color: #efa04c;
+}
+
+.visitor_user_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 1px;
+  border: 1px solid white;
+}
+
 @media screen and (max-width: 1030px) {
 
  // menu
@@ -344,7 +356,11 @@ a:hover {
     border: 1px solid white;
     height: 100px;
     border: 1px solid white;
+  }
 
+  .visitor_user_image_box {
+    width: 30%;
+    height: 30%;
   }
 
   .image {

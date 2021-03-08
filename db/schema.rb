@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_100856) do
+ActiveRecord::Schema.define(version: 2021_03_08_070041) do
 
   create_table "chat_group_to_users", force: :cascade do |t|
     t.integer "chat_group_id"
@@ -100,6 +100,21 @@ ActiveRecord::Schema.define(version: 2021_02_17_100856) do
     t.integer "chat_group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "relationship_id"
+    t.integer "chat_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_notifications_on_chat_id"
+    t.index ["relationship_id"], name: "index_notifications_on_relationship_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
   create_table "picture_hits", force: :cascade do |t|

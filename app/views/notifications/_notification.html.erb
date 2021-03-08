@@ -1,0 +1,19 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<div>
+  <%= link_to user_path(visitor) do %>
+    <%= attachment_image_tag visitor, :image, class:"visitor_user_image", fallback: "logo.png" %>
+    <%= visitor.nickname %>
+  <% end %>
+  <span>さんが</span>
+
+  <% case notification.action %>
+    <% when 'follow' then %>
+      <%= "あなたをフォローしました" %><br>
+    <% when 'chat' then %>
+      <%= link_to 'あなたにメッセージ', notification.room, style:"font-weight: bold;" %>
+      <%= "を送りました" %><br>
+      <%= Chat.find_by(id: notification.chat_id)&.chat %><br>
+  <% end %>
+</div>

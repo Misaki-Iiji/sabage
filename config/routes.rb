@@ -20,7 +20,9 @@ Rails.application.routes.draw do
   get 'chat/:id' => 'chats#show', as: 'chat'
   get 'group_chats/:id' => 'group_chats#show', as: 'group_chats'
   post 'group_chats/:id' => 'group_chats#create', as: 'group_chat'
+  
   resources :chats, only: [:create]
+  resources :notifications, only: :index
 
   resources :fields do
     resource :favorite, only: [:create, :destroy]
