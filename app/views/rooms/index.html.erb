@@ -1,4 +1,4 @@
-    <h2 class="text-center mb-5">チャット一覧</h2>
+    <h2 class="text-center mb-5">メッセージ</h2>
         <% if @rooms.present? %>
           <% @rooms.each do |room| %>
               <% other_user = room.user_rooms.where.not(user_id: current_user.id).first.user %>
@@ -6,7 +6,7 @@
                   <div class="container">
                     <div class="row justify-content-center">
                       <div class="col-2 d-flex justify-content-end">
-                        <%= attachment_image_tag other_user.image, :image, class: "chats_index_user_image mt-1 mb-1", fallback: "logo.png"%>
+                        <%= attachment_image_tag other_user, :image, class: "chats_index_user_image mt-1 mb-1", fallback: "logo.png"%>
                       </div>
                       <div class="col-4 d-flex align-items-center h4">
                         <%= other_user.nickname %>
