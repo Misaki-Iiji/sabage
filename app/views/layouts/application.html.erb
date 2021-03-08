@@ -56,6 +56,12 @@
                 <%= attachment_image_tag current_user, :image, class: "sidebar_plofile_image", fallback: "logo.png" %><br>
                 <%= current_user.nickname %><br>
               <% end %>
+              <% if unchecked_notifications.any? %>
+                <span>
+                  <i class="fas fa-circle n-circle"></i>
+                </span>
+              <% end %>
+              <%= link_to "通知一覧", notifications_path %><br>
               <%= link_to "フォロー(#{current_user.followings.count}人)", followings_user_path(current_user.id), class:"m-2 w-100" %><br>
               <%= link_to "フォロワー(#{current_user.followers.count}人)", followers_user_path(current_user.id), class:"m-2 w-100" %><br>
               <%= link_to "メッセージ", user_rooms_index_path(current_user) %>

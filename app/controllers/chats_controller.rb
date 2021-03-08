@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @rooms = current_user.rooms
   end
@@ -32,6 +32,7 @@ class ChatsController < ApplicationController
 
   def create
     @chat = current_user.chats.new(chat_params)
+    @chat.create_notification_chat!(current_user, @chat.id)
     @chat.save
   end
 
