@@ -4,6 +4,7 @@
       <% if flash[:notice] %>
         <p><%= flash[:notice] %></p>
       <% end %>
+      <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
     </div>
 
     <div class="text-center">
