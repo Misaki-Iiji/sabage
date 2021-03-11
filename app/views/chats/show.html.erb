@@ -1,7 +1,7 @@
 <div class="mx-auto chat_area">
   <div class="message">
 
-    <h3 class="text-left border-bottom m-3"><%= link_to @user.nickname, user_path(@user) %></h3>
+    <h3 class="text-left border-bottom m-3"><%= @user.nickname %></h3>
     <% @chats.each do |chat| %>
       <% if chat.user_id == current_user.id %>
         <p class="text-right mr-3">

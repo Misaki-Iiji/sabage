@@ -53,7 +53,7 @@
             <% end %>
             <div class="text-center m-5">
               <%= link_to user_path(current_user) do %>
-                <%= attachment_image_tag current_user, :image, class:"sidebar_plofile_image", fallback: "logo.png" %><br>
+                <%= attachment_image_tag current_user, :image, class: "sidebar_plofile_image", fallback: "logo.png" %><br>
                 <%= current_user.nickname %><br>
               <% end %>
               <%= link_to "フォロー(#{current_user.followings.count}人)", followings_user_path(current_user.id), class:"m-2 w-100" %><br>
