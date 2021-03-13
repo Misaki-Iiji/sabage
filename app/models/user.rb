@@ -48,8 +48,8 @@ class User < ApplicationRecord
   has_many :group_chats
   has_many :chat_groups, through: :chat_group_to_users
   has_many :joins, dependent: :destroy
-  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
-  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+  has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy #自分からの通知
+  has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy #相手からの通知
 
   def follow(other_user)
     unless self == other_user # フォローしようとしている other_user が自分自身ではないかを検証
