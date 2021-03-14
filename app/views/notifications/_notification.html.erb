@@ -3,7 +3,7 @@
 
 <div class='m-2'>
   <%= link_to user_path(visitor) do %>
-    <%= attachment_image_tag visitor, :image, class:"visitor_user_image", fallback: "logo.png" %>
+    <span class="visitor_user_image_box"><%= attachment_image_tag visitor, :image, class:"visitor_user_image", fallback: "logo.png" %></span>
     <%= visitor.nickname %>
   <% end %>
   <span>さんが</span>
@@ -15,5 +15,5 @@
       <%= link_to 'あなたにメッセージ', chat_path(notification.visitor), style:"font-weight: bold;", class: "border-bottom" %>
       <%= "を送りました" %>
   <% end %>
-  <span><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span><br>
+  <span><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span><br>
 </div>
