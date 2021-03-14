@@ -57,9 +57,8 @@
                 <%= current_user.nickname %><br>
               <% end %>
               <% if unchecked_notifications.any? %>
-                <span>
-                  <i class="fas fa-circle n-circle"></i>
-                </span>
+                <%= @notifications.count %>
+                <i class="fa n-circle"></i>
               <% end %>
               <%= link_to "通知一覧", notifications_path %><br>
               <%= link_to "フォロー(#{current_user.followings.count}人)", followings_user_path(current_user.id), class:"m-2 w-100" %><br>

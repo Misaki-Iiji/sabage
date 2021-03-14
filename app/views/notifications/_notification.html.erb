@@ -1,7 +1,7 @@
 <% visitor = notification.visitor %>
 <% visited = notification.visited %>
 
-<div>
+<div class='m-2'>
   <%= link_to user_path(visitor) do %>
     <%= attachment_image_tag visitor, :image, class:"visitor_user_image", fallback: "logo.png" %>
     <%= visitor.nickname %>
@@ -10,10 +10,10 @@
 
   <% case notification.action %>
     <% when 'follow' then %>
-      <%= "あなたをフォローしました" %><br>
+      <%= "あなたをフォローしました" %>
     <% when 'chat' then %>
-      <%= link_to 'あなたにメッセージ', notification.room, style:"font-weight: bold;" %>
-      <%= "を送りました" %><br>
-      <%= Chat.find_by(id: notification.chat_id)&.chat %><br>
+      <%= link_to 'あなたにメッセージ', chat_path(notification.visitor), style:"font-weight: bold;", class: "border-bottom" %>
+      <%= "を送りました" %>
   <% end %>
+  <span><%= " (#{time_ago_in_words(notification.created_at)} 前)" %></span><br>
 </div>
