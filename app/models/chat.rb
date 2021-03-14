@@ -17,7 +17,6 @@ class Chat < ApplicationRecord
   def save_notification_chat!(current_user, chat_id, visited_id)
     # チャットは複数回することが考えられるため、複数回通知する
     notification = current_user.active_notifications.new(
-      # room_id: id,
       chat_id: chat_id,
       visited_id: visited_id,
       action: 'chat'
