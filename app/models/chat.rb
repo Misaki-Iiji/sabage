@@ -4,14 +4,16 @@ class Chat < ApplicationRecord
   has_many :notifications, dependent: :destroy
 
 
-  def create_notification_chat!(current_user, chat_id, room_id)
+  def create_notification_chat!(current_user, chat_id, room_id, visited_id)
     # チャットしている相手を取得し、通知を送る
     temp_ids = Chat.select(:user_id).where(room_id: room_id).where.not(user_id: current_user.id).distinct
     temp_ids.each do |temp_id|
+
       save_notification_chat!(current_user, chat_id, temp_id['user_id'])
     end
+    #byebug
      # もしチャットが空だったら、投稿者に通知を送る
-    save_notification_chat!(current_user, chat_id, user_id) if temp_ids.blank?
+    save_notification_chat!(current_user, chat_id, visited_id) if temp_ids.blank?
   end
 
   def save_notification_chat!(current_user, chat_id, visited_id)
