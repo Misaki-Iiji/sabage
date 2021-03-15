@@ -1,5 +1,4 @@
-<img width="1043" alt="スクリーンショット 2021-02-13 20 03 22" src="https://user-images.githubusercontent.com/73736733/107848473-0f119800-6e37-11eb-9aad-e7913833e1e7.png">
-
+[20141016Tanzania.pdf](https://github.com/Misaki-Iiji/sabage/files/6139574/20141016Tanzania.pdf)
 # README
 ハローサバイバル
 
