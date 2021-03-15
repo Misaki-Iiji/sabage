@@ -1,4 +1,4 @@
-[20141016Tanzania.pdf](https://github.com/Misaki-Iiji/sabage/files/6139574/20141016Tanzania.pdf)
+![名称未設定ファイル-ER図 (1)](https://user-images.githubusercontent.com/73736733/111120229-734a8780-85ae-11eb-82df-272005e117f7.png)
 # README
 ハローサバイバル
 
