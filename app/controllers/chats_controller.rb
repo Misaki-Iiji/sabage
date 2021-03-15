@@ -33,7 +33,8 @@ class ChatsController < ApplicationController
   def create
     @chat = current_user.chats.new(chat_params)
     @chat.save
-    @chat.create_notification_chat!(current_user, @chat.id, chat_params[:room_id])
+    #byebug
+    @chat.create_notification_chat!(current_user, @chat.id, chat_params[:room_id], params[:chat][:visited_id])
   end
 
   private
