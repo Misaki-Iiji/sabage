@@ -36,8 +36,8 @@ class User < ApplicationRecord
   has_many :chats
   has_many :rooms, through: :user_rooms
 
-  has_many :relationships
-  has_many :followings, through: :relationships, source: :follow # relationshipsテーブルのfollow_idを参考にして、followingsモデル(架空)にアクセス
+  has_many :relationships, dependent: :destroy
+  has_many :followings, through: :relationships, source: :follow # relationshipsテーブルのfollow_idを参照して、followingsモデル(架空)にアクセス
   has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
   # has_many :relaitonshipsの「逆方向」、class_name: 'Relationship'でrelationsipモデルの事、relaitonshipsテーブルにアクセスする時、follow_idを入口とする
   has_many :followers, through: :reverse_of_relationships, source: :user
@@ -51,6 +51,7 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy #自分からの通知
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy #相手からの通知
 
+  # 自分以外だったらフォロー
   def follow(other_user)
     unless self == other_user # フォローしようとしている other_user が自分自身ではないかを検証
       relationships.find_or_create_by(follow_id: other_user.id) # 見つかれば Relation を返し、見つからなければ self.relationships.create(follow_id: other_user.id)
@@ -63,15 +64,9 @@ class User < ApplicationRecord
     relationship&.destroy # relationship が存在すれば destroy
   end
 
+  # フォローしているユーザー
   def following?(other_user)
-    followings.include?(other_user) # self.followings によりフォローしている User 達を取得、include?(other_user) によって other_user が含まれていないかを確認
-  end
-
-  def self.guest
-    find_or_create_by!(email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
-    end
+    followings.include?(other_user) # フォローしている User 達を取得、include?(other_user) によって other_user が含まれていないかを確認
   end
   
   # フォロー通知
@@ -83,6 +78,14 @@ class User < ApplicationRecord
         action: 'follow'
       )
       notification.save if notification.valid?
+    end
+  end
+  
+  # ゲストユーザー
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
     end
   end
   
