@@ -1,7 +1,4 @@
 class FavoritesController < ApplicationController
-  def show
-    @user = current_user
-  end
 
   def create
     @field = Field.find(params[:field_id])
