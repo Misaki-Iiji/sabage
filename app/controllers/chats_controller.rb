@@ -1,10 +1,6 @@
 class ChatsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @rooms = current_user.rooms
-  end
-
   def show
     @user = User.find(params[:id])
     # ログインしているユーザーのidが入ったroom_idのみを配列で取得（該当するroom_idが複数でも全て取得）
