@@ -29,7 +29,7 @@
         <%= f.submit "Update", class: "btn btn-warning mb-4" %>
       </div>
     <% end %>
-    <%= link_to "log out", destroy_user_session_path, class:"btn m-3 text-light", method: :delete %>
+    <%= link_to "log out", destroy_user_session_path, class:"btn m-5 text-light", method: :delete %>
     <div class="m-3">
       <% if user_signed_in? && @user.id == current_user.id %>
         <%= link_to "退会する", users_path(current_user), method: :DELETE, "data-confirm" => "本当に退会しますか？" %>
